@@ -30,7 +30,7 @@
 				</div>
 				<p class="typo" v-view.once="flowUp">加入以后，请先认真阅读<strong>置顶群公告</strong>中的内容，这将指导你进行下一步操作。</p>
 				<p class="typo" v-view.once="flowUp">
-					如果你对插件有些生疏、不知道如何开始，或者有其它问题，你可以选择在<strong>群聊里询问</strong>或者阅读我们编写的<strong><a target="_blank" href="https://wiki.zhuxs.cn">知识库</a></strong
+					如果你对插件有些生疏、不知道如何开始，或者有其它问题，你可以选择在<strong>群聊里询问</strong>或者阅读我们编写的<strong><a target="_blank" href="https://doc.cldery.com/game/mc">知识库</a></strong
 					>，上面归纳了大家觉得有用的要点，这本书由所有人一起编写，为了让你更快地解决问题 :)
 				</p>
 			</div>

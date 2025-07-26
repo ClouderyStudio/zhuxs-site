@@ -18,7 +18,7 @@
 			</div>
 			<div class="button-list">
 				<icon-btn @click.native="$open('https://github.com/clouderystudio')" icon="github" class="dark" />
-				<icon-btn @click.native="$open('https://wiki.zhuxs.cn')" icon="book-outline" class="dark" />
+				<icon-btn @click.native="$open('https://doc.cldery.com/game/mc')" icon="book-outline" class="dark" />
 			</div>
 		</div>
 	</footer>
