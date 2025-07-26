@@ -12,8 +12,8 @@
 				<p>注：如无特殊说明，所有文字的著作权和游戏摄影作品使用权归 竹像素 所有。部分图片来自于公有领域。</p>
 			</div>
 			<div class="links">
-				联系服主(柒屹) — <a href="mailto:justqiyi@qq.com">justqiyi@qq.com</a>
-				联系服主(云竹) — <a href="mailto:2457483710@qq.com">2457483710@qq.com</a>
+				联系服主(柒屹) — <a href="mailto:justqiyi@qq.com">justqiyi@qq.com</a><br/>
+				联系服主(云竹) — <a href="mailto:2457483710@qq.com">2457483710@qq.com</a><br/>
 				团队邮箱 — <a href="mailto:admin@cldery.com">admin@cldery.com</a>
 			</div>
 			<div class="button-list">
