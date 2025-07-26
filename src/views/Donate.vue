@@ -23,8 +23,7 @@
 					<strong>5 天无理由全额退款</strong>，超过 5 天若仍因某些原因仍需退款可联系服主。
 				</p>
 				<div v-view.once="flowUp" class="pay">
-					<img v-lazy="'https://oss.cldery.com/mcweb/assets/images/alipay-qr.jpg'" />
-					<img v-lazy="'https://oss.cldery.com/mcweb/assets/images/wechat-qr.jpg'" />
+					暂时不接受捐助
 				</div>
 				<h1 v-view.once="flowUp" class="primary-text">感谢捐助</h1>
 				<p v-view.once="flowUp">感谢这些人的无偿捐助，帮助了 竹像素 发展和维持运行。排名使用洗牌算法随机排列，刷新页面可重排。</p>
