@@ -1,6 +1,6 @@
 <template>
 	<div page>
-		<banner bg="https://oss.cldery.com/mcweb/assets/images/6.jpg">
+		<banner bg="https://oss.cldery.com/mcweb/assets/images/10.png">
 			<template #title>竹像素 服规</template>
 			<template #subtitle>服务器规则</template>
 			<template #text
