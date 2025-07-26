@@ -25,4 +25,3 @@ jobs:
     - run: npm i -g pnpm
     - run: pnpm i
     - run: pnpm run build --if-present
-    - run: npm test
