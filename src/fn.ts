@@ -1,8 +1,6 @@
 import anime from 'animejs';
 import axios, { AxiosResponse } from 'axios';
 
-const API_HOST = 'https://竹像素de.leviatan.cn';
-
 export function flowUp(e: ViewObject) {
 	anime({
 		targets: e.target.element,
@@ -38,15 +36,6 @@ export function scaleIn(e: ViewObject) {
 		opacity: [0, 1],
 		easing: 'easeOutExpo',
 		duration: 1750
-	});
-}
-
-export function get(url: string) {
-	return new Promise<AxiosResponse<BackendResponse>>((re, rj) => {
-		axios
-			.get(API_HOST + url)
-			.then(r => re(r))
-			.catch(e => rj(e));
 	});
 }
 

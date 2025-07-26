@@ -34,7 +34,7 @@ router.beforeEach((to, from, next) => {
 router.afterEach((to, from) => {
 	if (to.path !== from.path) {
 		document.getElementsByTagName('html')[0].scrollTo(0, 0);
-	}s
+	}
 	NProgress.done();
 	Vue.prototype.load = true;
 });

@@ -237,8 +237,7 @@ import Status from '@/components/Status.vue';
 import Vue from 'vue';
 import anime from 'animejs';
 import Logo from '@/components/Logo.vue';
-import {flowUp, isPCSize, isMobile, isPhoneSize, get, scaleIn, flowLeft} from '@/fn';
-import ServerStatus from '@/components/ServerStatus.vue';
+import {flowUp, isPCSize, isMobile, isPhoneSize, scaleIn, flowLeft} from '@/fn';
 
 export default Vue.extend({
   components: {
@@ -248,7 +247,6 @@ export default Vue.extend({
     MetaBar,
     MetaItem,
     Status,
-    ServerStatus
   },
   data() {
     return {
@@ -348,22 +346,6 @@ export default Vue.extend({
     }
   },
   mounted() {
-    get('/api/server/v1/get/server')
-        .then(r => {
-          let data: ServerInformation | null = r.data.data as any;
-          this.serverExists = data?.created ? true : false;
-          if (data !== null) {
-            this.server = data;
-            this.loadingStatus = '';
-          } else {
-            this.loadingStatus = 'error';
-          }
-        })
-        .catch(e => {
-          console.warn(e);
-          this.loadingStatus = 'error';
-        });
-
     setInterval(() => {
       this.duration = this.getDuration();
     }, 1000);
