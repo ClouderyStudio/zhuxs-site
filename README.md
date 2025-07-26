@@ -1,7 +1,7 @@
 # BambooPixel
 
-This is the official website of Minecraft Modded Server [竹像素](https://zhuxs.cn). The website is based on Vue 2.
+This is the official website of Minecraft Server [BambooPixel](https://zhuxs.cn). The website is based on Vue 2.
 
 ## License
 
-Just don't.
+Coming soon.
