@@ -5,7 +5,7 @@
         高自由度 / 民主决议 / 周目制
       </template>
       <template #title>
-        <div class="gradient-text">从头到脚都是不一样的感觉。</div>
+        <div class="primary-text">从头到脚都是不一样的感觉。</div>
       </template>
       <template #text>
         在 竹像素，你能够参与到游戏的整个流程。<br/>
@@ -351,13 +351,6 @@ export default Vue.extend({
 </script>
 
 <style lang="less" scoped>
-
-.gradient-text {
-  background: linear-gradient(to right, #50963D, #54F47F);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
 
 .background-darkener::before {
   content: " ";
