@@ -199,7 +199,7 @@
               <p v-view.once="flowUp"><strong>单击按钮可加入相应的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
             </div>
             <div class="welcome-btns" v-view.once="flowUp">
-              <btn class="primary-a shadow arrow" href="https://qm.qq.com/cgi-bin/qm/qr?k=tcoJ_CF6AjAWGQS62TxGRIidea_4tqw7&jump_from=webapi" size="large" icon="arrow-right">立即加入 竹像素 讨论群</btn>
+              <btn class="primary-a shadow arrow" href="https://qm.qq.com/q/ZqrVw1ePU6" size="large" icon="arrow-right">立即加入 竹像素 讨论群</btn>
               <btn class="primary-o shadow arrow" href="https://qm.qq.com/cgi-bin/qm/qr?k=SCJedgwusNyNbwfz-ySVBu8am63VFSHF&jump_from=webapi" size="large" icon="arrow-right">立即加入 Cloudery 讨论群</btn>
             </div>
           </div>

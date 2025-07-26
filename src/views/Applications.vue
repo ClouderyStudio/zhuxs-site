@@ -37,7 +37,7 @@
         <banner bg="https://oss.cldery.com/mcweb/assets/images/8.jpg">
             <template #title>审核结果及玩家列表</template>
             <template #subtitle>获取白名单</template>
-            <template #text>此处列出了自 ST11 起各个周目的审核结果，以及参与周目游戏的玩家列表</template>
+            <template #text>此处列出了自 BT5 起各个周目的审核结果，以及参与周目游戏的玩家列表</template>
         </banner>
         <div class="container">
             <div class="content typo">

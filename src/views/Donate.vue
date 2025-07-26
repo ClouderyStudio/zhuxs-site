@@ -60,42 +60,7 @@ export default Vue.extend({
 	data() {
 		return {
 			donators: [
-				{
-					name: '123__jk',
-					amount: 66
-				},
-				{
-					name: 'Litter_white',
-					amount: 100
-				},
-				{
-					name: 'Majesty_W',
-					amount: 150
-				},
-				{
-					name: 'WindSpiritSR',
-					amount: 51
-				},
-				{
-					name: 'Constant137',
-					amount: 100
-				},
-				{
-					name: 'usua233',
-					amount: 30
-				},
-				{
-					name: '匿名玩家',
-					amount: 88
-				},
-				{
-					name: 'Yuinkland',
-					amount: 50
-				},
-				{
-					name: '00_9527',
-					amount: 50
-				}
+				// Format: { name: 'string', amount: int }
 			],
 			donatorNew: []
 		};

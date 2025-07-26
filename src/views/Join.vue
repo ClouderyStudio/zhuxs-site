@@ -11,7 +11,7 @@
 				<p class="typo" v-view.once="flowUp"><strong>加入 QQ 交流群</strong>&emsp;我们的交流与讨论主要在 QQ 群内进行，我们强烈建议你加入~在这里你可以获取到第一手信息，获取帮助，并且可以参与到每周目的投票过程中。单击下方加群按钮可快速入群，或者搜索群号 806901461 亦可入群。<em>提示：入群不需要白名单。</em></p>
 				<p class="typo" v-view.once="flowUp"><strong>获取 竹像素 白名单</strong>&emsp;若要开始游玩，需要获取 竹像素 的白名单。要获取白名单，请前往问卷网填写问卷并等待人工审核，稍后通过邮件或者群内询问管理员的方式得到结果。单击问卷网按钮可前往问卷填写页面。</p>
 				<div class="join-cards">
-					<a class="join-card qq" href="https://qm.qq.com/cgi-bin/qm/qr?k=tcoJ_CF6AjAWGQS62TxGRIidea_4tqw7&jump_from=webapi" target="_blank">
+					<a class="join-card qq" href="https://qm.qq.com/q/ZqrVw1ePU6" target="_blank">
 						<mdicon name="arrow-right" />
 						<img src="https://oss.cldery.com/mcweb/assets/tencent-qq.svg" />
 						<div class="text">
@@ -19,7 +19,7 @@
 							<h2>点击加入，或搜索群号 806901461</h2>
 						</div>
 					</a>
-					<a class="join-card wenjuan" href="https://www.wenjuan.com/s/UZBZJvcsEix" target="_blank">
+					<a class="join-card wenjuan" href="https://wj.qq.com/s2/14159519/c419/" target="_blank">
 						<mdicon name="arrow-right" />
 						<img src="https://oss.cldery.com/mcweb/assets/votes.png" />
 						<div class="text">

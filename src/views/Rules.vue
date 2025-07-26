@@ -1,10 +1,10 @@
 <template>
 	<div page>
 		<banner bg="https://oss.cldery.com/mcweb/assets/images/6.jpg">
-			<template #title>关于 竹像素</template>
-			<template #subtitle>了解更多</template>
+			<template #title>竹像素 服规</template>
+			<template #subtitle>服务器规则</template>
 			<template #text
-				>在这里了解有关 竹像素 本身以及此网站的内容<br
+				>在这里了解有关 竹像素 的玩家和管理员守则<br
 			/></template>
 		</banner>
 		<div class="container content">
@@ -35,10 +35,11 @@ export default Vue.extend({
 	}
 });
 const md = new MarkDownIt({
-    html: true,         // 允许HTML标签
-    linkify: true,     // 自动转换URL为链接
-    typographer: true   // 启用排版美化
+    html: true,
+    linkify: true,
+    typographer: true
 });
+
 md.renderer.rules.heading_open = (tokens: any[], idx: number, options: any, env: any, self: any): string => {
     const token = tokens[idx]
     if (token.tag === 'h1') {
