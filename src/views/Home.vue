@@ -193,14 +193,11 @@
           <div class="welcome">
             <div class="welcome-text typo light">
               <p v-view.once="flowUp"><strong>我们期待并欢迎每一位新船员的加入。</strong>...等等，为什么是「船员」？</p>
-              <p v-view.once="flowUp">竹像素 是 Cloudery 旗下独立运营的插件服务器，若要加入 竹像素，需要首先成为 Cloudery
-                的船员。<strong>好消息是，目前
-                  Cloudery 的加入并没有任何限制。</strong>而要获取 竹像素 白名单需要完成相应的问卷。</p>
-              <p v-view.once="flowUp"><strong>单击按钮可加入相应的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
+              <p v-view.once="flowUp">竹像素 是 Cloudery 旗下独立运营的插件服务器。要加入 竹像素，必须先通过白名单审核。而要获取 竹像素 白名单需要完成相应的问卷。</p>
+              <p v-view.once="flowUp"><strong>单击按钮可加入我们的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
             </div>
             <div class="welcome-btns" v-view.once="flowUp">
               <btn class="primary-a shadow arrow" href="https://qm.qq.com/q/ZqrVw1ePU6" size="large" icon="arrow-right">立即加入 竹像素 讨论群</btn>
-              <btn class="primary-o shadow arrow" href="https://qm.qq.com/cgi-bin/qm/qr?k=SCJedgwusNyNbwfz-ySVBu8am63VFSHF&jump_from=webapi" size="large" icon="arrow-right">立即加入 Cloudery 讨论群</btn>
             </div>
           </div>
         </div>

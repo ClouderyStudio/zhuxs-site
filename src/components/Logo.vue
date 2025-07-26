@@ -1,6 +1,6 @@
 <template>
 	<div class="logo">
-		<svg class="img" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 820 288.25">
+		<!--<svg class="img" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 820 288.25">
 			<defs>
 				<linearGradient id="g1" x1="74.44" y1="48.91" x2="74.44" y2="48.97" gradientUnits="userSpaceOnUse">
 					<stop offset="0" stop-color="#21c6f3" />
@@ -23,7 +23,8 @@
 					<polygon class="cls-5" points="760.72 0 716.19 0 732 46.11 760.72 46.11 760.72 230.55 820 230.55 820 0 760.72 0" />
 				</g>
 			</g>
-		</svg>
+		</svg>-->
+		<!--Logo W.I.P-->
 	</div>
 </template>
 
