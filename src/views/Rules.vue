@@ -38,7 +38,7 @@ const md = new MarkDownIt({
     html: true,
     linkify: true,
     typographer: true
-});
+}).use(require("markdown-it-anchor").default).use(require("markdown-it-table-of-contents"));
 
 md.renderer.rules.heading_open = (tokens: any[], idx: number, options: any, env: any, self: any): string => {
     const token = tokens[idx]
