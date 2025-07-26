@@ -34,7 +34,7 @@ router.beforeEach((to, from, next) => {
 router.afterEach((to, from) => {
 	if (to.path !== from.path) {
 		document.getElementsByTagName('html')[0].scrollTo(0, 0);
-	}
+	}s
 	NProgress.done();
 	Vue.prototype.load = true;
 });
@@ -42,7 +42,7 @@ router.afterEach((to, from) => {
 Vue.mixin({
 	metaInfo: {
 		meta: [
-			{ property: 'og:title', content: '竹像素 - Everything Titanium' },
+			{ property: 'og:title', content: '竹像素 - Every Bamboo Pixel' },
 			{ property: 'og:site_name', content: '竹像素' },
 			{ property: 'og:type', content: 'website' },
 			{ property: 'og:url', content: 'https://zhuxs.cn' },
@@ -54,15 +54,7 @@ Vue.mixin({
 				property: 'og:description',
 				content: '这里是 竹像素 服务器官方网站，你可以在这里获取到关于 竹像素 的介绍以及服务器的运行信息。'
 			},
-			{ name: 'twitter:card', content: 'summary' },
-			{ name: 'twitter:site', content: 'https://zhuxs.cn' },
-			{ name: 'twitter:title', content: '竹像素 - Everything Titanium' },
-			{
-				name: 'twitter:description',
-				content: '这里是 竹像素 服务器官方网站，你可以在这里获取到关于 竹像素 的介绍以及服务器的运行信息。'
-			},
-			{ name: 'twitter:creator', content: '@subilan1995' },
-			{ itemprop: 'name', content: '竹像素 | Everything Titanium' },
+			{ itemprop: 'name', content: '竹像素 | Every Bamboo Pixel' },
 			{
 				itemprop: 'description',
 				content: '这里是 竹像素 服务器官方网站，你可以在这里获取到关于 竹像素 的介绍以及服务器的运行信息。'

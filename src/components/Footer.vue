@@ -4,8 +4,8 @@
 			<div class="col first">
 				<logo class="footer light" />
 				<p class="copyright">
-					&copy; 2022-2024 BambooPixel & Cloudery<br />
-					<small>网站基于 Vue 2 · GitHub Pages · 我们❤️开源</small><br />
+					&copy; 2022-2025 BambooPixel & Cloudery<br />
+					<small>网站基于 Vue 2 · 我们❤️开源</small><br />
 					<small>Latest built at {{ latestBuildDate }}</small>
 				</p>
 				<p>BambooPixel 致力于实现高自由度、带有探索性的游戏体验。插件的多样性承载着我们的追求。</p>
