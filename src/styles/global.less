@@ -1,0 +1,448 @@
+@import './wechatsans.css';
+
+body {
+	margin: 0;
+	font-family: 'Rubik', '微软雅黑', 'Microsoft YaHei UI', sans-serif;
+	scroll-behavior: smooth;
+}
+
+[page] {
+	width: 100%;
+	min-height: 100vh;
+	position: relative;
+}
+
+.container {
+	max-width: 1000px;
+	display: block;
+
+	@media (min-width: 1000px) {
+		margin: 2rem auto;
+	}
+
+	@media (max-width: 1000px) {
+		margin: 2rem;
+	}
+}
+
+.logo {
+
+	.cls-2,
+	.cls-3,
+	.cls-4,
+	.cls-5 {
+		fill: white;
+	}
+}
+
+.logo-active {
+	.cls-2 {
+		fill: url(#g2);
+	}
+
+	.cls-3 {
+		fill: url(#g3);
+	}
+
+	.cls-4 {
+		fill: url(#g4);
+	}
+
+	.cls-5 {
+		fill: url(#g5);
+	}
+}
+
+.navbar.active {
+	.img {
+		.logo-active;
+	}
+}
+
+.view-out {
+	opacity: 0 !important;
+}
+
+*::selection {
+	background: rgba(@primary, 0.2);
+}
+
+.hoverscale {
+	@media screen and (min-width: 1000px) {
+		&:hover {
+			transform: scale(1.2) !important;
+		}
+	}
+}
+
+figure {
+	text-align: center;
+
+	figcaption {
+		color: @textlightgray;
+		font-size: 18px;
+		margin: 16px 0;
+
+		span {
+			font-weight: bold;
+			color: black;
+			margin-right: 1em;
+		}
+	}
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	margin-top: 0;
+}
+
+.monospace {
+	font-family: Consolas, 'SF Mono', 'SFMono-Regular', ui-monospace, Menlo, monospace;
+}
+
+.common-background {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.typo {
+	color: @textmidgray;
+	line-height: 1.8;
+	position: relative;
+
+	&+figure {
+		position: relative;
+	}
+
+	&+figure img,
+	&+img {
+		width: 100%;
+		display: block;
+		margin: auto;
+	}
+
+	&.light {
+		strong {
+			color: white;
+		}
+
+		a:hover {
+			color: white;
+		}
+
+		color: @textmidwhite;
+	}
+
+	strong {
+		color: black;
+	}
+
+	a {
+		position: relative;
+		text-decoration: none;
+		color: inherit;
+		transition: all 0.2s ease;
+
+		&::after {
+			background: @primary;
+			width: 100%;
+			content: ' ';
+			display: block;
+			position: absolute;
+			bottom: 0.5px;
+			z-index: -1;
+			height: 5px;
+			left: 50%;
+			transform: translateX(-50%);
+			opacity: 0.4;
+			transition: all 0.2s ease;
+		}
+
+		&:hover {
+			&::after {
+				opacity: 1;
+			}
+
+			color: black;
+		}
+	}
+
+	ul,
+	ol {
+		padding-left: 24px;
+	}
+
+	h1,
+	h2 {
+		line-height: 1.5;
+	}
+
+	p {
+		line-height: 1.8;
+	}
+}
+
+.money {
+	font-family: 'WechatSans';
+	color: black;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.primary-text {
+	color: transparent;
+	background: @primaryg;
+	background-clip: text;
+	background-position: center;
+	background-size: cover;
+	-webkit-background-clip: text;
+	display: inline-block;
+	text-shadow: none;
+}
+
+.primarys-text {
+	color: @primary;
+}
+
+p {
+	margin: 1rem 0;
+}
+
+abbr {
+	cursor: help;
+}
+
+.see-full-in-pc {
+	color: @textmidgray;
+	display: flex;
+	margin: 16px auto;
+	justify-content: center;
+	align-items: center;
+
+	.mdi {
+		margin-right: 0.5em;
+	}
+}
+
+.container.content,
+.container>.content {
+	.primary-text {
+		font-size: 2.5rem;
+		margin: .5rem 0;
+
+		@media screen and (max-width: 1000px) {
+			font-size: 40.6px;
+		}
+	}
+
+	p,
+	ul,
+	ol {
+		font-size: 1.2rem;
+		margin: .5rem 0;
+	}
+}
+
+[lazy] {
+	transition: background-image 0.3s ease, box-shadow 0.2s ease !important;
+}
+
+.link-card {
+	.mdi {
+		position: absolute;
+		right: 24px;
+		top: 16px;
+		opacity: 0.3;
+		transition: all 0.2s ease;
+	}
+
+	&.github {
+		h2 {
+			color: @textlightgray;
+		}
+	}
+
+	&.qq {
+		background: linear-gradient(-96deg, #1680c7, #12b7f5);
+		color: white;
+
+		h2 {
+			color: @textlightwhite;
+		}
+	}
+
+	&.wenjuan {
+
+		h2 {
+			color: @textlightgray;
+		}
+
+		img {
+			border-radius: 100%;
+			transform: scale(.8);
+		}
+	}
+
+	@media (min-width: 1000px) {
+		&:hover {
+			.mdi {
+				opacity: 1;
+			}
+
+			.mdi.mdi-arrow-right {
+				transform: translateX(10px);
+			}
+
+			opacity: 0.5;
+		}
+	}
+
+	position: relative;
+	border-radius: 5px;
+	box-shadow: @shadowlight;
+	padding: 16px 24px;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	cursor: pointer;
+	transition: all 0.2s ease;
+
+	@media (max-width: 800px) {
+		padding: 8px 12px;
+	}
+
+	img {
+		width: 100px;
+		height: 100px;
+		transform: scale(1.1);
+
+		@media (max-width: 800px) {
+			width: 72px;
+			height: 72px;
+		}
+	}
+
+	.text {
+		padding-left: 16px;
+
+		h2 {
+			font-weight: normal;
+		}
+
+		h1,
+		h2 {
+			margin: 8px 0;
+		}
+
+		h2 {
+			font-size: 18px;
+		}
+
+		@media (max-width: 800px) {
+			h1 {
+				font-size: 22px;
+			}
+
+			h2 {
+				font-size: 12px;
+			}
+		}
+	}
+
+	margin: 16px;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.no-mobile {
+	@media (max-width: 1000px) {
+		display: none !important;
+	}
+}
+
+.no-pc {
+	@media (min-width: 1001px) {
+		display: none !important;
+	}
+}
+
+.darken-background {
+	.common-background;
+	position: relative;
+	z-index: 100;
+
+	&::after {
+		content: "";
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+
+	&.darken-1::after {
+		background: rgba(0, 0, 0, 0.1);
+	}
+
+	&.darken-2::after {
+		background: rgba(0, 0, 0, 0.2);
+	}
+
+	&.darken-3::after {
+		background: rgba(0, 0, 0, 0.3);
+	}
+
+	&.blur::after {
+		backdrop-filter: blur(5px);
+	}
+}
+
+.icon-small {
+	svg {
+		width: 16px;
+	}
+}
+
+@textgray: #272727;
+@textmidgray: rgba(0, 0, 0, 0.7);
+@textlightgray: rgba(0, 0, 0, 0.3);
+@textmidwhite: rgba(255, 255, 255, 0.7);
+@textlightwhite: rgba(255, 255, 255, 0.7);
+@primary: #54F47F;
+@primarydark: #50963D;
+@primaryg: linear-gradient(135deg, @primary-gradient-first 0%, @primary-gradient-second 100%);
+@shadowlight: 0 3px 5px rgba(0, 0, 0, 0.2);
+@shadowlightx: 0 3px 5px rgba(0, 0, 0, 0.1);
+@shadowdark: 0 3px 5px rgba(0, 0, 0, 0.6);
+@primary-gradient-second: rgb(0, 110, 255);
+@primary-gradient-first: rgb(5, 193, 240);
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+  width: 8px;
+  height: 16px;
+  background-color: rgba(0,0,0,0.2);
+}
+ 
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.2);
+}
+ 
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #555;
+}

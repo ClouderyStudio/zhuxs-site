@@ -1,0 +1,26 @@
+{
+    "5": {
+        "recordDate": "2025/07/25",
+        "description": "正在进行中!<br/>添加了42+个粘液科技附属，非常耐玩 awa",
+        "information": {
+            "name": "BT5: 暂无主题",
+            "from": "2025/07/15",
+            "to": "2025/09/01",
+            "version": "1.21.7/8",
+            "modcount": 0,
+            "playercount": 12
+        },
+        "files": [
+            {
+                "filename": "world.7z",
+                "size": 0,
+                "unit": "g"
+            },
+            {
+                "filename": "mods.zip",
+                "size": 0,
+                "unit": "m"
+            }
+        ]
+    }
+}
