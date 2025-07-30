@@ -17,7 +17,7 @@
 				<h1 v-view.once="flowUp" class="primary-text">如何捐助</h1>
 				<p v-view.once="flowUp">免责声明：<strong>未满 18 岁的未成年人请在家长同意后进行捐助，竹像素 从未教唆未成年人「为游戏充值」。捐助即代表你已经阅读并知晓该声明。</strong></p>
 				<p v-view.once="flowUp">
-					此处提供爱发电链接，如需其它支付方式（如直接支付，不支持 QQ 支付）可联系服主。若要捐助，扫描二维码即可，付款时<strong>请备注你的 Minecraft 用户名</strong>，以便我们写入鸣谢名单（低于
+					此处提供爱发电链接，如需其它支付方式（如直接支付，不支持 QQ 支付）可联系服主。若要捐助，直接在爱发电中捐助即可，<strong>请注意备注你的 Minecraft 用户名</strong>，以便我们写入鸣谢名单（低于
 					<span class="money">￥5</span>
 					的款项恕不写入）。支持
 					<strong>5 天无理由全额退款</strong>，超过 5 天若仍因某些原因仍需退款可联系服主。
