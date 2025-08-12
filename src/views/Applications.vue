@@ -39,6 +39,8 @@
             <template #subtitle>获取白名单</template>
             <template #text>此处列出了自 BT5 起各个周目的审核结果，以及参与周目游戏的玩家列表</template>
         </banner>
+        <div v-if="isLoading">正在加载审核结果...</div>
+        <div v-else-if="error" class="error-message">{{ error }}</div>
         <div class="container">
             <div class="content typo">
                 <div class="quicksearch-button" @click="quicksearchOpened = !quicksearchOpened"
@@ -72,14 +74,14 @@
                                 <span class="serif italic">GMT+8 @ </span>
                                 <span class="serif">{{ y.submissionDate }}</span>
                             </div>
-                            <div class="appl-sharables" v-if="Object.values(y.sharables).length > 0">
-                                <div class="sharable" v-for="z in Object.keys(y.sharables)">
+                            <div class="appl-sharables" v-if="y.sharables.length > 0">
+                                <div class="sharable" v-for="item in y.sharables" :key="item.question">
                                     <div class="start">
-                                        <div class="q">“</div>{{ z }}
+                                        <div class="q">"</div>{{ item.question }}
                                     </div>
-                                    <div class="sharable-content" v-html="y.sharables[z]" />
+                                    <div class="sharable-content" v-html="item.answer" />
                                     <div class="end">
-                                        <div class="q">”</div>
+                                        <div class="q">"</div>
                                     </div>
                                 </div>
                             </div>
@@ -94,8 +96,7 @@
 <script lang="ts" setup>
 import Banner from '@/components/Banner.vue';
 import { flowUp } from '@/fn';
-import applications5 from '@/applications-bt5.json'
-import { ref, watch } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 
 interface Term {
     applications: Application[],
@@ -105,8 +106,13 @@ interface Term {
 interface Application {
     id: string,
     passed: boolean,
-    sharables: { [prop: string]: string },
+    sharables: Sharable[],
     submissionDate: string
+}
+
+interface Sharable {
+    question: string,
+    answer: string
 }
 
 interface QuicksearchResult {
@@ -116,13 +122,7 @@ interface QuicksearchResult {
     term: number
 }
 
-const terms: Term[] = [
-    {
-        number: 5,
-        applications: (applications5 as Application[]).reverse()
-    }
-].reverse()
-
+const terms = ref<Term[]>([]); // 改为响应式引用
 const quicksearchOverlay = ref<HTMLDivElement | null>(null);
 const quicksearchTextbox = ref<HTMLDivElement | null>(null);
 const quicksearchDialog = ref<HTMLDivElement | null>(null);
@@ -130,6 +130,33 @@ const quicksearchContent = ref('');
 const quicksearchOpened = ref(false);
 const quicksearchLocked = ref(false);
 const quicksearchResult = ref<QuicksearchResult[]>([]);
+const isLoading = ref(false); // 添加加载状态
+const error = ref<string | null>(null); // 添加错误处理
+
+async function fetchApplications() {
+    isLoading.value = true;
+    error.value = null;
+    try {
+        const response = await fetch('https://api.cldery.com/zhuxs/zhuxsapplications');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const applications5 = await response.json();
+        
+        // 更新terms数据
+        terms.value = [
+            {
+                number: 5,
+                applications: (applications5 as Application[]).reverse()
+            }
+        ].reverse();
+    } catch (err) {
+        error.value = '获取失败';
+        console.error('Error fetching applications:', err);
+    } finally {
+        isLoading.value = false;
+    }
+}
 
 function applCardHook(e: ViewObject) {
     flowUp(e);
@@ -162,7 +189,7 @@ watch(quicksearchContent, v => {
         quicksearchLocked.value = false;
     }, 200);
     quicksearchResult.value = [];
-    for (let t of terms) {
+    for (let t of terms.value) { // 使用terms.value
         let result = t.applications.filter(x => x.id.toLowerCase().includes(v.toLowerCase()));
         let resultArr = [];
         for (let r of result) {
@@ -233,6 +260,11 @@ function mouseLeaveQuickSearchBtn() {
     if (quicksearchOpened.value) return;
     closeOverlay();
 }
+
+// 组件挂载时获取数据
+onMounted(() => {
+    fetchApplications();
+});
 </script>
 
 <style lang="less">
