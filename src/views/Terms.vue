@@ -37,7 +37,7 @@
 							·
 							<span>
 								<mdicon name="wrench"/>{{
-								!isMobile() ? '插件数量' : ''
+								!isMobile() ? '插件/模组数量' : ''
 								}} {{ item.information.modcount }}
 							</span>
 							·
@@ -52,7 +52,7 @@
 						<div class="description-and-downloads">
 							<div class="downloads" :class="`bt${item.id}`" v-if="item.files.length > 0">
 								<a v-for="y in item.files" target="_blank"
-								:href="`https://d.zhuxs.cn/uploads/ST${item.id}/${y.filename}`">
+								:href="`https://oss.cldery.com/mc/resources/BT${item.id}/${y.filename}`">
 									<mdicon :name="getIcon(y.filename)"/>
 									下载{{ getFileNameCN(y.filename) }} .{{
 									getFormat(y.filename)
@@ -115,10 +115,10 @@ export default defineComponent({
 			return (((to ? new Date(to).getTime() : new Date().getTime()) - new Date(from).getTime()) / 1000 / 3600 / 24).toFixed(0);
 		},
 		getFileNameCN(filename: string) {
-			if (filename.includes('mod')) return '插件包'
-			if (filename.includes('world')) return '存档'
-			if (filename.includes('datapacks')) return '数据包'
-			if (filename.includes('pack')) return '整合包'
+			if (filename.includes('模组包')) return '模组包'
+			if (filename.includes('存档')) return '存档'
+			if (filename.includes('数据包')) return '数据包'
+			if (filename.includes('整合包')) return '整合包'
 			return ''
 		},
 		getUnit(u: 'g' | 'm' | 'k') {
@@ -133,9 +133,9 @@ export default defineComponent({
 			return splitted[splitted.length - 1];
 		},
 		getIcon(name: string) {
-			if (name.includes('mod')) return 'cog';
-			if (name.includes('world')) return 'earth';
-			if (name.includes('pack')) return 'package-variant';
+			if (name.includes('模组包') || name.includes('数据包')) return 'cog';
+			if (name.includes('存档')) return 'earth';
+			if (name.includes('整合包')) return 'package-variant';
 			return 'question-outline'
 		}
     };
