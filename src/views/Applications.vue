@@ -137,7 +137,7 @@ async function fetchApplications() {
     isLoading.value = true;
     error.value = null;
     try {
-        const response = await fetch('https://api.cldery.com/zhuxs/zhuxsapplications');
+        const response = await fetch('https://api.cldery.com/zhuxs/applications');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

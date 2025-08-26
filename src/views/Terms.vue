@@ -142,7 +142,7 @@ export default defineComponent({
 
     onMounted(async () => {
       try {
-        const response = await axios.get("https://api.cldery.com/zhuxs/zhuxsterms");
+        const response = await axios.get("https://api.cldery.com/zhuxs/terms");
         state.termList.value = response.data as TermList;
       } catch (err) {
         state.error.value = "数据加载失败"+err;
