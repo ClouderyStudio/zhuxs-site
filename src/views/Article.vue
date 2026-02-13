@@ -44,7 +44,7 @@ const md = new MarkDownIt({
 md.renderer.rules.heading_open = (tokens: any[], idx: number, options: any, env: any, self: any): string => {
   const token = tokens[idx];
   
-  if (token.tag === 'h1') {
+  if (token.tag === 'h2') {
     token.attrJoin('class', 'primary-text');
   }
   
