@@ -138,11 +138,11 @@
               <div class="down">
                 <div class="typo light section-2-text">
                   <p v-view.once="flowUp">
-                    <strong>插件之众多，带来插件搭配之复杂。</strong>每个周目之后，我们都会提供专用的渠道来获取本周目游玩体验的信息。
+                    <strong>Minecraft 之多元，带来玩法搭配之复杂。</strong>每个周目之后，我们都会提供专用的渠道来获取本周目游玩体验的信息。
                   </p>
                   <p v-view.once="flowUp">
-                    这些插件的搭配合理吗？插件是否真正符合了周目主题？稳定吗？<strong>或者...最为简单的——玩得开心吗？</strong>还是肝到爆了？！这些评价维度会成为每个周目的独特象征，同时大大帮助我们后续做得更好。更重要的是，这亦是你在
-                    竹像素 留下的宝贵痕迹。</p>
+                    这些玩法的搭配合理吗？所用的插件、数据包或模组是否真正符合了周目主题？稳定吗？<strong>或者...最为简单的——玩得开心吗？</strong>还是肝到爆了？！这些评价维度会成为每个周目的独特象征，同时大大帮助我们后续做得更好。更重要的是，这亦是你在
+                    竹像素留下的宝贵痕迹。</p>
                 </div>
               </div>
             </div>
@@ -162,7 +162,7 @@
             <div class="item" v-view.once="scaleIn">
               <img class="performance-img"
                    :src="'https://oss.cldery.com/mcweb/assets/core-i9.svg'" draggable="false"/>
-              <div>Gen 12</div>
+              <div>Gen 14</div>
               <div class="name">处理器</div>
             </div>
             <div class="item" v-view.once="scaleIn">
@@ -175,7 +175,7 @@
               <img class="performance-img"
                    :src="'https://oss.cldery.com/mcweb/assets/rotating-earth.gif'"
                    draggable="false"/>
-              <div>45M</div>
+              <div>25M</div>
               <div class="name">峰值带宽</div>
             </div>
             <div class="item" v-view.once="scaleIn">
@@ -217,14 +217,14 @@
                }">
         <div class="container">
           <div class="mod-card" v-view.once="scaleIn">
-            <div class="title" v-view.once="flowLeft">当前周目信息 - 2025/7/25 更新</div>
+            <div class="title" v-view.once="flowLeft">当前周目信息 - 2026/2/13 更新</div>
             <ul v-view.once="flowLeft">
-              <li>周目代号：BT5</li>
-              <li>版本：JE 1.21.7/8</li>
-              <li>服务端：Leaf 1.21.7</li>
-              <li>正式开放日期：2025/7/15</li>
+              <li>周目代号：BT26-1</li>
+              <li>版本：NeoForge 1.21.1</li>
+              <li>服务端：Youer 1.21.1</li>
+              <li>正式开放日期：2026/2/10</li>
               <li>周目持续时间：{{ duration }}</li>
-              <li>插件个数：93</li>
+              <li>模组或数据包个数：210</li>
             </ul>
           </div>
         </div>
@@ -336,7 +336,7 @@ export default Vue.extend({
       return count;
     },
     getDuration() {
-      let d = new Date().getTime() - new Date('2025-07-15 00:00').getTime();
+      let d = new Date().getTime() - new Date('2026-02-10 00:00').getTime();
       let x = d / 1000 / 60 / 60;
       let H = Math.floor(x);
       x = (x - H) * 60;

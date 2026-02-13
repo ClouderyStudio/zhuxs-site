@@ -1,9 +1,9 @@
 <template>
 	<div page>
 		<banner :bg="'https://oss.cldery.com/mcweb/assets/images/2.jpg'">
-			<template #title> 加入 竹像素 </template>
+			<template #title> 加入竹像素 </template>
 			<template #subtitle> 立即开始 </template>
-			<template #text> 要获取 竹像素 的白名单，需要完成问卷。<br />不过，即使没有完成问卷，你也可以加入 竹像素 的讨论群。 </template>
+			<template #text> 要获取竹像素的白名单，需要完成问卷。<br />不过，问卷的问题都非常简单，基本不用担心无法通过 </template>
 		</banner>
 		<div class="container">
 			<div class="join content">
@@ -30,7 +30,7 @@
 				</div>
 				<p class="typo" v-view.once="flowUp">加入以后，请先认真阅读<strong>置顶群公告</strong>中的内容，这将指导你进行下一步操作。</p>
 				<p class="typo" v-view.once="flowUp">
-					如果你对插件有些生疏、不知道如何开始，或者有其它问题，你可以选择在<strong>群聊里询问</strong>或者阅读我们编写的<strong><a target="_blank" href="https://doc.cldery.com/game/mc">知识库</a></strong
+					如果你对服务器玩法有些生疏、不知道如何开始，或者有其它问题，你可以选择在<strong>群聊里询问</strong>或者阅读我们编写的<strong><a target="_blank" href="https://doc.cldery.com/game/mc">知识库</a></strong
 					>，上面归纳了大家觉得有用的要点，这本书由所有人一起编写，为了让你更快地解决问题 :)
 				</p>
 			</div>
