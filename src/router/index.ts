@@ -37,7 +37,18 @@ const routes: Array<RouteConfig> = [
 	{
 		path: '/rules',
 		name: 'rules',
-		component: () => import('@/views/Rules.vue')
+		component: () => import('@/views/Article.vue'),
+		props: () => ({
+			title: 'rules'
+		})
+	},
+	{
+		path: '/article',
+		name: 'articles',
+		component: () => import('@/views/Article.vue'),
+		props: (route) => ({
+			title: route.query.title
+		}) 
 	}
 ];
 

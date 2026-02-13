@@ -12,6 +12,7 @@
     "axios": "^0.21.4",
     "core-js": "^3.44.0",
     "csv-parse": "^5.6.0",
+    "gray-matter": "^4.0.3",
     "iconv-lite": "^0.6.3",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0",

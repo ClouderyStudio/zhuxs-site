@@ -16,11 +16,11 @@
         <div class="simple-info">
           <div class="item">
             <mdicon name="alpha-n-box-outline"/>
-            <span><span class="no-mobile">当前周目</span> BT5</span>
+            <span><span class="no-mobile">当前周目</span> BT26-1</span>
           </div>
           <div class="item">
             <mdicon name="minecraft"/>
-            <span><span class="no-mobile">游戏版本</span> 1.21.7/8</span>
+            <span><span class="no-mobile">游戏版本</span> 1.21.1</span>
           </div>
           <div class="item">
             <mdicon name="information-outline"/>
@@ -41,7 +41,7 @@
         <div class="container">
           <div class="title-text" v-view.once="flowLeft">
             <div>
-              <div>带你一步步领略插件的</div>
+              <div>带你一步步领略 Minecraft 的</div>
               <img class="title-img-1"
                    :src="'https://oss.cldery.com/mcweb/assets/handwriting/大千世界.svg'"
                    draggable="false"/>
@@ -49,13 +49,21 @@
           </div>
           <div class="typo light section-1-text-1">
             <p v-view.once="flowUp">
-              <strong>插件是对原版游戏无与伦比的扩充。</strong>从我们最初接触插件开始，我们就已经清楚插件这一无可比拟的优势。它不受任何限制地向游戏中添加极为多样的内容，并跟随着作者的思绪形成一整套完美的新游戏体系。
+              <strong>从踏入“竹像素”的第一天起，生存就不再是一个人的孤岛。</strong>
+              这里的Minecraft世界被重新铺陈——不是堆砌眼花缭乱的机器，而是为你保留最纯粹的生存手感，再恰到好处地嵌入探索的惊喜。指令传送不是捷径，而是带你穿越山川的驿站；特色群系不是装饰，是你下一个家园的选址，是每一段冒险故事自然发生的地方。
             </p>
-            <p v-view.once="flowUp">插件如此多样，独乐不如众乐。</p>
             <p v-view.once="flowUp">
-              <strong>云术为你提供了这样一个平台：</strong>我们共同决定这个周目玩什么——按照少数服从多数的原则；我们共同确定什么插件适合、什么插件不适合这一周目；我们共同观察并改进每个周目；我们共同记录并永久保存每个周目的记忆······
+              <strong>我们不急着让你变强。</strong>
+              在这方竹林掩映的世界里，铁镐挖出的第一块矿石依然珍贵，而当你攒下满箱物产，会发现自己已悄然融进一套鲜活的经济体系：把用不尽的建材卖给服务器，换取货币——竹笋；在玩家市集摆一只木桶，等待懂行的旅人驻足。
             </p>
-            <p v-view.once="flowUp">我们——玩家和管理员——将会携你漫步插件的大千世界，在每一个地方都留下痕迹。</p>
+            <p v-view.once="flowUp">
+              <strong>而这一切，都不是孤独的进程。</strong>
+              竹像素相信，最好的生存服，是社区一起养成的。这一周是极简空岛，下一周或许就是群系大冒险——我们共同投票决定下个阶段的玩法方向，也会一起复盘哪些模组、插件或是数据包让夜晚过于冗长，哪些设定恰好成就了惊喜。管理员不是规则的执行者，是和你一起蹲在矿车里、仰头看烟花绽放的同行人。
+            </p>
+            <p v-view.once="flowUp">
+              <strong>这是一次不急不慢的旅程。</strong>
+              你带着木镐出生，我们为你铺开足以走“一辈子”的大千世界。
+            </p>
           </div>
         </div>
       </section>
@@ -87,7 +95,7 @@
                     每个周目的主题或整合包候选项由管理员确定，玩家则进行决定性的一步——投票。<strong>最终所得票数最多的会成为本周目的主要游玩对象。</strong>遵从少数服从多数的原则。
                   </p>
                   <p v-view.once="flowUp">你知道吗？<strong>投票</strong>是 竹像素
-                    长期以来（包含其前身「云竹互通」）所盛行的制度，旨在从玩家处选取本周目最适合的插件搭配——插件实在是太多了！
+                    长期以来（包含其前身「云竹互通」）所盛行的制度，旨在从玩家处选取本周目最适合的主题——Minecraft 实在是太多元了!
                   </p>
                 </div>
               </div>
@@ -193,11 +201,11 @@
           <div class="welcome">
             <div class="welcome-text typo light">
               <p v-view.once="flowUp"><strong>我们期待并欢迎每一位新船员的加入。</strong>...等等，为什么是「船员」？</p>
-              <p v-view.once="flowUp">竹像素 是 Cloudery 旗下独立运营的插件服务器。要加入 竹像素，必须先通过白名单审核。而要获取 竹像素 白名单需要完成相应的问卷。</p>
+              <p v-view.once="flowUp">竹像素是云术工作室旗下独立运营的服务器。要加入竹像素，必须先通过白名单审核。而要获取竹像素白名单需要完成相应的问卷。</p>
               <p v-view.once="flowUp"><strong>单击按钮可加入我们的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
             </div>
             <div class="welcome-btns" v-view.once="flowUp">
-              <btn class="primary-a shadow arrow" href="https://qm.qq.com/q/ZqrVw1ePU6" size="large" icon="arrow-right">立即加入 竹像素 讨论群</btn>
+              <btn class="primary-a shadow arrow" href="https://qm.qq.com/q/ZqrVw1ePU6" size="large" icon="arrow-right">立即加入竹像素讨论群</btn>
             </div>
           </div>
         </div>
