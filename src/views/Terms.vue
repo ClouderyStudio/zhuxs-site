@@ -158,7 +158,8 @@ export default defineComponent({
 
 <style lang="less" scoped>
 @theme-bt5: #F08B00;
-@theme-bt6: #F08B00;
+@theme-btI: #e8446b;
+@theme-btII: #9b4dca;
 
 .terms-outer {
 	display: flex;
@@ -194,8 +195,11 @@ export default defineComponent({
 	&.bt5 {
 		background: @theme-bt5;
 	}
-	&.bt6 {
-		background: @theme-bt6;
+	&.btI {
+		background: @theme-btI;
+	}
+	&.btII {
+		background: @theme-btII;
 	}
 }
 
@@ -258,10 +262,13 @@ export default defineComponent({
     }
 
 	&.bt5 a {
-		background: #F08B00
+		background: @theme-bt5
 	}
-	&.bt6 a {
-		background: #F08B00
+	&.btI a {
+		background: @theme-btI
+	}
+	&.btII a {
+		background: @theme-btII
 	}
 }
 
@@ -269,8 +276,11 @@ export default defineComponent({
 	&.bt5 svg {
 		fill: @theme-bt5;
 	}
-	&.bt6 svg {
-		fill: @theme-bt5;
+	&.btI svg {
+		fill: @theme-btI;
+	}
+	&.btII svg {
+		fill: @theme-btII;
 	}
 }
 
@@ -287,8 +297,11 @@ export default defineComponent({
 	&.bt5 {
 		background: rgba(@theme-bt5, .2);
 	}
-	&.bt6 {
-		background: rgba(@theme-bt6, .2);
+	&.btI {
+		background: rgba(@theme-btI, .2);
+	}
+	&.btII {
+		background: rgba(@theme-btII, .2);
 	}
 }
 
