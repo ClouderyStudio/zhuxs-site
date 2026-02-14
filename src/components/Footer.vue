@@ -4,7 +4,7 @@
 			<div class="col first">
 				<logo class="footer light" />
 				<p class="copyright">
-					&copy; 2022-2025 BambooPixel & Cloudery<br />
+					&copy; 2022-2026 BambooPixel & Cloudery<br />
 					<small>网站基于 Vue 2 · 我们❤️开源</small><br />
 					<small>Latest built at {{ latestBuildDate }}</small>
 				</p>

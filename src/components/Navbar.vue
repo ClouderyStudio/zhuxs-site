@@ -46,6 +46,10 @@ export default Vue.extend({
 					route: "/about",
 				},
 				{
+					name: "动态",
+					route: "/articles",
+				},
+				{
 					name: "捐助",
 					route: "/donate",
 				},
@@ -69,6 +73,7 @@ export default Vue.extend({
 				join: "立即加入",
 				server: "服务器状态",
 				about: "关于",
+				articles: "动态",
 				donate: "捐助",
 				applications: "审核结果及玩家列表",
 				terms: '周目',

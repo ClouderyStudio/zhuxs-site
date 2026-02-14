@@ -30,6 +30,11 @@ const routes: Array<RouteConfig> = [
 		component: () => import('@/views/Applications.vue')
 	},
 	{
+		path: '/articles',
+		name: 'articles',
+		component: () => import('@/views/Articles.vue')
+	},
+	{
 		path: '/terms',
 		name: 'terms',
 		component: () => import('@/views/Terms.vue')
@@ -44,7 +49,7 @@ const routes: Array<RouteConfig> = [
 	},
 	{
 		path: '/article',
-		name: 'articles',
+		name: 'article',
 		component: () => import('@/views/Article.vue'),
 		props: (route) => ({
 			title: route.query.title

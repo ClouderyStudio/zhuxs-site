@@ -1,5 +1,8 @@
 <template>
 	<div class="banner" v-lazy:background-image="bg">
+		<div v-if="$slots.announcement" class="announcement">
+			<slot name="announcement" />
+		</div>
 		<div class="text-box">
 			<h2><slot name="subtitle" /></h2>
 			<h1><slot name="title" /></h1>
@@ -94,5 +97,31 @@ export default Vue.extend({
 	display: flex;
 	align-items: stretch;
 	margin-top: 32px;
+}
+
+.announcement {
+	position: absolute;
+	top: 72px;
+	left: 10%;
+	right: 10%;
+	z-index: 4;
+	padding: 12px 16px;
+	display: inline-flex;
+	align-items: center;
+	color: white;
+	font-size: 1.1rem;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+	backdrop-filter: blur(4px);
+	justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+	.announcement {
+		left: 10%;
+		right: 10%;
+		top: 72px;
+		padding: 12px 12px;
+		font-size: 1rem;
+	}
 }
 </style>

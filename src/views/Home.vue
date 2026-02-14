@@ -1,6 +1,9 @@
 <template>
   <div page>
     <banner bg="https://oss.cldery.com/mcweb/assets/home-bg.png" fullscreen>
+      <template #announcement>
+        公告: 本服务器当前白名单已关闭
+      </template>
       <template #subtitle>
         高自由度 / 民主决议 / 周目制
       </template>

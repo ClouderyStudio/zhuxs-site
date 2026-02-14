@@ -52,7 +52,7 @@
 						<div class="description-and-downloads">
 							<div class="downloads" :class="`bt${item.id}`" v-if="item.files.length > 0">
 								<a v-for="y in item.files" target="_blank"
-								:href="`https://dl.cldery.com/mc/resources/BT${item.id}/${y.filename}`">
+								:href="`https://dl.cldery.com/yd/mc/resources/BT${item.id}/${y.filename}`">
 									<mdicon :name="getIcon(y.filename)"/>
 									下载{{ getFileNameCN(y.filename) }} .{{
 									getFormat(y.filename)
