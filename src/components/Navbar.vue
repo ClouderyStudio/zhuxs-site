@@ -105,6 +105,9 @@ const isCurrentPage = (routePath: string): boolean => {
 	if (routePath === '/') {
 		return currentRouteName === 'home' || currentRouteName === 'index';
 	}
+	if (currentRouteName === 'article' && routePath === '/articles') {
+		return true;
+	}
 	return `/${currentRouteName}` === routePath || route.path === routePath;
 };
 
@@ -157,6 +160,10 @@ onMounted(() => {
 	return () => {
 		document.removeEventListener("scroll", handleScroll);
 	};
+});
+
+router.afterEach((to, from) => {
+	active.value = false;
 });
 </script>
 

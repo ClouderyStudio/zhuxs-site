@@ -267,7 +267,6 @@ export default defineComponent({
     const autoplayBackgroundVideo = () => {
       if (!isMobile() && moonvideo.value) {
         moonvideo.value.play().catch(() => {
-          // 忽略自动播放错误
         });
       }
     };
@@ -324,6 +323,7 @@ export default defineComponent({
     };
 
     onMounted(() => {
+      autoplayBackgroundVideo();
       // 立即执行一次
       duration.value = getDuration();
       

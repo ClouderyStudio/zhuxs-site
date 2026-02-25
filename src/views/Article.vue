@@ -31,7 +31,7 @@
 import { defineComponent } from 'vue';
 import Banner from '@/components/Banner.vue';
 import MarkDownIt from 'markdown-it';
-import matter from 'gray-matter';
+import frontMatter from 'front-matter'
 
 const md = new MarkDownIt({
   html: true,
@@ -64,8 +64,7 @@ interface ArticleInfo {
 export default defineComponent({
   props: {
     title: {
-      type: String,
-      default: ''
+      type: String
     }
   },
   components: {
@@ -81,7 +80,7 @@ export default defineComponent({
   },
   computed: {
     articleName(): string {
-      return this.title || (this.$route.query.name as string) || '';
+      return this.title || this.$route.params.title?.toString() || '';
     }
   },
   watch: {
@@ -120,29 +119,30 @@ export default defineComponent({
       this.error = '';
       
       try {
-        // 导入 .md 文件
         const module = await import(`@/articles/${name}.md`);
-        const fileContent = module.default || module;
+
+        const { attributes, body } = frontMatter(module.default);
         
-        // 使用 gray-matter 解析 frontmatter
-        const { data, content } = matter(fileContent);
-        
+        // @ts-ignore
         // 保存 frontmatter 数据
-        this.articleInfo = data;
+        this.articleInfo = attributes;
         
+        // @ts-ignore
         // 检查是否是草稿
-        if (data.draft === true) {
+        if (attributes.draft === true) {
           this.error = '这篇文章尚未发布';
           this.loading = false;
           return;
         }
         
         // 渲染 markdown 内容
-        this.mdcontent = md.render(content);
+        this.mdcontent = md.render(body);
         
+        // @ts-ignore
         // 更新页面标题
-        if (data.title) {
-          document.title = `${data.title} - 竹像素`;
+        if (attributes.title) {
+          // @ts-ignore
+          document.title = `${attributes.title} - 竹像素`;
         }
         
       } catch (error) {
