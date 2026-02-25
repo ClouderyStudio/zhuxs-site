@@ -9,21 +9,30 @@ import '@/styles/nprogress.less';
 import * as mdijs from '@mdi/js';
 import mdiVue from 'mdi-vue/v3';
 import VueLazyload from 'vue3-lazyload';
-import { createMetaManager } from 'vue-meta';
 import NProgress from 'nprogress';
-
-const metaManager = (createMetaManager as any)()
+import { createHead } from '@unhead/vue/client'
 
 const app = createApp(App)
+const head = createHead({
+	init: [
+		{
+			title: "竹像素 - BambooPixel",
+			titleTemplate: "%s | 竹像素",
+			htmlAttrs: {
+				lang: 'zh-CN'
+			}
+		}
+	]
+})
 
 app.use(mdiVue,{
 	icons: mdijs
 });
-app.use(metaManager);
 app.use(VueLazyload,{
   loading: '/images/loading.gif', // 加载中占位图
   error: '/images/error.png'      // 加载失败占位图
 });
+app.use(head);
 
 app.config.globalProperties.$open = (url: string) => {
 	window.open(url);
@@ -48,7 +57,7 @@ app.use(store);
 app.mixin({
 	metaInfo: {
 		meta: [
-			{ property: 'og:title', content: '竹像素 - Every Bamboo Pixel' },
+			{ property: 'og:title', content: '竹像素 - BambooPixel' },
 			{ property: 'og:site_name', content: '竹像素' },
 			{ property: 'og:type', content: 'website' },
 			{ property: 'og:url', content: 'https://zhuxs.cn' },
@@ -58,12 +67,12 @@ app.mixin({
 			},
 			{
 				property: 'og:description',
-				content: '这里是 竹像素 服务器官方网站，你可以在这里获取到关于 竹像素 的介绍以及服务器的运行信息。'
+				content: '这里是竹像素服务器官方网站，你可以在这里获取到关于竹像素的介绍以及服务器的运行信息。'
 			},
-			{ itemprop: 'name', content: '竹像素 | Every Bamboo Pixel' },
+			{ itemprop: 'name', content: '竹像素 | Bamboo Pixel' },
 			{
 				itemprop: 'description',
-				content: '这里是 竹像素 服务器官方网站，你可以在这里获取到关于 竹像素 的介绍以及服务器的运行信息。'
+				content: '这里是竹像素服务器官方网站，你可以在这里获取到关于竹像素的介绍以及服务器的运行信息。'
 			},
 			{
 				itemprop: 'image',

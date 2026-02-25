@@ -142,7 +142,7 @@ export default defineComponent({
         // 更新页面标题
         if (attributes.title) {
           // @ts-ignore
-          document.title = `${attributes.title} - 竹像素`;
+          document.title = `竹像素 | ${attributes.title}`;
         }
         
       } catch (error) {
