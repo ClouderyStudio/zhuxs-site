@@ -28,11 +28,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import Banner from '@/components/Banner.vue';
 import MarkDownIt from 'markdown-it';
 import matter from 'gray-matter';
-import { scaleIn, flowUp, flowLeft } from '@/fn';
 
 const md = new MarkDownIt({
   html: true,
@@ -62,8 +61,7 @@ interface ArticleInfo {
   [key: string]: any;
 }
 
-export default Vue.extend({
-  name: 'Article',
+export default defineComponent({
   props: {
     title: {
       type: String,
@@ -97,10 +95,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    scaleIn,
-    flowUp,
-    flowLeft,
-    
     formatDate(dateStr?: string): string {
       if (!dateStr) return '未知';
       try {

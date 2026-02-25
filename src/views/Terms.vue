@@ -10,7 +10,7 @@
     	<div v-else-if="error" class="error">{{ error }}</div>
 		<div class="terms-outer">
 			<div class="term-box">
-				<div class="term" v-view.once="flowLeft"
+				<div class="term"
 					v-for="item in [...termList].reverse()" :key="item.id">
 					<div class="number-block" :class="`bt${item.id}`">
 						{{ item.id }}
@@ -77,7 +77,7 @@
 import { defineComponent, ref, onMounted } from 'vue';
 import axios from 'axios';
 import Banner from '@/components/Banner.vue';
-import { flowLeft, isMobile } from '@/fn';
+import { isMobile } from '@/fn';
 
 interface TermItem {
     id: string;
@@ -109,7 +109,6 @@ export default defineComponent({
 		termList: ref<TermItem[]>([]),
 		loading: ref(true),
 		error: ref<string | null>(null),
-		flowLeft,
 		isMobile,
 		getDuration(from: string, to?: string) {
 			return (((to ? new Date(to).getTime() : new Date().getTime()) - new Date(from).getTime()) / 1000 / 3600 / 24).toFixed(0);

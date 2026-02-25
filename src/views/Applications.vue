@@ -47,24 +47,21 @@
                     @mouseenter="mouseEnterQuickSearchBtn()" @mouseleave="mouseLeaveQuickSearchBtn()">
                     {{ quicksearchOpened ? '关闭' : '通过 ID 快速查询' }}
                 </div>
-                <h1 class="primary-text" v-view.once="flowUp">页面简介</h1>
-                <p v-view.once="flowUp">
+                <h1 class="primary-text">页面简介</h1>
+                <p>
                     此页面列出了尝试取得白名单的玩家的所有审核记录，以及他们在问卷中填写的一些信息（由本人选择是否公开）。每个玩家在每次参与问卷时的相关信息，会被归类在填写时正运行或预计运行的周目的标题之下。</p>
-                <p v-view.once="flowUp">此页面上的信息不是实时更新的，会有一定的延迟。本人的信息根据本人意愿可随时修改，具体事宜请联系交流群内的管理员。</p>
-                <p v-view.once="flowUp">玩家个人的观点和提供的信息，不代表 竹像素 的观点和信息。</p>
+                <p>此页面上的信息不是实时更新的，会有一定的延迟。本人的信息根据本人意愿可随时修改，具体事宜请联系交流群内的管理员。</p>
+                <p>玩家个人的观点和提供的信息，不代表 竹像素 的观点和信息。</p>
                 <div class="term" v-for="x in terms">
-                    <h1 class="primary-text" v-view.once="flowUp">BT{{ x.number }}</h1>
+                    <h1 class="primary-text">BT{{ x.number }}</h1>
                     <div class="appl-cards">
-                        <div class="appl-card" v-view.once="applCardHook" v-for="(y, k) in x.applications">
-                            <div class="appl-no"><span class="serif italic">Ticket</span> #{{
-                                x.applications.length - k }}</div>
+                        <div class="appl-card" v-for="(y, k) in x.applications" :key="y.id">
+                            <div class="appl-no"><span class="serif italic">Ticket</span> #{{ x.applications.length - k }}</div>
                             <div class="appl-id">
                                 {{ y.id }}
                             </div>
                             <div class="appl-ticket-detail" v-if="y.passed">
-                                <span class="serif"><span class="italic">Certified</span> ticket for BambooPixel </span> BT{{
-                                    x.number
-                                }}
+                                <span class="serif"><span class="italic">Certified</span> ticket for BambooPixel </span> BT{{ x.number }}
                             </div>
                             <div class="appl-status" :class="y.passed ? 'passed' : 'not-passed'">
                                 <mdicon :name="y.passed ? 'check' : 'close'" />
@@ -95,7 +92,6 @@
 
 <script lang="ts" setup>
 import Banner from '@/components/Banner.vue';
-import { flowUp } from '@/fn';
 import { ref, watch, onMounted } from 'vue';
 
 interface Term {
@@ -159,7 +155,6 @@ async function fetchApplications() {
 }
 
 function applCardHook(e: ViewObject) {
-    flowUp(e);
     const passedStatus = e.target.element.querySelector('.appl-status.passed');
     if (passedStatus !== null) {
         passedStatus.classList.add('scale-emphasis-animation');

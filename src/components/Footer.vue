@@ -17,20 +17,20 @@
 				团队邮箱 — <a href="mailto:admin@cldery.com">admin@cldery.com</a>
 			</div>
 			<div class="button-list">
-				<icon-btn @click.native="$open('https://github.com/clouderystudio')" icon="github" class="dark" />
-				<icon-btn @click.native="$open('https://doc.cldery.com/game/mc')" icon="book-outline" class="dark" />
+				<icon-btn href="https://github.com/clouderystudio" icon="github" class="dark" />
+				<icon-btn href="https://doc.cldery.com/game/mc" icon="book-outline" class="dark" />
 			</div>
 		</div>
 	</footer>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
 import Logo from './Logo.vue';
 import IconBtn from '@/components/IconBtn.vue';
 import { toStandardDate } from '@/fn';
+import { defineComponent } from 'vue';
 
-export default Vue.extend({
+export default defineComponent({
 	components: { Logo, IconBtn },
 	computed: {
 		latestBuildDate() {

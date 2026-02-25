@@ -1,28 +1,25 @@
 <template>
-	<div class="app">
+	<div id="app">
 		<navbar/>
-		<transition name="fade" mode="out-in">
-			<router-view :class="isPCSize() ? (isMobile() ? 'mobile-pc-size' : 'pc-size') : 'mobile-size'" view />
+		<router-view v-slot="{ Component }" :class="computedClass">
+		<transition>
+			<component :is="Component" />
 		</transition>
+		</router-view>
 		<Footer/>
 	</div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
+<script setup lang="ts">
+import { computed } from "vue";
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
 import { isPCSize, isMobile } from "@/fn";
 
-export default Vue.extend({
-	components: {
-		Navbar,
-		Footer,
-	},
-	methods: {
-		isPCSize,
-		isMobile
-	}
+const computedClass = computed(() => {
+	const isPC = isPCSize();
+	const isMob = isMobile();
+	return isPC ? (isMob ? 'mobile-pc-size' : 'pc-size') : 'mobile-size';
 });
 </script>
 

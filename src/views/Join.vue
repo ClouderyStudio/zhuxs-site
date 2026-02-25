@@ -7,9 +7,9 @@
 		</banner>
 		<div class="container">
 			<div class="join content">
-				<h1 class="primary-text" v-view.once="flowUp">立即加入 竹像素</h1>
-				<p class="typo" v-view.once="flowUp"><strong>加入 QQ 交流群</strong>&emsp;我们的交流与讨论主要在 QQ 群内进行，我们强烈建议你加入~在这里你可以获取到第一手信息，获取帮助，并且可以参与到每周目的投票过程中。单击下方加群按钮可快速入群，或者搜索群号 806901461 亦可入群。<em>提示：入群不需要白名单。</em></p>
-				<p class="typo" v-view.once="flowUp"><strong>获取 竹像素 白名单</strong>&emsp;若要开始游玩，需要获取 竹像素 的白名单。要获取白名单，请前往问卷网填写问卷并等待人工审核，稍后通过邮件或者群内询问管理员的方式得到结果。单击问卷网按钮可前往问卷填写页面。</p>
+				<h1 class="primary-text">立即加入 竹像素</h1>
+				<p class="typo"><strong>加入 QQ 交流群</strong>&emsp;我们的交流与讨论主要在 QQ 群内进行，我们强烈建议你加入~在这里你可以获取到第一手信息，获取帮助，并且可以参与到每周目的投票过程中。单击下方加群按钮可快速入群，或者搜索群号 806901461 亦可入群。<em>提示：入群不需要白名单。</em></p>
+				<p class="typo"><strong>获取 竹像素 白名单</strong>&emsp;若要开始游玩，需要获取 竹像素 的白名单。要获取白名单，请前往问卷网填写问卷并等待人工审核，稍后通过邮件或者群内询问管理员的方式得到结果。单击问卷网按钮可前往问卷填写页面。</p>
 				<div class="join-cards">
 					<a class="join-card qq" href="https://qm.qq.com/q/ZqrVw1ePU6" target="_blank">
 						<mdicon name="arrow-right" />
@@ -28,8 +28,8 @@
 						</div>
 					</a>
 				</div>
-				<p class="typo" v-view.once="flowUp">加入以后，请先认真阅读<strong>置顶群公告</strong>中的内容，这将指导你进行下一步操作。</p>
-				<p class="typo" v-view.once="flowUp">
+				<p class="typo">加入以后，请先认真阅读<strong>置顶群公告</strong>中的内容，这将指导你进行下一步操作。</p>
+				<p class="typo">
 					如果你对服务器玩法有些生疏、不知道如何开始，或者有其它问题，你可以选择在<strong>群聊里询问</strong>或者阅读我们编写的<strong><a target="_blank" href="https://doc.cldery.com/game/mc">知识库</a></strong
 					>，上面归纳了大家觉得有用的要点，这本书由所有人一起编写，为了让你更快地解决问题 :)
 				</p>
@@ -39,32 +39,16 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import Banner from '@/components/Banner.vue';
 
-import { flowUp, scaleIn, flowUpQuick, isPCSize } from '@/fn';
-import anime from 'animejs';
+import { isPCSize } from '@/fn';
 
-export default Vue.extend({
+export default defineComponent({
 	components: {
 		Banner
 	},
 	methods: {
-		flowUp,
-		scaleIn,
-		flowUpQuick,
-		animateFeatureBox(e: ViewObject) {
-			anime({
-				targets: '.features .feature',
-				opacity: [0, 1],
-				translateY: [50, 0],
-				duration: 750,
-				easing: 'easeInOutExpo',
-				delay: (el, i) => {
-					return 150 * i;
-				}
-			});
-		},
 		isPCSize
 	}
 });

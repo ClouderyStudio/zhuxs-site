@@ -8,7 +8,7 @@
 				<span class="hamburger__top-bun"></span>
 				<span class="hamburger__bottom-bun"></span>
 			</div>
-			<logo @click.native="$router.push('/')" class="nav" :class="active ? '' : 'light'" />
+			<logo @click="$router.push('/')" class="nav" :class="active ? '' : 'light'" />
 			<div class="nav-link">
 				<div @click="jumpto(x)" class="link" :class="{ active: isCurrentPage(x.route || '') }"
 					v-for="(x, i) in links" :key="i">
@@ -24,158 +24,139 @@
 	</div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
+<script setup lang="ts">
+import { ref, watch, onMounted } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 import Logo from "@/components/Logo.vue";
-import anime from "animejs";
 
-export default Vue.extend({
-	data() {
-		return {
-			links: [
-				{
-					name: "首页",
-					route: "/",
-				},
-				{
-					name: "加入",
-					route: "/join",
-				},
-				{
-					name: "关于",
-					route: "/about",
-				},
-				{
-					name: "动态",
-					route: "/articles",
-				},
-				{
-					name: "捐助",
-					route: "/donate",
-				},
-				{
-					name: "周目",
-					route: '/terms'
-				},
-				{
-					name: "服规",
-					route: "/rules"
-				},
-				{
-					name: '审核结果',
-					route: '/applications'
-				}
-			],
-			active: false,
-			hamburgerOpen: false,
-			titles: {
-				home: "Every Bamboo Pixel",
-				join: "立即加入",
-				server: "服务器状态",
-				about: "关于",
-				articles: "动态",
-				donate: "捐助",
-				applications: "审核结果及玩家列表",
-				terms: '周目',
-				rules: '服规'
-			},
-		};
-	},
-	components: {
-		Logo,
-	},
-	mounted() {
-		document.addEventListener("scroll", (e) => {
-			if (document.scrollingElement?.scrollTop) {
-				if (!this.hamburgerOpen) {
-					this.activateNav();
-				}
-			}
-		});
-		this.updateTitle(this.$route.name as string);
-	},
-	watch: {
-		hamburgerOpen(v) {
-			if (v) {
-				this.active = true;
-			} else {
-				this.activateNav();
-			}
-		},
-		$route(v) {
-			this.activateNav();
-			this.updateTitle(v.name);
-		},
-	},
-	methods: {
-		updateTitle(name: string) {
-			if (Object.keys(this.titles).includes(name)) {
-				// @ts-ignore
-				document.title = "竹像素 | " + this.titles[name];
-				const newTitle = document.createElement('title');
-				// @ts-ignore
-				newTitle.innerText = "竹像素 | " + this.titles[name];
-				const currentTitle = document.head.querySelector('title')
-				if (currentTitle !== null) currentTitle.remove();
-				document.head.appendChild(newTitle);
-			}
-		},
-		toggleDropdown(directOption?: boolean) {
-			let obj: HTMLDivElement = this.$refs.dropdown as HTMLDivElement;
-			let p =
-				directOption !== undefined
-					? directOption
-					: obj.style.display === "none" || this.hamburgerOpen;
-			let n =
-				directOption !== undefined
-					? !directOption
-					: obj.style.display === "" || !this.hamburgerOpen;
-			if (p) {
-				obj.style.display = "";
-			}
-			anime({
-				targets: ".dropdown",
-				translateY: p ? [-50, 0] : [0, -50],
-				opacity: p ? [0, 1] : [1, 0],
-				easing: "easeOutExpo",
-				duration: 500,
-			});
-			if (n) {
-				obj.style.pointerEvents = "none";
-			}
-			if (p) {
-				obj.style.pointerEvents = "auto";
-			}
-		},
-		isCurrentPage(route: string) {
-			return (route === '/' && this.$route.name === 'home') || `/${this.$route.name}` === route;
-		},
-		activateNav() {
-			if ((document.scrollingElement as Element).scrollTop > 100) {
-				this.active = true;
-			} else {
-				this.active = false;
-			}
-		},
-		jumpto(to: {
-			name: string,
-			route?: string,
-			href?: string
-		}) {
-			if (to.route) {
-				this.$router.push(to.route);
-			}
+// 定义接口
+interface LinkItem {
+	name: string;
+	route?: string;
+	href?: string;
+}
 
-			if (to.href) {
-				window.open(to.href);
+interface Titles {
+	home: string;
+	join: string;
+	server: string;
+	about: string;
+	articles: string;
+	donate: string;
+	applications: string;
+	terms: string;
+	rules: string;
+	[key: string]: string;
+}
+
+// 组件注册（自动处理）
+// Logo 组件会自动注册，无需 components 选项
+
+const router = useRouter();
+const route = useRoute();
+const dropdown = ref<HTMLDivElement | null>(null);
+
+const links = ref<LinkItem[]>([
+	{ name: "首页", route: "/" },
+	{ name: "加入", route: "/join" },
+	{ name: "关于", route: "/about" },
+	{ name: "动态", route: "/articles" },
+	{ name: "捐助", route: "/donate" },
+	{ name: "周目", route: '/terms' },
+	{ name: "服规", route: "/rules" },
+	{ name: '审核结果', route: '/applications' }
+]);
+
+const active = ref<boolean>(false);
+const hamburgerOpen = ref<boolean>(false);
+
+const titles: Titles = {
+	home: "Every Bamboo Pixel",
+	join: "立即加入",
+	server: "服务器状态",
+	about: "关于",
+	articles: "动态",
+	donate: "捐助",
+	applications: "审核结果及玩家列表",
+	terms: '周目',
+	rules: '服规'
+};
+
+const updateTitle = (name: string): void => {
+	if (Object.prototype.hasOwnProperty.call(titles, name)) {
+		document.title = titles[name] || name;
+	}
+};
+
+const toggleDropdown = (directOption?: boolean): void => {
+	const obj = dropdown.value;
+	if (!obj) return;
+	
+	const shouldOpen = directOption !== undefined 
+		? directOption 
+		: obj.style.display === "none" || hamburgerOpen.value;
+	
+	obj.style.display = shouldOpen ? "block" : "none";
+	obj.style.pointerEvents = shouldOpen ? "auto" : "none";
+};
+
+const isCurrentPage = (routePath: string): boolean => {
+	const currentRouteName = route.name as string;
+	if (routePath === '/') {
+		return currentRouteName === 'home' || currentRouteName === 'index';
+	}
+	return `/${currentRouteName}` === routePath || route.path === routePath;
+};
+
+const activateNav = (): void => {
+	const scrollTop = (document.scrollingElement as Element)?.scrollTop || 0;
+	active.value = scrollTop > 100;
+};
+
+const jumpto = (to: LinkItem): void => {
+	if (to.route) {
+		router.push(to.route);
+	} else if (to.href) {
+		window.open(to.href, '_blank');
+	}
+};
+
+const onDropdownItemClick = (x: LinkItem): void => {
+	jumpto(x);
+	hamburgerOpen.value = false;
+	toggleDropdown(false);
+};
+
+// Watchers
+watch(hamburgerOpen, (v: boolean): void => {
+	if (v) {
+		active.value = true;
+	} else {
+		activateNav();
+	}
+});
+
+watch(() => route.name, (newName): void => {
+	activateNav();
+	if (newName) {
+		updateTitle(newName as string);
+	}
+}, { immediate: true });
+
+// Lifecycle
+onMounted(() => {
+	const handleScroll = (): void => {
+		if (document.scrollingElement?.scrollTop) {
+			if (!hamburgerOpen.value) {
+				activateNav();
 			}
-		},
-		onDropdownItemClick(x: any) {
-			this.jumpto(x);
-			this.hamburgerOpen = false;
-			this.toggleDropdown();
 		}
-	},
+	};
+	document.addEventListener("scroll", handleScroll);
+	
+	return () => {
+		document.removeEventListener("scroll", handleScroll);
+	};
 });
 </script>
 
@@ -345,7 +326,8 @@ export default Vue.extend({
 	top: 62px;
 	left: 0;
 	background: white;
-	opacity: 0;
+	opacity: 1;
+	display: none;
 	pointer-events: none;
 
 	.dropdown-item {
@@ -357,6 +339,10 @@ export default Vue.extend({
 		transition: all 0.2s ease;
 		cursor: pointer;
 		text-decoration: none;
+		
+		&:hover {
+			background: rgba(0, 0, 0, 0.05);
+		}
 	}
 }
 </style>

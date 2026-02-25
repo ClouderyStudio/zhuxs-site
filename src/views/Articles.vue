@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import Banner from '@/components/Banner.vue';
 import matter from 'gray-matter';
 
@@ -43,8 +43,7 @@ interface ArticleMeta {
   draft?: boolean;
 }
 
-export default Vue.extend({
-  name: 'Articles',
+export default defineComponent({
   components: { Banner },
   data() {
     return {
