@@ -8,18 +8,18 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { isPCSize, isIOS } from '@/fn';
-export default Vue.extend({
+export default defineComponent({
 	props: ['type', 'size', 'icon', 'to', 'href'],
 	methods: {
 		go() {
-			if (this.to) this.$router.push(this.to);
-			if (this.href) window.open(this.href);
+			if ((this as any).to) (this as any).$router.push((this as any).to);
+			if ((this as any).href) window.open((this as any).href);
 		},
 		isPCSize,
 		isIOS() {
-			let nav = window.navigator;
+			let nav = window.navigator as any;
 			if (/iPad|iPhone|iPod/.test(nav.platform)) {
 				return true;
 			} else {

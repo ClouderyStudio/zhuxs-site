@@ -1,5 +1,5 @@
 ---
-title: 竹像素 服规
+title: 服规
 subtitle: 服务器规则
 description: 在这里了解有关 竹像素 的玩家和管理员守则
 banner: https://oss.cldery.com/mcweb/assets/images/10.png

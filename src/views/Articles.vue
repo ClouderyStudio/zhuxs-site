@@ -13,7 +13,7 @@
           <div v-if="articles.length === 0" class="empty">暂无文章</div>
           <ul>
             <li v-for="a in articles" :key="a.name" class="article-item">
-              <router-link :to="{ path: '/article', query: { title: a.name } }">
+              <router-link :to="{ path: '/articles/' + a.name }">
                 <h3>{{ a.title || a.name }}</h3>
               </router-link>
               <div class="meta">
@@ -30,9 +30,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import Banner from '@/components/Banner.vue';
-import matter from 'gray-matter';
+import frontMatter from 'front-matter';
 
 interface ArticleMeta {
   name: string;
@@ -43,8 +43,7 @@ interface ArticleMeta {
   draft?: boolean;
 }
 
-export default Vue.extend({
-  name: 'Articles',
+export default defineComponent({
   components: { Banner },
   data() {
     return {
@@ -74,9 +73,9 @@ export default Vue.extend({
         const list = keys.map((k: string) => {
           const mod = ctx(k);
           const file = mod && (mod.default || mod);
-          const { data } = matter(file || '');
+          const { attributes } = frontMatter(file || '');
           const name = k.replace(/^\.\//, '').replace(/\.md$/, '');
-          return Object.assign({ name }, data) as ArticleMeta;
+          return Object.assign({ name }, attributes) as ArticleMeta;
         }).filter(a => !a.draft);
 
         list.sort((a, b) => {

@@ -1,66 +1,59 @@
-import Vue from 'vue';
-import VueRouter, { RouteConfig } from 'vue-router';
+import { createMemoryHistory,createWebHistory, createRouter } from 'vue-router';
 
-Vue.use(VueRouter);
-
-const routes: Array<RouteConfig> = [
+const routes = [
 	{
-		path: '/',
 		name: 'home',
+		path: '/',
 		component: () => import('@/views/Home.vue')
 	},
 	{
-		path: '/join',
 		name: 'join',
+		path: '/join',
 		component: () => import('@/views/Join.vue')
 	},
 	{
-		path: '/about',
 		name: 'about',
+		path: '/about',
 		component: () => import('@/views/About.vue')
 	},
 	{
-		path: '/donate',
 		name: 'donate',
+		path: '/donate',
 		component: () => import('@/views/Donate.vue')
 	},
 	{
-		path: '/applications',
 		name: 'applications',
+		path: '/applications',
 		component: () => import('@/views/Applications.vue')
 	},
 	{
-		path: '/articles',
 		name: 'articles',
+		path: '/articles',
 		component: () => import('@/views/Articles.vue')
 	},
 	{
-		path: '/terms',
 		name: 'terms',
+		path: '/terms',
 		component: () => import('@/views/Terms.vue')
 	},
 	{
-		path: '/rules',
 		name: 'rules',
+		path: '/rules',
 		component: () => import('@/views/Article.vue'),
 		props: () => ({
 			title: 'rules'
 		})
 	},
 	{
-		path: '/article',
 		name: 'article',
+		path: '/articles/:title',
 		component: () => import('@/views/Article.vue'),
-		props: (route) => ({
-			title: route.query.title
-		}) 
 	}
 ];
 
-const router = new VueRouter({
-	mode: 'history',
-	base: process.env.BASE_URL,
-	routes
-});
+const router = createRouter({
+	history: createWebHistory(),
+	routes,
+	})
 
 export default router;

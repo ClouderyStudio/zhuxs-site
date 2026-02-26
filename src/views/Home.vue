@@ -33,7 +33,7 @@
       </template>
       <template #buttons>
         <btn class="join-btn" type="primary-a shadow arrow" size="large" icon="arrow-right" to="/join">立即加入</btn>
-        <btn @click.native="$open('https://doc.cldery.com/game/mc/')" class="learnmore-btn" type="outlined shadow hover-light"
+        <btn href="https://doc.cldery.com/game/mc/" class="learnmore-btn" type="outlined shadow hover-light"
              size="large">阅读文档
         </btn>
       </template>
@@ -42,7 +42,7 @@
       <section v-lazy:background-image="'https://oss.cldery.com/mcweb/assets/slimefun-base.png'"
                class="common-background darken-background darken-3">
         <div class="container">
-          <div class="title-text" v-view.once="flowLeft">
+          <div class="title-text">
             <div>
               <div>带你一步步领略 Minecraft 的</div>
               <img class="title-img-1"
@@ -51,19 +51,19 @@
             </div>
           </div>
           <div class="typo light section-1-text-1">
-            <p v-view.once="flowUp">
+            <p>
               <strong>从踏入“竹像素”的第一天起，生存就不再是一个人的孤岛。</strong>
               这里的Minecraft世界被重新铺陈——不是堆砌眼花缭乱的机器，而是为你保留最纯粹的生存手感，再恰到好处地嵌入探索的惊喜。指令传送不是捷径，而是带你穿越山川的驿站；特色群系不是装饰，是你下一个家园的选址，是每一段冒险故事自然发生的地方。
             </p>
-            <p v-view.once="flowUp">
+            <p>
               <strong>我们不急着让你变强。</strong>
               在这方竹林掩映的世界里，铁镐挖出的第一块矿石依然珍贵，而当你攒下满箱物产，会发现自己已悄然融进一套鲜活的经济体系：把用不尽的建材卖给服务器，换取货币——竹笋；在玩家市集摆一只木桶，等待懂行的旅人驻足。
             </p>
-            <p v-view.once="flowUp">
+            <p>
               <strong>而这一切，都不是孤独的进程。</strong>
               竹像素相信，最好的生存服，是社区一起养成的。这一周是极简空岛，下一周或许就是群系大冒险——我们共同投票决定下个阶段的玩法方向，也会一起复盘哪些模组、插件或是数据包让夜晚过于冗长，哪些设定恰好成就了惊喜。管理员不是规则的执行者，是和你一起蹲在矿车里、仰头看烟花绽放的同行人。
             </p>
-            <p v-view.once="flowUp">
+            <p>
               <strong>这是一次不急不慢的旅程。</strong>
               你带着木镐出生，我们为你铺开足以走“一辈子”的大千世界。
             </p>
@@ -74,15 +74,15 @@
         <video ref="moonvideo" id="moon-video" muted>
           <source :src="'https://oss.cldery.com/mcweb/assets/moon.mp4'" type="video/mp4"/>
         </video>
-        <div class="container" v-view.once="autoplayBackgroundVideo()">
-          <div class="title-text" style="justify-content: center" v-view.once="flowUp">
+        <div class="container">
+          <div class="title-text" style="justify-content: center">
             <div style="align-items: center">不太一样的<img class="title-img-2"
                                                             :src="'https://oss.cldery.com/mcweb/assets/handwriting/周目制.svg'"
                                                             draggable="false"/></div>
           </div>
           <section class="term-feats">
-            <div class="feat" v-view.once="flowLeft">
-              <div class="top" v-view.once="flowLeft">
+            <div class="feat">
+              <div class="top">
                 <div class="icon">
                   <img style="transform: scale(1.1)"
                        :src="'https://oss.cldery.com/mcweb/assets/votes.png'"/>
@@ -94,18 +94,18 @@
               </div>
               <div class="down">
                 <div class="typo light section-2-text">
-                  <p v-view.once="flowUp">
+                  <p>
                     每个周目的主题或整合包候选项由管理员确定，玩家则进行决定性的一步——投票。<strong>最终所得票数最多的会成为本周目的主要游玩对象。</strong>遵从少数服从多数的原则。
                   </p>
-                  <p v-view.once="flowUp">你知道吗？<strong>投票</strong>是 竹像素
+                  <p>你知道吗？<strong>投票</strong>是 竹像素
                     长期以来（包含其前身「云竹互通」）所盛行的制度，旨在从玩家处选取本周目最适合的主题——Minecraft 实在是太多元了!
                   </p>
                 </div>
               </div>
             </div>
 
-            <div class="feat" v-view.once="flowLeft">
-              <div class="top" v-view.once="flowLeft">
+            <div class="feat">
+              <div class="top">
                 <div class="icon">
                   <img style="transform: scale(0.9)"
                        :src="'https://oss.cldery.com/mcweb/assets/write.png'"/>
@@ -117,18 +117,18 @@
               </div>
               <div class="down">
                 <div class="typo light section-2-text">
-                  <p v-view.once="flowUp">
+                  <p>
                     <strong>担心周目匆匆逝去，没有耐心进行建筑？</strong>我们为玩家提供了专用的平台，玩家在上面可以记录和展示自己在每个周目中的经历和创作。
                   </p>
-                  <p v-view.once="flowUp">
+                  <p>
                     我们相信，正是记录才使得每个周目都有它自身的独特性和意义，而非匆匆飘过的...呃...不知道是什么东西。<strong>我们鼓励所有玩家在平台上记录自己的游戏体验。</strong>不久后，我们亦会将平台的部分功能与服务器建立联系。
                   </p>
                 </div>
               </div>
             </div>
 
-            <div class="feat" v-view.once="flowLeft">
-              <div class="top" v-view.once="flowLeft">
+            <div class="feat">
+              <div class="top">
                 <div class="icon">
                   <img style="transform: scale(1.1)"
                        :src="'https://oss.cldery.com/mcweb/assets/review.png'"/>
@@ -140,10 +140,10 @@
               </div>
               <div class="down">
                 <div class="typo light section-2-text">
-                  <p v-view.once="flowUp">
+                  <p>
                     <strong>Minecraft 之多元，带来玩法搭配之复杂。</strong>每个周目之后，我们都会提供专用的渠道来获取本周目游玩体验的信息。
                   </p>
-                  <p v-view.once="flowUp">
+                  <p>
                     这些玩法的搭配合理吗？所用的插件、数据包或模组是否真正符合了周目主题？稳定吗？<strong>或者...最为简单的——玩得开心吗？</strong>还是肝到爆了？！这些评价维度会成为每个周目的独特象征，同时大大帮助我们后续做得更好。更重要的是，这亦是你在
                     竹像素留下的宝贵痕迹。</p>
                 </div>
@@ -155,33 +155,33 @@
       <section v-lazy:background-image="'https://oss.cldery.com/mcweb/assets/comet.jpg'"
                class="common-background darken-background darken-2">
         <div class="container">
-          <div class="title-text" v-view.once="flowLeft">
+          <div class="title-text">
             <div><img class="title-img-3"
                       :src="'https://oss.cldery.com/mcweb/assets/handwriting/强劲性能.svg'"
                       draggable="false"/>轻轻松松完成「星际穿越」
             </div>
           </div>
           <div class="performance-information">
-            <div class="item" v-view.once="scaleIn">
+            <div class="item">
               <img class="performance-img"
                    :src="'https://oss.cldery.com/mcweb/assets/core-i9.svg'" draggable="false"/>
               <div>Gen 14</div>
               <div class="name">处理器</div>
             </div>
-            <div class="item" v-view.once="scaleIn">
+            <div class="item">
               <img class="performance-img" :src="'https://oss.cldery.com/mcweb/assets/ddr4.svg'"
                    draggable="false"/>
               <div>12 GB</div>
               <div class="name">分配内存</div>
             </div>
-            <div class="item" v-view.once="scaleIn">
+            <div class="item">
               <img class="performance-img"
                    :src="'https://oss.cldery.com/mcweb/assets/rotating-earth.gif'"
                    draggable="false"/>
               <div>25M</div>
               <div class="name">峰值带宽</div>
             </div>
-            <div class="item" v-view.once="scaleIn">
+            <div class="item">
               <img class="performance-img"
                    :src="'https://oss.cldery.com/mcweb/assets/ti-cube.png'" draggable="false"/>
               <div>1 TB</div>
@@ -194,7 +194,7 @@
       <section v-lazy:background-image="'https://oss.cldery.com/mcweb/assets/images/1.jpg'"
                class="common-background darken-background darken-2">
         <div class="container">
-          <div v-view.once="flowLeft" class="title-text">
+          <div>
             <div><img v-if="!isMobile()" class="title-img-4"
                       :src="'https://oss.cldery.com/mcweb/assets/handwriting/欢迎，新船员.svg'"
                       draggable="false"/>
@@ -203,11 +203,11 @@
           </div>
           <div class="welcome">
             <div class="welcome-text typo light">
-              <p v-view.once="flowUp"><strong>我们期待并欢迎每一位新船员的加入。</strong>...等等，为什么是「船员」？</p>
-              <p v-view.once="flowUp">竹像素是云术工作室旗下独立运营的服务器。要加入竹像素，必须先通过白名单审核。而要获取竹像素白名单需要完成相应的问卷。</p>
-              <p v-view.once="flowUp"><strong>单击按钮可加入我们的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
+              <p><strong>我们期待并欢迎每一位新船员的加入。</strong>...等等，为什么是「船员」？</p>
+              <p>竹像素是云术工作室旗下独立运营的服务器。要加入竹像素，必须先通过白名单审核。而要获取竹像素白名单需要完成相应的问卷。</p>
+              <p><strong>单击按钮可加入我们的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
             </div>
-            <div class="welcome-btns" v-view.once="flowUp">
+            <div class="welcome-btns">
               <btn class="primary-a shadow arrow" href="https://qm.qq.com/q/ZqrVw1ePU6" size="large" icon="arrow-right">立即加入竹像素讨论群</btn>
             </div>
           </div>
@@ -219,9 +219,9 @@
         'darken-background': isMobile()
                }">
         <div class="container">
-          <div class="mod-card" v-view.once="scaleIn">
-            <div class="title" v-view.once="flowLeft">当前周目信息 - 2026/2/13 更新</div>
-            <ul v-view.once="flowLeft">
+          <div class="mod-card">
+            <div class="title">当前周目信息 - 2026/2/13 更新</div>
+            <ul>
               <li>周目代号：BT26-1</li>
               <li>版本：NeoForge 1.21.1</li>
               <li>服务端：Youer 1.21.1</li>
@@ -237,17 +237,16 @@
 </template>
 
 <script lang="ts">
+import { ref, onMounted, onBeforeUnmount, defineComponent } from 'vue';
 import Banner from '@/components/Banner.vue';
 import Btn from '@/components/Btn.vue';
 import MetaBar from '@/components/MetaBar.vue';
 import MetaItem from '@/components/MetaItem.vue';
 import Status from '@/components/Status.vue';
-import Vue from 'vue';
-import anime from 'animejs';
 import Logo from '@/components/Logo.vue';
-import {flowUp, isPCSize, isMobile, isPhoneSize, scaleIn, flowLeft} from '@/fn';
+import { isPCSize, isMobile, isPhoneSize } from '@/fn';
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     Banner,
     Btn,
@@ -256,70 +255,33 @@ export default Vue.extend({
     MetaItem,
     Status,
   },
-  data() {
-    return {
-      server: {} as ServerInformation,
-      loadingStatus: 'loading',
-      serverExists: false,
-      duration: ''
+  setup() {
+    const loadingStatus = ref('loading');
+    const serverExists = ref(false);
+    const duration = ref('');
+    const moonvideo = ref<HTMLVideoElement | null>(null);
+    
+    // 使用 number 类型
+    let interval: number | null = null;
+
+    const autoplayBackgroundVideo = () => {
+      if (!isMobile() && moonvideo.value) {
+        moonvideo.value.play().catch(() => {
+        });
+      }
     };
-  },
-  methods: {
-    scaleIn,
-    flowLeft,
-    autoplayBackgroundVideo() {
-      // @ts-ignore
-      if (!isMobile() && this.$refs.moonvideo) this.$refs.moonvideo.play();
-    },
-    animateFeature() {
-      anime({
-        targets: '#features-title',
-        opacity: [0, 1],
-        translateY: [30, 0],
-        easing: 'easeInOutExpo'
-      });
-      anime({
-        targets: '.feature-item',
-        opacity: [0, 1],
-        easing: 'easeInOutExpo',
-        delay: (e, i) => {
-          return i * 50;
-        }
-      });
-    },
-    flowUp,
-    animateSFTypo(a: ViewObject) {
-      let parent = a.target.element.parentElement?.parentElement;
-      //@ts-ignore
-      let typo = parent.querySelector('.typo') as HTMLDivElement;
-      anime({
-        targets: parent,
-        opacity: [0, 1],
-        translateX: [30, 0],
-        easing: 'easeInOutExpo'
-      });
-      anime({
-        targets: typo,
-        opacity: [0, 1],
-        translateY: [30, 0],
-        easing: 'easeInOutExpo',
-        delay: 200
-      });
-    },
-    isPCSize,
-    isMobile,
-    isIOS() {
-      let nav = window.navigator;
+
+    const isIOS = () => {
+      const nav = window.navigator;
       if (/iPad|iPhone|iPod/.test(nav.platform)) {
         return true;
-      } else {
-        return nav.maxTouchPoints && nav.maxTouchPoints > 2 && /MacIntel/.test(nav.platform);
       }
-    },
-    isPhoneSize,
-    getDepNames(mod: ServerMod[]) {
-      let names: string[] = [];
-      if (!!!mod) {
+      return nav.maxTouchPoints && nav.maxTouchPoints > 2 && /MacIntel/.test(nav.platform);
+    };
+
+    const getDepNames = (mod: ServerMod[]) => {
+      const names: string[] = [];
+      if (!mod) {
         return [];
       }
       mod.forEach(e => {
@@ -328,8 +290,9 @@ export default Vue.extend({
         }
       });
       return names;
-    },
-    getModCount(mod: ServerMod[]) {
+    };
+
+    const getModCount = (mod: ServerMod[]) => {
       let count = mod.length;
       mod.forEach(e => {
         if (e.type === 'set' && e.count) {
@@ -337,26 +300,58 @@ export default Vue.extend({
         }
       });
       return count;
-    },
-    getDuration() {
-      let d = new Date().getTime() - new Date('2026-02-10 00:00').getTime();
-      let x = d / 1000 / 60 / 60;
-      let H = Math.floor(x);
-      x = (x - H) * 60;
-      let M = Math.floor(x);
-      x = (x - M) * 60;
-      let S = Math.floor(x);
-      let {_H, _M, _S} = {_H: H.toString(), _M: M.toString(), _S: S.toString()};
-      if (_S.length === 1) _S = `0${_S}`;
-      if (_H.length === 1) _H = `0${_H}`;
-      if (_M.length === 1) _M = `0${_M}`
-      return `${_H}:${_M}:${_S}`;
-    }
-  },
-  mounted() {
-    setInterval(() => {
-      this.duration = this.getDuration();
-    }, 1000);
+    };
+
+    const getDuration = () => {
+      const startDate = new Date('2026-02-10 00:00').getTime();
+      const now = new Date().getTime();
+      const diffMs = now - startDate;
+      
+      // 确保时间不为负数
+      if (diffMs < 0) {
+        return '00:00:00';
+      }
+      
+      const totalSeconds = Math.floor(diffMs / 1000);
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      
+      const pad = (num: number) => num.toString().padStart(2, '0');
+      
+      return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+    };
+
+    onMounted(() => {
+      autoplayBackgroundVideo();
+      // 立即执行一次
+      duration.value = getDuration();
+      
+      // 设置定时器
+      interval = window.setInterval(() => {
+        duration.value = getDuration();
+      }, 1000);
+    });
+
+    onBeforeUnmount(() => {
+      if (interval !== null) {
+        window.clearInterval(interval);
+      }
+    });
+
+    return {
+      loadingStatus,
+      serverExists,
+      duration,
+      moonvideo,
+      autoplayBackgroundVideo,
+      isPCSize,
+      isMobile,
+      isIOS,
+      isPhoneSize,
+      getDepNames,
+      getModCount,
+    };
   }
 });
 </script>

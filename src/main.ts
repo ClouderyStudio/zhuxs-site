@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
 import App from './App.vue';
 import './registerServiceWorker';
 import router from './router';
@@ -7,25 +7,37 @@ import '@/styles/global.less';
 import '@/styles/mc.less';
 import '@/styles/nprogress.less';
 import * as mdijs from '@mdi/js';
-// @ts-ignore
-import mdiVue from 'mdi-vue/v2';
-// @ts-ignore
-import checkView from 'vue-check-view';
-import VueLazyload from 'vue-lazyload';
-import Meta from 'vue-meta';
+import mdiVue from 'mdi-vue/v3';
+import VueLazyload from 'vue3-lazyload';
 import NProgress from 'nprogress';
+import { createHead } from '@unhead/vue/client'
 
-Vue.use(mdiVue, {
+const app = createApp(App)
+const head = createHead({
+	init: [
+		{
+			title: "竹像素 - BambooPixel",
+			titleTemplate: "%s | 竹像素",
+			htmlAttrs: {
+				lang: 'zh-CN'
+			}
+		}
+	]
+})
+
+app.use(mdiVue,{
 	icons: mdijs
 });
-Vue.use(Meta);
-Vue.use(checkView);
-Vue.use(VueLazyload);
-Vue.config.productionTip = false;
-Vue.prototype.$open = (url: string) => {
+app.use(VueLazyload,{
+  loading: '/images/loading.gif', // 加载中占位图
+  error: '/images/error.png'      // 加载失败占位图
+});
+app.use(head);
+
+app.config.globalProperties.$open = (url: string) => {
 	window.open(url);
 };
-Vue.prototype.load = false;
+app.config.globalProperties.load = false;
 router.beforeEach((to, from, next) => {
 	NProgress.start();
 	next();
@@ -36,13 +48,16 @@ router.afterEach((to, from) => {
 		document.getElementsByTagName('html')[0].scrollTo(0, 0);
 	}
 	NProgress.done();
-	Vue.prototype.load = true;
+	app.config.globalProperties.load = true;
 });
 
-Vue.mixin({
+app.use(router);
+app.use(store);
+
+app.mixin({
 	metaInfo: {
 		meta: [
-			{ property: 'og:title', content: '竹像素 - Every Bamboo Pixel' },
+			{ property: 'og:title', content: '竹像素 - BambooPixel' },
 			{ property: 'og:site_name', content: '竹像素' },
 			{ property: 'og:type', content: 'website' },
 			{ property: 'og:url', content: 'https://zhuxs.cn' },
@@ -52,12 +67,12 @@ Vue.mixin({
 			},
 			{
 				property: 'og:description',
-				content: '这里是 竹像素 服务器官方网站，你可以在这里获取到关于 竹像素 的介绍以及服务器的运行信息。'
+				content: '这里是竹像素服务器官方网站，你可以在这里获取到关于竹像素的介绍以及服务器的运行信息。'
 			},
-			{ itemprop: 'name', content: '竹像素 | Every Bamboo Pixel' },
+			{ itemprop: 'name', content: '竹像素 | Bamboo Pixel' },
 			{
 				itemprop: 'description',
-				content: '这里是 竹像素 服务器官方网站，你可以在这里获取到关于 竹像素 的介绍以及服务器的运行信息。'
+				content: '这里是竹像素服务器官方网站，你可以在这里获取到关于竹像素的介绍以及服务器的运行信息。'
 			},
 			{
 				itemprop: 'image',
@@ -83,8 +98,4 @@ Vue.mixin({
 	}
 });
 
-new Vue({
-	router,
-	store,
-	render: h => h(App)
-}).$mount('#app');
+app.mount('#app');

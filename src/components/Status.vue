@@ -16,11 +16,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 // @ts-ignore
 import Spinner from "vue-simple-spinner";
 
-export default Vue.extend({
+export default defineComponent({
 	props: {
 		status: {
 			type: String,
