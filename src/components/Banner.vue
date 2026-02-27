@@ -1,5 +1,5 @@
 <template>
-	<div class="banner" v-lazy:background-image="bg">
+	<div class="banner" v-lazy="bg">
 		<div v-if="$slots.announcement" class="announcement">
 			<slot name="announcement" />
 		</div>

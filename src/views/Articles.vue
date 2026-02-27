@@ -1,6 +1,6 @@
 <template>
   <div page>
-    <banner bg="https://oss.cldery.com/mcweb/assets/images/12.png">
+    <banner bg="/assets/images/12.png">
       <template #title>所有文章</template>
       <template #subtitle>按发布时间排序</template>
       <template #text>点击文章标题查看详情</template>

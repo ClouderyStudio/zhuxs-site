@@ -1,6 +1,6 @@
 <template>
 	<div page>
-		<banner :bg="'https://oss.cldery.com/mcweb/assets/images/7.jpg'">
+		<banner :bg="'/assets/images/7.jpg'">
 			<template #title> 捐助 竹像素 </template>
 			<template #subtitle> 帮助我们持续运行 </template>
 			<template #text> 竹像素 当前没有任何盈利项目，但接受无偿捐助，这能够维持 竹像素 的运行，也是 竹像素 的唯一收入。<br />你可以在本页面查看 竹像素 的资金运转情况和过往捐赠者信息。 </template>

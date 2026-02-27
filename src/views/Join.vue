@@ -1,6 +1,6 @@
 <template>
 	<div page>
-		<banner :bg="'https://oss.cldery.com/mcweb/assets/images/2.jpg'">
+		<banner :bg="'/assets/images/2.jpg'">
 			<template #title> 加入竹像素 </template>
 			<template #subtitle> 立即开始 </template>
 			<template #text> 要获取竹像素的白名单，需要完成问卷。<br />不过，问卷的问题都非常简单，基本不用担心无法通过 </template>
@@ -13,7 +13,7 @@
 				<div class="join-cards">
 					<a class="join-card qq" href="https://qm.qq.com/q/ZqrVw1ePU6" target="_blank">
 						<mdicon name="arrow-right" />
-						<img src="https://oss.cldery.com/mcweb/assets/tencent-qq.svg" />
+						<img src="/assets/tencent-qq.svg" />
 						<div class="text">
 							<h1>QQ 讨论群</h1>
 							<h2>点击加入，或搜索群号 806901461</h2>
@@ -21,7 +21,7 @@
 					</a>
 					<a class="join-card wenjuan" href="https://wj.qq.com/s2/14159519/c419/" target="_blank">
 						<mdicon name="arrow-right" />
-						<img src="https://oss.cldery.com/mcweb/assets/votes.png" />
+						<img src="/assets/votes.png" />
 						<div class="text">
 							<h1>白名单获取</h1>
 							<h2>点击前往腾讯问卷，填写 竹像素 玩家入服问卷以获取白名单</h2>

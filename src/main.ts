@@ -29,8 +29,8 @@ app.use(mdiVue,{
 	icons: mdijs
 });
 app.use(VueLazyload,{
-  loading: '/images/loading.gif', // 加载中占位图
-  error: '/images/error.png'      // 加载失败占位图
+  loading: '/assets/loading.gif',
+  error: '/assets/error.png'
 });
 app.use(head);
 

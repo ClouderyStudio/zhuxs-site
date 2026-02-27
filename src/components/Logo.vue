@@ -1,6 +1,6 @@
 <template>
 	<div class="logo">
-		<img class="img" src="https://oss.cldery.com/mcweb/assets/logo.png" alt="logo" />
+		<img class="img" src="/assets/logo.png" alt="logo" />
 	</div>
 </template>
 

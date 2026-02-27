@@ -1,6 +1,6 @@
 <template>
 	<div page>
-		<banner bg="https://oss.cldery.com/mcweb/assets/images/11.png">
+		<banner bg="/assets/images/11.png">
 			<template #title>周目信息与资源中心</template>
 			<template #subtitle>记录 & 下载</template>
 			<template #text>在此查看自 BT4 开始的每个周目的相关介绍和详细信息<br/>当资源可用时，此页面也会提供相应的下载链接

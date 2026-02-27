@@ -1,6 +1,6 @@
 <template>
   <div page>
-    <banner bg="https://oss.cldery.com/mcweb/assets/home-bg.png" fullscreen>
+    <banner bg="/assets/home-bg.png" fullscreen>
       <template #announcement>
         公告: 本服务器当前白名单已关闭
       </template>
@@ -39,14 +39,14 @@
       </template>
     </banner>
     <div class="sections">
-      <section v-lazy:background-image="'https://oss.cldery.com/mcweb/assets/slimefun-base.png'"
+      <section v-lazy="'/assets/slimefun-base.png'"
                class="common-background darken-background darken-3">
         <div class="container">
           <div class="title-text">
             <div>
               <div>带你一步步领略 Minecraft 的</div>
               <img class="title-img-1"
-                   :src="'https://oss.cldery.com/mcweb/assets/handwriting/大千世界.svg'"
+                   :src="'/assets/handwriting/大千世界.svg'"
                    draggable="false"/>
             </div>
           </div>
@@ -70,14 +70,14 @@
           </div>
         </div>
       </section>
-      <section class="with-video-background" v-lazy:background-image="'https://oss.cldery.com/mcweb/assets/moon-on-the-sea.png'"">
+      <section class="with-video-background" v-lazy="'/assets/moon-on-the-sea.png'"">
         <video ref="moonvideo" id="moon-video" muted loop>
-          <source :src="'https://oss.cldery.com/mcweb/assets/moon.mp4'" type="video/mp4"/>
+          <source :src="'/assets/moon.mp4'" type="video/mp4"/>
         </video>
         <div class="container">
           <div class="title-text" style="justify-content: center;">
             <div style="align-items: center">不太一样的<img class="title-img-2"
-                                                            :src="'https://oss.cldery.com/mcweb/assets/handwriting/周目制.svg'"
+                                                            :src="'/assets/handwriting/周目制.svg'"
                                                             draggable="false"/></div>
           </div>
           <section class="term-feats">
@@ -85,11 +85,11 @@
               <div class="top">
                 <div class="icon">
                   <img style="transform: scale(1.1)"
-                       :src="'https://oss.cldery.com/mcweb/assets/votes.png'"/>
+                       :src="'/assets/votes.png'"/>
                 </div>
                 <div class="title">
                   <img style="transform: translateY(10px)"
-                       :src="'https://oss.cldery.com/mcweb/assets/handwriting/投票.svg'"/>
+                       :src="'/assets/handwriting/投票.svg'"/>
                 </div>
               </div>
               <div class="down">
@@ -108,11 +108,11 @@
               <div class="top">
                 <div class="icon">
                   <img style="transform: scale(0.9)"
-                       :src="'https://oss.cldery.com/mcweb/assets/write.png'"/>
+                       :src="'/assets/write.png'"/>
                 </div>
                 <div class="title">
                   <img style="transform: translateY(10px)"
-                       :src="'https://oss.cldery.com/mcweb/assets/handwriting/记录.svg'"/>
+                       :src="'/assets/handwriting/记录.svg'"/>
                 </div>
               </div>
               <div class="down">
@@ -131,11 +131,11 @@
               <div class="top">
                 <div class="icon">
                   <img style="transform: scale(1.1)"
-                       :src="'https://oss.cldery.com/mcweb/assets/review.png'"/>
+                       :src="'/assets/review.png'"/>
                 </div>
                 <div class="title">
                   <img style="transform: translateY(25px)"
-                       :src="'https://oss.cldery.com/mcweb/assets/handwriting/评价.svg'"/>
+                       :src="'/assets/handwriting/评价.svg'"/>
                 </div>
               </div>
               <div class="down">
@@ -152,38 +152,38 @@
           </section>
         </div>
       </section>
-      <section v-lazy:background-image="'https://oss.cldery.com/mcweb/assets/comet.jpg'"
+      <section v-lazy="'/assets/comet.jpg'"
                class="common-background darken-background darken-2">
         <div class="container">
           <div class="title-text">
             <div><img class="title-img-3"
-                      :src="'https://oss.cldery.com/mcweb/assets/handwriting/强劲性能.svg'"
+                      :src="'/assets/handwriting/强劲性能.svg'"
                       draggable="false"/>轻轻松松完成「星际穿越」
             </div>
           </div>
           <div class="performance-information">
             <div class="item">
               <img class="performance-img"
-                   :src="'https://oss.cldery.com/mcweb/assets/core-i9.svg'" draggable="false"/>
+                   :src="'/assets/core-i9.svg'" draggable="false"/>
               <div>Gen 14</div>
               <div class="name">处理器</div>
             </div>
             <div class="item">
-              <img class="performance-img" :src="'https://oss.cldery.com/mcweb/assets/ddr4.svg'"
+              <img class="performance-img" :src="'/assets/ddr4.svg'"
                    draggable="false"/>
               <div>12 GB</div>
               <div class="name">分配内存</div>
             </div>
             <div class="item">
               <img class="performance-img"
-                   :src="'https://oss.cldery.com/mcweb/assets/rotating-earth.gif'"
+                   :src="'/assets/rotating-earth.gif'"
                    draggable="false"/>
               <div>25M</div>
               <div class="name">峰值带宽</div>
             </div>
             <div class="item">
               <img class="performance-img"
-                   :src="'https://oss.cldery.com/mcweb/assets/ti-cube.png'" draggable="false"/>
+                   :src="'/assets/ti-cube.png'" draggable="false"/>
               <div>1 TB</div>
               <div class="name">存储空间</div>
             </div>
@@ -191,14 +191,14 @@
         </div>
       </section>
 
-      <section v-lazy:background-image="'https://oss.cldery.com/mcweb/assets/images/1.jpg'"
+      <section v-lazy="'/assets/images/1.jpg'"
                class="common-background darken-background darken-2">
         <div class="container">
           <div>
             <div><img v-if="!isMobile()" class="title-img-4"
-                      :src="'https://oss.cldery.com/mcweb/assets/handwriting/欢迎，新船员.svg'"
+                      :src="'/assets/handwriting/欢迎，新船员.svg'"
                       draggable="false"/>
-              <img v-else class="title-img-4-mobile" :src="'https://oss.cldery.com/mcweb/assets/handwriting/欢迎，新船员.m.svg'"
+              <img v-else class="title-img-4-mobile" :src="'/assets/handwriting/欢迎，新船员.m.svg'"
                    draggable="false"/></div>
           </div>
           <div class="welcome">
@@ -213,7 +213,7 @@
           </div>
         </div>
       </section>
-      <section v-lazy:background-image="'https://oss.cldery.com/mcweb/assets/images/3.jpg'"
+      <section v-lazy="'/assets/images/3.jpg'"
                class="mod-information darken-3 blur" :class="{
         'common-background': !isMobile(),
         'darken-background': isMobile()
