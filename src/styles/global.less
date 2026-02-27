@@ -211,6 +211,21 @@ a {
 	text-shadow: none;
 }
 
+.big-title {
+	font-weight: bold;
+	background: linear-gradient(90deg, #50963D, #54F47F, #50963D);
+	background-size: 300% 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	animation: flow 2s linear infinite;
+}
+
+@keyframes flow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 150% 50%; }
+}
+
 .primarys-text {
 	color: @primary;
 }

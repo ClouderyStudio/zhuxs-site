@@ -22,15 +22,17 @@
 					的款项恕不写入）。支持
 					<strong>5 天无理由全额退款</strong>，超过 5 天若仍因某些原因仍需退款可联系服主。
 				</p>
-				<div>
-					<a class="donate-card afdian" href="https://afdian.tv/a/zhuxs" target="_blank">
-						<mdicon name="arrow-right" />
-						<img src="https://static.afdiancdn.com/static/img/logo/logo.png" />
-						<div class="text">
-							<h1>爱发电</h1>
-							<h2>点击跳转至官方爱发电</h2>
-						</div>
-					</a>
+				<div class="pay">
+					<div class="donate-cards">
+						<a class="donate-card afdian" href="https://afdian.tv/a/zhuxs" target="_blank">
+							<mdicon name="arrow-right" />
+							<img src="https://static.afdiancdn.com/static/img/logo/logo.png" />
+							<div class="text">
+								<h1>爱发电</h1>
+								<h2>点击跳转至官方爱发电</h2>
+							</div>
+						</a>
+					</div>
 				</div>
 				<h1 class="primary-text">感谢捐助</h1>
 				<p>感谢这些人的无偿捐助，帮助了 竹像素 发展和维持运行。排名使用洗牌算法随机排列，刷新页面可重排。</p>
@@ -89,25 +91,25 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .pay {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	img {
-		margin: 0 8px;
-		height: 300px;
-
-		@media (max-width: 800px) {
-			height: 200px;
-		}
-	}
-	.donate-card {
-		@media (min-width: 1000px) {
-			width: 50%;
-		}
+	.donate-cards {
+		margin: 16px 0;
+		display: flex;
+		align-items: stretch;
 		@media (max-width: 1000px) {
-			margin: 8px 0;
+			flex-direction: column;
 		}
-		.link-card;
+
+		.donate-card {
+			@media (min-width: 1000px) {
+				width: 50%;
+			}
+			@media (max-width: 1000px) {
+				margin: 8px 0;
+			}
+
+			.link-card;
+		}
 	}
 }
+
 </style>

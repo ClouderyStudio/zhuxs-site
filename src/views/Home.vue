@@ -8,7 +8,7 @@
         高自由度 / 民主决议 / 周目制
       </template>
       <template #title>
-        <div class="primary-text">从头到脚都是不一样的感觉。</div>
+        <div class="big-title">从头到脚都是不一样的感觉</div>
       </template>
       <template #text>
         在 竹像素，你能够参与到游戏的整个流程。<br/>
@@ -70,12 +70,12 @@
           </div>
         </div>
       </section>
-      <section class="with-video-background" v-lazy:background-image="'https://oss.cldery.com/mcweb/assets/moon-on-the-sea.png'">
-        <video ref="moonvideo" id="moon-video" muted>
+      <section class="with-video-background" v-lazy:background-image="'https://oss.cldery.com/mcweb/assets/moon-on-the-sea.png'"">
+        <video ref="moonvideo" id="moon-video" muted loop>
           <source :src="'https://oss.cldery.com/mcweb/assets/moon.mp4'" type="video/mp4"/>
         </video>
         <div class="container">
-          <div class="title-text" style="justify-content: center">
+          <div class="title-text" style="justify-content: center;">
             <div style="align-items: center">不太一样的<img class="title-img-2"
                                                             :src="'https://oss.cldery.com/mcweb/assets/handwriting/周目制.svg'"
                                                             draggable="false"/></div>
@@ -259,7 +259,7 @@ export default defineComponent({
     const loadingStatus = ref('loading');
     const serverExists = ref(false);
     const duration = ref('');
-    const moonvideo = ref<HTMLVideoElement | null>(null);
+    const moonvideo = ref();
     
     // 使用 number 类型
     let interval: number | null = null;
@@ -323,7 +323,6 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      autoplayBackgroundVideo();
       // 立即执行一次
       duration.value = getDuration();
       
@@ -331,6 +330,8 @@ export default defineComponent({
       interval = window.setInterval(() => {
         duration.value = getDuration();
       }, 1000);
+
+      autoplayBackgroundVideo();
     });
 
     onBeforeUnmount(() => {
@@ -847,6 +848,7 @@ export default defineComponent({
   margin-bottom: 2rem;
   color: white;
   text-shadow: @shadowdark;
+  position: relative;
 
   @media (max-width: 1000px) {
     font-size: 1.5rem;
