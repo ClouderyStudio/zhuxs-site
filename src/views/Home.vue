@@ -176,7 +176,7 @@
             </div>
             <div class="item">
               <img class="performance-img"
-                   :src="'/assets/rotating-earth.gif'"
+                   :src="'/assets/earth.png'"
                    draggable="false"/>
               <div>25M</div>
               <div class="name">峰值带宽</div>
