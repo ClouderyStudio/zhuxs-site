@@ -9,7 +9,7 @@
 					<small>Latest built at {{ latestBuildDate }}</small>
 				</p>
 				<p>BambooPixel 致力于实现高自由度、带有探索性的游戏体验。插件的多样性承载着我们的追求。</p>
-				<p>注：如无特殊说明，所有文字的著作权和游戏摄影作品使用权归 竹像素 所有。部分图片来自于公有领域。</p>
+				<p>注：如无特殊说明，所有文字的著作权和游戏摄影作品使用权归竹像素所有。部分图片来自于公有领域。</p>
 			</div>
 			<div class="links">
 				联系服主(柒屹) — <a href="mailto:justqiyi@qq.com">justqiyi@qq.com</a><br/>

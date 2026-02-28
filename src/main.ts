@@ -82,7 +82,7 @@ app.mixin({
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
 			{
 				name: 'description',
-				content: '这里是 竹像素 服务器官方网站，你可以在这里获取到关于 竹像素 的介绍以及服务器的运行信息。'
+				content: '这里是竹像素服务器官方网站，你可以在这里获取到关于竹像素的介绍以及服务器的运行信息。'
 			},
 			{
 				name: 'theme-color',
