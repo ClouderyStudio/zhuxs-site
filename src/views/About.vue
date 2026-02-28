@@ -126,7 +126,6 @@ export default defineComponent({
 	margin-bottom: 64px;
 }
 
-/* 时间线整体样式 */
 .timeline {
 	max-width: 1000px;
 	margin: 50px auto;
@@ -134,7 +133,6 @@ export default defineComponent({
 	padding: 20px 0;
 }
 
-/* 中间主线 */
 .timeline-line-center {
 	position: absolute;
 	left: 50%;
@@ -164,7 +162,6 @@ export default defineComponent({
 	min-height: 120px;
 }
 
-/* 左侧和右侧的布局 */
 .timeline-item.left {
 	justify-content: flex-start;
 }
@@ -173,7 +170,6 @@ export default defineComponent({
 	justify-content: flex-end;
 }
 
-/* 内容卡片容器 */
 .timeline-content {
 	width: calc(50% - 60px);
 	position: relative;
@@ -189,7 +185,6 @@ export default defineComponent({
 	text-align: left;
 }
 
-/* 节点标记 */
 .timeline-node {
 	position: absolute;
 	left: 50%;
@@ -214,24 +209,24 @@ export default defineComponent({
 }
 
 @media (min-width: 768px) {
-.node-dot:hover {
-	transform: scale(1.2);
-	background-color: @primary-light;
-}
-.content-card:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 15px 30px fade(@primary-dark, 20%);
-	border-color: @primary;
-}
-/* 左侧卡片悬停效果 */
-.left-content .content-card:hover {
-	transform: translateY(-5px) translateX(-3px);
-}
+	.node-dot:hover {
+		transform: scale(1.2);
+		background-color: @primary-light;
+	}
+	.content-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 15px 30px fade(@primary-dark, 20%);
+		border-color: @primary;
+	}
 
-/* 右侧卡片悬停效果 */
-.right-content .content-card:hover {
-	transform: translateY(-5px) translateX(3px);
-}
+	.left-content .content-card:hover {
+		transform: translateY(-5px) translateX(-3px);
+	}
+
+
+	.right-content .content-card:hover {
+		transform: translateY(-5px) translateX(3px);
+	}
 }
 .node-dot.future {
 	transform: translateY(-75%);
@@ -243,7 +238,6 @@ export default defineComponent({
 	color: @primary-dark;
 }
 
-/* 内容卡片样式 */
 .content-card {
 	background: linear-gradient(135deg, #ffffff 0%, @primary-bg 100%);
 	border: 1px solid @border-light;
@@ -258,7 +252,6 @@ export default defineComponent({
 	}
 }
 
-/* 连接线 - 从节点指向卡片 */
 .left-content .content-card::after {
 	content: '';
 	position: absolute;
@@ -295,7 +288,6 @@ export default defineComponent({
 	font-size: 1rem;
 }
 
-/* 日期标签 */
 .timeline-date-tag {
 	display: inline-block;
 	background-color: @primary;
@@ -318,7 +310,6 @@ export default defineComponent({
 	margin-right: 10px;
 }
 
-/* 未来项样式 */
 .future-item {
 	justify-content: center !important;
 }
@@ -339,23 +330,22 @@ export default defineComponent({
 }
 
 .future-card::after {
-	display: none; /* 未来项不显示连接线 */
+	display: none;
 }
 
 .future-card h3 {
 	color: @primary-dark;
 }
 
-/* 移动端响应式 - 修复连接线问题 */
 @media (max-width: 768px) {
 	.timeline-line-center {
-		left: 30px; /* 将主线移到左侧 */
+		left: 30px;
 		width: 3px;
 	}
 	
 	.timeline-item {
 		justify-content: flex-start !important;
-		margin-left: 50px;  /* 增加左边距，给节点留出空间 */
+		margin-left: 50px;
 		margin-bottom: 40px;
 		position: relative;
 		min-height: 100px;
@@ -367,10 +357,9 @@ export default defineComponent({
 		text-align: left !important;
 	}
 	
-	/* 节点位置调整 - 确保与主线对齐 */
 	.timeline-node {
 		left: 30px;
-		transform: translateX(-50%); /* 让节点中心与主线对齐 */
+		transform: translateX(-50%);
 		width: 40px;
 		height: 40px;
 	}
@@ -380,8 +369,7 @@ export default defineComponent({
 		height: 20px;
 		border-width: 3px;
 	}
-	
-	/* 修复连接线 - 确保从节点连接到卡片 */
+
 	.left-content .content-card::after,
 	.right-content .content-card::after {
 		content: '';
@@ -395,8 +383,7 @@ export default defineComponent({
 		border-radius: 3px;
 		z-index: 2;
 	}
-	
-	/* 确保卡片有足够的左边距，让连接线可见 */
+
 	.content-card {
 		margin-left: 5px;
 		padding: 18px 22px;
@@ -405,8 +392,7 @@ export default defineComponent({
 			transform: translateY(0%);
 		}
 	}
-	
-	/* 日期标签样式调整 */
+
 	.timeline-date-tag {
 		float: left !important;
 		margin: 0 0 10px 0 !important;
@@ -427,8 +413,7 @@ export default defineComponent({
 	.content-card p {
 		font-size: 0.95rem;
 	}
-	
-	/* 未来项在移动端的调整 */
+
 	.future-item {
 		margin-left: 50px;
 	}

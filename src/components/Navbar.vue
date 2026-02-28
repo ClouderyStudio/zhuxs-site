@@ -276,8 +276,6 @@ router.afterEach((to, from) => {
 	height: 40px;
 }
 
-/* Hamburger from https://apple.com */
-
 .hamburger {
 	cursor: pointer;
 	position: absolute;
