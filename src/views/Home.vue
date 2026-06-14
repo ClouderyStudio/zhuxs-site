@@ -20,7 +20,7 @@
             </div>
             <div class="stat-content">
               <div class="stat-label">当前周目</div>
-              <div class="stat-value">BT26-1</div>
+              <div class="stat-value">BT26-2</div>
             </div>
             <div class="stat-hover-effect"></div>
           </div>
@@ -30,7 +30,7 @@
             </div>
             <div class="stat-content">
               <div class="stat-label">游戏版本</div>
-              <div class="stat-value">1.21.1</div>
+              <div class="stat-value">26.1.2</div>
             </div>
             <div class="stat-hover-effect"></div>
           </div>
@@ -40,7 +40,7 @@
             </div>
             <div class="stat-content">
               <div class="stat-label">白名单</div>
-              <div class="stat-value">已启用</div>
+              <div class="stat-value">关闭</div>
             </div>
             <div class="stat-hover-effect"></div>
           </div>
@@ -65,7 +65,7 @@
                   :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/大千世界.svg'" draggable="false" />
               </div>
             </div>
-            <p class="section-subtitle">我们精心打造了每一个细节，只为提供最舒适的 Minecraft 多人游戏体验。</p>
+            <p class="section-subtitle">我们精心打造了每一个细节，只为提供最舒适的多人游戏体验</p>
           </div>
           <div class="cards-grid">
             <div class="feature-card card-large">
@@ -284,12 +284,8 @@
         </div>
       </section>
 
-      <!-- 优化后的当前周目信息区域 -->
       <section v-lazy="'https://a.cldery.com/d/oss/mcweb/assets/river_valley.png'"
-        class="mod-information-wrapper darken-3 blur" :class="{
-          'common-background': !isMobile(),
-          'darken-background': isMobile()
-        }">
+        class="mod-information-wrapper darken-3 blur common-background darken-background">
         <div class="container">
           <div class="mod-card-enhanced">
             <div class="mod-header">
@@ -403,7 +399,7 @@ export default defineComponent({
     };
 
     const getDuration = () => {
-      const startDate = new Date('2026-02-10 00:00').getTime();
+      const startDate = new Date('2026-06-10 00:00').getTime();
       const now = new Date().getTime();
       const diffMs = now - startDate;
 
@@ -1121,10 +1117,11 @@ export default defineComponent({
   font-size: 2.5rem;
   gap: 2rem;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 550px) {
     gap: 1rem;
     font-size: 1.5rem;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -1515,7 +1512,7 @@ export default defineComponent({
   gap: 1.5rem;
   grid-auto-rows: auto;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 800px) {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
@@ -1547,7 +1544,7 @@ export default defineComponent({
   display: flex;
   align-items: center;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 800px) {
     grid-column: span 1;
     min-height: 350px;
   }
@@ -1569,7 +1566,7 @@ export default defineComponent({
       inset: 0;
       background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
 
-      @media (max-width: 1000px) {
+      @media (max-width: 800px) {
         background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.8) 100%);
       }
     }
@@ -1585,7 +1582,7 @@ export default defineComponent({
     padding: 2rem;
     max-width: 70%;
 
-    @media (max-width: 1000px) {
+    @media (max-width: 800px) {
       max-width: 100%;
       padding: 1.5rem;
     }
@@ -1672,7 +1669,7 @@ export default defineComponent({
   position: relative;
   overflow: hidden;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 800px) {
     grid-column: span 1;
   }
 
@@ -1692,10 +1689,6 @@ export default defineComponent({
       position: absolute;
       inset: 0;
       background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 100%);
-
-      @media (max-width: 1000px) {
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.85) 100%);
-      }
     }
   }
 
