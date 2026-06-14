@@ -1,6 +1,6 @@
 <template>
   <div page>
-    <banner bg="/assets/home-bg.png" fullscreen>
+    <banner bg="https://a.cldery.com/d/oss/mcweb/assets/home-bg.png" fullscreen>
       <template #announcement>
         公告: 本服务器当前白名单已关闭
       </template>
@@ -11,22 +11,22 @@
         <div class="big-title">从头到脚都是不一样的感觉</div>
       </template>
       <template #text>
-        在竹像素，你能够参与到游戏的整个流程。<br/>
+        在竹像素，你能够参与到游戏的整个流程。<br />
         从周目的建立，到持续的耕耘，再到最终的「周目评定」······
-        <br/>
+        <br />
         在这里探索的你所留下的痕迹，亦将永存于宇宙千垣之间。
-        <br/>
+        <br />
         <div class="simple-info">
           <div class="item">
-            <mdicon name="alpha-n-box-outline"/>
+            <mdicon name="alpha-n-box-outline" />
             <span><span class="no-mobile">当前周目</span> BT26-1</span>
           </div>
           <div class="item">
-            <mdicon name="minecraft"/>
+            <mdicon name="minecraft" />
             <span><span class="no-mobile">游戏版本</span> 1.21.1</span>
           </div>
           <div class="item">
-            <mdicon name="information-outline"/>
+            <mdicon name="information-outline" />
             <span>白名单<span class="no-mobile">启用</span></span>
           </div>
         </div>
@@ -34,20 +34,19 @@
       <template #buttons>
         <btn class="join-btn" type="primary-a shadow arrow" size="large" icon="arrow-right" to="/join">立即加入</btn>
         <btn href="https://doc.cldery.com/game/mc/" class="learnmore-btn" type="outlined shadow hover-light"
-             size="large">阅读文档
+          size="large">阅读文档
         </btn>
       </template>
     </banner>
     <div class="sections">
-      <section v-lazy="'/assets/slimefun-base.png'"
-               class="common-background darken-background darken-3">
+      <section v-lazy="'https://a.cldery.com/d/oss/mcweb/assets/slimefun-base.png'"
+        class="common-background darken-background darken-3">
         <div class="container">
           <div class="title-text">
             <div>
               <div>带你一步步领略 Minecraft 的</div>
-              <img class="title-img-1"
-                   :src="'/assets/handwriting/大千世界.svg'"
-                   draggable="false"/>
+              <img class="title-img-1" :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/大千世界.svg'"
+                draggable="false" />
             </div>
           </div>
           <div class="typo light section-1-text-1">
@@ -69,26 +68,24 @@
           </div>
         </div>
       </section>
-      <section class="with-video-background" v-lazy="'/assets/moon-on-the-sea.png'"">
-        <video ref="moonvideo" id="moon-video" muted loop>
-          <source :src="'/assets/moon.mp4'" type="video/mp4"/>
+      <section class="with-video-background" v-lazy="'https://a.cldery.com/d/oss/mcweb/assets/moon-on-the-sea.png'"">
+        <video ref=" moonvideo" id="moon-video" muted loop>
+        <source :src="'https://a.cldery.com/d/oss/mcweb/assets/moon.mp4'" type="video/mp4" />
         </video>
         <div class="container">
           <div class="title-text" style="justify-content: center;">
             <div style="align-items: center">不太一样的<img class="title-img-2"
-                                                            :src="'/assets/handwriting/周目制.svg'"
-                                                            draggable="false"/></div>
+                :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/周目制.svg'" draggable="false" /></div>
           </div>
           <section class="term-feats">
             <div class="feat">
               <div class="top">
                 <div class="icon">
-                  <img style="transform: scale(1.1)"
-                       :src="'/assets/votes.png'"/>
+                  <img style="transform: scale(1.1)" :src="'https://a.cldery.com/d/oss/mcweb/assets/votes.png'" />
                 </div>
                 <div class="title">
                   <img style="transform: translateY(10px)"
-                       :src="'/assets/handwriting/投票.svg'"/>
+                    :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/投票.svg'" />
                 </div>
               </div>
               <div class="down">
@@ -106,12 +103,11 @@
             <div class="feat">
               <div class="top">
                 <div class="icon">
-                  <img style="transform: scale(0.9)"
-                       :src="'/assets/write.png'"/>
+                  <img style="transform: scale(0.9)" :src="'https://a.cldery.com/d/oss/mcweb/assets/write.png'" />
                 </div>
                 <div class="title">
                   <img style="transform: translateY(10px)"
-                       :src="'/assets/handwriting/记录.svg'"/>
+                    :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/记录.svg'" />
                 </div>
               </div>
               <div class="down">
@@ -129,12 +125,11 @@
             <div class="feat">
               <div class="top">
                 <div class="icon">
-                  <img style="transform: scale(1.1)"
-                       :src="'/assets/review.png'"/>
+                  <img style="transform: scale(1.1)" :src="'https://a.cldery.com/d/oss/mcweb/assets/review.png'" />
                 </div>
                 <div class="title">
                   <img style="transform: translateY(25px)"
-                       :src="'/assets/handwriting/评价.svg'"/>
+                    :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/评价.svg'" />
                 </div>
               </div>
               <div class="down">
@@ -143,45 +138,44 @@
                     <strong>Minecraft 之多元，带来玩法搭配之复杂。</strong>每个周目之后，我们都会提供专用的渠道来获取本周目游玩体验的信息。
                   </p>
                   <p>
-                    这些玩法的搭配合理吗？所用的插件、数据包或模组是否真正符合了周目主题？稳定吗？<strong>或者...最为简单的——玩得开心吗？</strong>还是肝到爆了？！这些评价维度会成为每个周目的独特象征，同时大大帮助我们后续做得更好。更重要的是，这亦是你在竹像素留下的宝贵痕迹。</p>
+                    这些玩法的搭配合理吗？所用的插件、数据包或模组是否真正符合了周目主题？稳定吗？<strong>或者...最为简单的——玩得开心吗？</strong>还是肝到爆了？！这些评价维度会成为每个周目的独特象征，同时大大帮助我们后续做得更好。更重要的是，这亦是你在竹像素留下的宝贵痕迹。
+                  </p>
                 </div>
               </div>
             </div>
           </section>
         </div>
       </section>
-      <section v-lazy="'/assets/comet.jpg'"
-               class="common-background darken-background darken-2">
+      <section v-lazy="'https://a.cldery.com/d/oss/mcweb/assets/comet.jpg'"
+        class="common-background darken-background darken-2">
         <div class="container">
           <div class="title-text">
-            <div><img class="title-img-3"
-                      :src="'/assets/handwriting/强劲性能.svg'"
-                      draggable="false"/>轻轻松松完成「星际穿越」
+            <div><img class="title-img-3" :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/强劲性能.svg'"
+                draggable="false" />轻轻松松完成「星际穿越」
             </div>
           </div>
           <div class="performance-information">
             <div class="item">
-              <img class="performance-img"
-                   :src="'/assets/core-i9.svg'" draggable="false"/>
+              <img class="performance-img" :src="'https://a.cldery.com/d/oss/mcweb/assets/core-i9.svg'"
+                draggable="false" />
               <div>Gen 14</div>
               <div class="name">处理器</div>
             </div>
             <div class="item">
-              <img class="performance-img" :src="'/assets/ddr4.svg'"
-                   draggable="false"/>
+              <img class="performance-img" :src="'https://a.cldery.com/d/oss/mcweb/assets/ddr4.svg'"
+                draggable="false" />
               <div>12 GB</div>
               <div class="name">分配内存</div>
             </div>
             <div class="item">
-              <img class="performance-img"
-                   :src="'/assets/earth.png'"
-                   draggable="false"/>
+              <img class="performance-img" :src="'https://a.cldery.com/d/oss/mcweb/assets/earth.png'"
+                draggable="false" />
               <div>25M</div>
               <div class="name">峰值带宽</div>
             </div>
             <div class="item">
-              <img class="performance-img"
-                   :src="'/assets/ti-cube.png'" draggable="false"/>
+              <img class="performance-img" :src="'https://a.cldery.com/d/oss/mcweb/assets/ti-cube.png'"
+                draggable="false" />
               <div>1 TB</div>
               <div class="name">存储空间</div>
             </div>
@@ -189,15 +183,15 @@
         </div>
       </section>
 
-      <section v-lazy="'/assets/images/1.jpg'"
-               class="common-background darken-background darken-2">
+      <section v-lazy="'https://a.cldery.com/d/oss/mcweb/assets/images/1.jpg'"
+        class="common-background darken-background darken-2">
         <div class="container">
           <div>
             <div><img v-if="!isMobile()" class="title-img-4"
-                      :src="'/assets/handwriting/欢迎，新船员.svg'"
-                      draggable="false"/>
-              <img v-else class="title-img-4-mobile" :src="'/assets/handwriting/欢迎，新船员.m.svg'"
-                   draggable="false"/></div>
+                :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/欢迎，新船员.svg'" draggable="false" />
+              <img v-else class="title-img-4-mobile"
+                :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/欢迎，新船员.m.svg'" draggable="false" />
+            </div>
           </div>
           <div class="welcome">
             <div class="welcome-text typo light">
@@ -206,16 +200,17 @@
               <p><strong>单击按钮可加入我们的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
             </div>
             <div class="welcome-btns">
-              <btn class="primary-a shadow arrow" href="https://qm.qq.com/q/ZqrVw1ePU6" size="large" icon="arrow-right">立即加入竹像素讨论群</btn>
+              <btn class="primary-a shadow arrow" href="https://qm.qq.com/q/ZqrVw1ePU6" size="large" icon="arrow-right">
+                立即加入竹像素讨论群</btn>
             </div>
           </div>
         </div>
       </section>
-      <section v-lazy="'/assets/images/3.jpg'"
-               class="mod-information darken-3 blur" :class="{
-        'common-background': !isMobile(),
-        'darken-background': isMobile()
-               }">
+      <section v-lazy="'https://a.cldery.com/d/oss/mcweb/assets/images/3.jpg'" class="mod-information darken-3 blur"
+        :class="{
+          'common-background': !isMobile(),
+          'darken-background': isMobile()
+        }">
         <div class="container">
           <div class="mod-card">
             <div class="title">当前周目信息 - 2026/2/13 更新</div>
@@ -258,7 +253,7 @@ export default defineComponent({
     const serverExists = ref(false);
     const duration = ref('');
     const moonvideo = ref();
-    
+
     // 使用 number 类型
     let interval: number | null = null;
 
@@ -304,26 +299,26 @@ export default defineComponent({
       const startDate = new Date('2026-02-10 00:00').getTime();
       const now = new Date().getTime();
       const diffMs = now - startDate;
-      
+
       // 确保时间不为负数
       if (diffMs < 0) {
         return '00:00:00';
       }
-      
+
       const totalSeconds = Math.floor(diffMs / 1000);
       const hours = Math.floor(totalSeconds / 3600);
       const minutes = Math.floor((totalSeconds % 3600) / 60);
       const seconds = totalSeconds % 60;
-      
+
       const pad = (num: number) => num.toString().padStart(2, '0');
-      
+
       return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
     };
 
     onMounted(() => {
       // 立即执行一次
       duration.value = getDuration();
-      
+
       // 设置定时器
       interval = window.setInterval(() => {
         duration.value = getDuration();
@@ -356,7 +351,6 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-
 .background-darkener::before {
   content: " ";
   display: block;
@@ -464,7 +458,7 @@ export default defineComponent({
 }
 
 .container {
-  > h1 {
+  >h1 {
     color: @textgray;
   }
 
@@ -545,8 +539,8 @@ export default defineComponent({
 
       @media (max-width: 1200px) {
 
-        > svg:first-child,
-        > svg:last-child {
+        >svg:first-child,
+        >svg:last-child {
           display: none;
         }
       }
@@ -657,15 +651,15 @@ export default defineComponent({
   }
 
   &.stroke-1::after {
-    background: url(https://oss.cldery.com/assets/stroke.svg) no-repeat;
+    background: url(https://oss.cldery.comhttps://a.cldery.com/d/oss/mcweb/assets/stroke.svg) no-repeat;
   }
 
   &.stroke-2::after {
-    background: url(https://oss.cldery.com/assets/stroke2.svg) no-repeat;
+    background: url(https://oss.cldery.comhttps://a.cldery.com/d/oss/mcweb/assets/stroke2.svg) no-repeat;
   }
 
   &.stroke-3::after {
-    background: url(https://oss.cldery.com/assets/stroke3.svg) no-repeat;
+    background: url(https://oss.cldery.comhttps://a.cldery.com/d/oss/mcweb/assets/stroke3.svg) no-repeat;
   }
 }
 
@@ -917,6 +911,7 @@ export default defineComponent({
     max-width: 800px;
     padding: 2rem 3rem;
     font-size: 1.5rem;
+
     @media (max-width: 1000px) {
       padding: 1.5rem;
       font-size: 1.2rem;

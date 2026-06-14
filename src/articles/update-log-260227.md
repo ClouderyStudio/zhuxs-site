@@ -2,7 +2,7 @@
 title: 竹像素官网正式升级至 Vue 3！🚀
 subtitle: 一次里程碑式的技术跨越
 description: 历经数月精心打磨，竹像素官网现已从 Vue 2 全面升级至 Vue 3。体验更流畅、安全性更高，那些困扰我们的陈年 Bugs 终于说再见啦！
-banner: /assets/images/10.png
+banner: https://a.cldery.com/d/oss/mcweb/assets/images/10.png
 published: 2026-02-27
 tags: [网站更新, 技术升级, Vue3]
 category: 平台动态
@@ -27,4 +27,5 @@ draft: false
 感谢大家一直以来的支持与陪伴~ ❤️
 
 ---
-*有任何建议或发现了新的小问题？欢迎随时联系我们！*
+
+_有任何建议或发现了新的小问题？欢迎随时联系我们！_

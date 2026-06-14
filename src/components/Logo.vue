@@ -1,6 +1,6 @@
 <template>
 	<div class="logo">
-		<img class="img" src="/assets/logo.png" alt="logo" />
+		<img class="img" src="https://a.cldery.com/d/oss/mcweb/assets/logo.png" alt="logo" />
 	</div>
 </template>
 
@@ -60,6 +60,7 @@
 				width: 200px;
 			}
 		}
+
 		@media screen and (max-width: 1000px) {
 			.img {
 				width: 100px;

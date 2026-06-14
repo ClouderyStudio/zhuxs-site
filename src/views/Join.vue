@@ -1,6 +1,6 @@
 <template>
 	<div page>
-		<banner :bg="'/assets/images/2.jpg'">
+		<banner :bg="'https://a.cldery.com/d/oss/mcweb/assets/images/2.jpg'">
 			<template #title> 加入竹像素</template>
 			<template #subtitle> 立即开始 </template>
 			<template #text> 要获取竹像素的白名单，需要完成问卷。<br />不过，问卷的问题都非常简单，基本不用担心无法通过 </template>
@@ -8,12 +8,16 @@
 		<div class="container">
 			<div class="join content">
 				<h1 class="primary-text">立即加入 竹像素</h1>
-				<p class="typo"><strong>加入 QQ 交流群</strong>&emsp;我们的交流与讨论主要在 QQ 群内进行，我们强烈建议你加入~在这里你可以获取到第一手信息，获取帮助，并且可以参与到每周目的投票过程中。单击下方加群按钮可快速入群，或者搜索群号 806901461 亦可入群。<em>提示：入群不需要白名单。</em></p>
-				<p class="typo"><strong>获取竹像素白名单</strong>&emsp;若要开始游玩，需要获取竹像素的白名单。要获取白名单，请前往问卷网填写问卷并等待人工审核，稍后通过邮件或者群内询问管理员的方式得到结果。单击问卷网按钮可前往问卷填写页面。</p>
+				<p class="typo"><strong>加入 QQ 交流群</strong>&emsp;我们的交流与讨论主要在 QQ
+					群内进行，我们强烈建议你加入~在这里你可以获取到第一手信息，获取帮助，并且可以参与到每周目的投票过程中。单击下方加群按钮可快速入群，或者搜索群号 806901461
+					亦可入群。<em>提示：入群不需要白名单。</em></p>
+				<p class="typo">
+					<strong>获取竹像素白名单</strong>&emsp;若要开始游玩，需要获取竹像素的白名单。要获取白名单，请前往问卷网填写问卷并等待人工审核，稍后通过邮件或者群内询问管理员的方式得到结果。单击问卷网按钮可前往问卷填写页面。
+				</p>
 				<div class="join-cards">
 					<a class="join-card qq" href="https://qm.qq.com/q/ZqrVw1ePU6" target="_blank">
 						<mdicon name="arrow-right" />
-						<img src="/assets/tencent-qq.svg" />
+						<img src="https://a.cldery.com/d/oss/mcweb/assets/tencent-qq.svg" />
 						<div class="text">
 							<h1>QQ 讨论群</h1>
 							<h2>点击加入，或搜索群号 806901461</h2>
@@ -21,7 +25,7 @@
 					</a>
 					<a class="join-card wenjuan" href="https://wj.qq.com/s2/14159519/c419/" target="_blank">
 						<mdicon name="arrow-right" />
-						<img src="/assets/votes.png" />
+						<img src="https://a.cldery.com/d/oss/mcweb/assets/votes.png" />
 						<div class="text">
 							<h1>白名单获取</h1>
 							<h2>点击前往腾讯问卷，填写竹像素玩家入服问卷以获取白名单</h2>
@@ -30,8 +34,9 @@
 				</div>
 				<p class="typo">加入以后，请先认真阅读<strong>置顶群公告</strong>中的内容，这将指导你进行下一步操作。</p>
 				<p class="typo">
-					如果你对服务器玩法有些生疏、不知道如何开始，或者有其它问题，你可以选择在<strong>群聊里询问</strong>或者阅读我们编写的<strong><a target="_blank" href="https://doc.cldery.com/game/mc">知识库</a></strong
-					>，上面归纳了大家觉得有用的要点，这本书由所有人一起编写，为了让你更快地解决问题 :)
+					如果你对服务器玩法有些生疏、不知道如何开始，或者有其它问题，你可以选择在<strong>群聊里询问</strong>或者阅读我们编写的<strong><a target="_blank"
+							href="https://doc.cldery.com/game/mc">知识库</a></strong>，上面归纳了大家觉得有用的要点，这本书由所有人一起编写，为了让你更快地解决问题
+					:)
 				</p>
 			</div>
 		</div>
@@ -60,6 +65,7 @@ export default defineComponent({
 		margin: 16px 0;
 		display: flex;
 		align-items: stretch;
+
 		@media (max-width: 1000px) {
 			flex-direction: column;
 		}
@@ -68,6 +74,7 @@ export default defineComponent({
 			@media (min-width: 1000px) {
 				width: 50%;
 			}
+
 			@media (max-width: 1000px) {
 				margin: 8px 0;
 			}
@@ -84,6 +91,7 @@ export default defineComponent({
 		display: block;
 		margin: auto;
 	}
+
 	margin-bottom: 64px;
 	text-align: center;
 }
@@ -91,9 +99,11 @@ export default defineComponent({
 .features {
 	.feature-box {
 		display: flex;
+
 		@media (min-width: 1000px) {
 			align-items: stretch;
 		}
+
 		@media (max-width: 1000px) {
 			flex-direction: column;
 		}
@@ -109,9 +119,11 @@ export default defineComponent({
 			width: 33.333%;
 			margin: 0 8px;
 		}
+
 		@media (max-width: 1000px) {
 			margin: 8px 0;
 		}
+
 		text-shadow: @shadowlightx;
 		box-shadow: @shadowlightx;
 
@@ -121,6 +133,7 @@ export default defineComponent({
 
 		&.primary {
 			background: @primaryg;
+
 			p {
 				color: @textlightgray;
 			}
@@ -134,17 +147,21 @@ export default defineComponent({
 				color: transparent;
 				display: inline-block;
 			}
+
 			p {
 				color: @textlightgray;
+
 				strong {
 					color: @textgray;
 				}
 			}
+
 			.mdi {
 				svg {
 					fill: @textgray;
 				}
 			}
+
 			span {
 				color: @textgray;
 			}
@@ -153,9 +170,11 @@ export default defineComponent({
 		&:first-child {
 			margin-left: 0;
 		}
+
 		&:last-child {
 			margin-right: 0;
 		}
+
 		border-radius: 12px;
 		color: white;
 		padding: 32px;
@@ -170,7 +189,9 @@ export default defineComponent({
 			font-size: 18px;
 			z-index: 2;
 		}
+
 		overflow: hidden;
+
 		.mdi {
 			opacity: 0.4;
 			position: absolute;
@@ -191,13 +212,14 @@ export default defineComponent({
 			}
 		}
 
-		> span:not(.mdi) {
+		>span:not(.mdi) {
 			.monospace;
 			position: absolute;
 			opacity: 0.3;
 			right: 32px;
 			top: 32px;
 		}
+
 		opacity: 0;
 	}
 }

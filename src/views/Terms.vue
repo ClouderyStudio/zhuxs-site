@@ -1,17 +1,16 @@
 <template>
 	<div page>
-		<banner bg="/assets/images/11.png">
+		<banner bg="https://a.cldery.com/d/oss/mcweb/assets/images/11.png">
 			<template #title>周目信息与资源中心</template>
 			<template #subtitle>记录 & 下载</template>
-			<template #text>在此查看自 BT4 开始的每个周目的相关介绍和详细信息<br/>当资源可用时，此页面也会提供相应的下载链接
+			<template #text>在此查看自 BT4 开始的每个周目的相关介绍和详细信息<br />当资源可用时，此页面也会提供相应的下载链接
 			</template>
 		</banner>
 		<div v-if="loading">加载中...</div>
-    	<div v-else-if="error" class="error">{{ error }}</div>
+		<div v-else-if="error" class="error">{{ error }}</div>
 		<div class="terms-outer">
 			<div class="term-box">
-				<div class="term"
-					v-for="item in [...termList].reverse()" :key="item.id">
+				<div class="term" v-for="item in [...termList].reverse()" :key="item.id">
 					<div class="number-block" :class="`bt${item.id}`">
 						{{ item.id }}
 					</div>
@@ -30,41 +29,41 @@
 						</div>
 						<div class="meta" :class="`bt${item.id}`">
 							<span>
-								<mdicon name="minecraft"/>{{ !isMobile() ? '游戏版本' : '' }} {{
-								item.information.version
+								<mdicon name="minecraft" />{{ !isMobile() ? '游戏版本' : '' }} {{
+									item.information.version
 								}}
 							</span>
 							·
 							<span>
-								<mdicon name="wrench"/>{{
-								!isMobile() ? '插件/模组数量' : ''
+								<mdicon name="wrench" />{{
+									!isMobile() ? '插件/模组数量' : ''
 								}} {{ item.information.modcount }}
 							</span>
 							·
 							<span>
-								<mdicon name="account-group"/>{{ !isMobile() ? '有效玩家' : '' }} {{
-								item.information.playercount ?
-									item.information.playercount
-									: '-'
+								<mdicon name="account-group" />{{ !isMobile() ? '有效玩家' : '' }} {{
+									item.information.playercount ?
+										item.information.playercount
+										: '-'
 								}}
 							</span>
 						</div>
 						<div class="description-and-downloads">
 							<div class="downloads" :class="`bt${item.id}`" v-if="item.files.length > 0">
 								<a v-for="y in item.files" target="_blank"
-								:href="`https://dl.cldery.com/yd/mc/resources/BT${item.id}/${y.filename}`">
-									<mdicon :name="getIcon(y.filename)"/>
+									:href="`https://dl.cldery.com/yd/mc/resources/BT${item.id}/${y.filename}`">
+									<mdicon :name="getIcon(y.filename)" />
 									下载{{ getFileNameCN(y.filename) }} .{{
-									getFormat(y.filename)
+										getFormat(y.filename)
 									}} <span v-if="!isMobile()" style="opacity: .6;">- {{ y.size }}{{
-									getUnit(y.unit)
+										getUnit(y.unit)
 									}}</span>
 								</a>
 							</div>
 							<div class="downloads" v-else>
 								<a class="disabled">暂无可用下载</a>
 							</div>
-							<div class="description" v-html="item.description"/>
+							<div class="description" v-html="item.description" />
 						</div>
 					</div>
 				</div>
@@ -80,78 +79,78 @@ import Banner from '@/components/Banner.vue';
 import { isMobile } from '@/fn';
 
 interface TermItem {
-    id: string;
-    recordDate?: string;
-    description?: string;
-    information: {
-        name: string;
-        version: string;
-        from: string;
-        to?: string;
-        modcount: number;
-        playercount?: number;
-    };
-    files: TermFile[];
+	id: string;
+	recordDate?: string;
+	description?: string;
+	information: {
+		name: string;
+		version: string;
+		from: string;
+		to?: string;
+		modcount: number;
+		playercount?: number;
+	};
+	files: TermFile[];
 }
 
 interface TermFile {
-    filename: string;
-    size: number;
-    unit: 'g' | 'm' | 'k';
+	filename: string;
+	size: number;
+	unit: 'g' | 'm' | 'k';
 }
 
 type TermList = TermItem[];
 
 export default defineComponent({
-  components: { Banner },
-  setup() {
-    const state = {
-		termList: ref<TermItem[]>([]),
-		loading: ref(true),
-		error: ref<string | null>(null),
-		isMobile,
-		getDuration(from: string, to?: string) {
-			return (((to ? new Date(to).getTime() : new Date().getTime()) - new Date(from).getTime()) / 1000 / 3600 / 24).toFixed(0);
-		},
-		getFileNameCN(filename: string) {
-			if (filename.includes('模组包')) return '模组包'
-			if (filename.includes('存档')) return '存档'
-			if (filename.includes('数据包')) return '数据包'
-			if (filename.includes('整合包')) return '整合包'
-			return ''
-		},
-		getUnit(u: 'g' | 'm' | 'k') {
-			return {
-				'g': 'GiB',
-				'm': 'MiB',
-				'k': 'KiB'
-			}[u];
-		},
-		getFormat(name: string) {
-			const splitted = name.split('.');
-			return splitted[splitted.length - 1];
-		},
-		getIcon(name: string) {
-			if (name.includes('模组包') || name.includes('数据包')) return 'cog';
-			if (name.includes('存档')) return 'earth';
-			if (name.includes('整合包')) return 'package-variant';
-			return 'question-outline'
-		}
-    };
+	components: { Banner },
+	setup() {
+		const state = {
+			termList: ref<TermItem[]>([]),
+			loading: ref(true),
+			error: ref<string | null>(null),
+			isMobile,
+			getDuration(from: string, to?: string) {
+				return (((to ? new Date(to).getTime() : new Date().getTime()) - new Date(from).getTime()) / 1000 / 3600 / 24).toFixed(0);
+			},
+			getFileNameCN(filename: string) {
+				if (filename.includes('模组包')) return '模组包'
+				if (filename.includes('存档')) return '存档'
+				if (filename.includes('数据包')) return '数据包'
+				if (filename.includes('整合包')) return '整合包'
+				return ''
+			},
+			getUnit(u: 'g' | 'm' | 'k') {
+				return {
+					'g': 'GiB',
+					'm': 'MiB',
+					'k': 'KiB'
+				}[u];
+			},
+			getFormat(name: string) {
+				const splitted = name.split('.');
+				return splitted[splitted.length - 1];
+			},
+			getIcon(name: string) {
+				if (name.includes('模组包') || name.includes('数据包')) return 'cog';
+				if (name.includes('存档')) return 'earth';
+				if (name.includes('整合包')) return 'package-variant';
+				return 'question-outline'
+			}
+		};
 
-    onMounted(async () => {
-      try {
-        const response = await axios.get("https://api.cldery.com/zhuxs/terms");
-        state.termList.value = response.data as TermList;
-      } catch (err) {
-        state.error.value = "数据加载失败"+err;
-      } finally {
-        state.loading.value = false;
-      }
-    });
+		onMounted(async () => {
+			try {
+				const response = await axios.get("https://api.cldery.com/zhuxs/terms");
+				state.termList.value = response.data as TermList;
+			} catch (err) {
+				state.error.value = "数据加载失败" + err;
+			} finally {
+				state.loading.value = false;
+			}
+		});
 
-    return state;
-  }
+		return state;
+	}
 });
 </script>
 
@@ -187,16 +186,19 @@ export default defineComponent({
 	align-items: center;
 	justify-content: center;
 	font-size: 10rem;
-	font-family: HighwayGothic, sans-serif;
+	font-family: HighwayGothic,
+	sans-serif;
 	color: white;
 	font-stretch: normal;
 
 	&.bt5 {
 		background: @theme-bt5;
 	}
+
 	&.btI {
 		background: @theme-btI;
 	}
+
 	&.btII {
 		background: @theme-btII;
 	}
@@ -223,49 +225,51 @@ export default defineComponent({
 }
 
 .downloads {
-    display: flex;
-    align-items: flex-start;
-    width: 30%;
-    flex-direction: column;
-    gap: .5rem;
+	display: flex;
+	align-items: flex-start;
+	width: 30%;
+	flex-direction: column;
+	gap: .5rem;
 
-    @media (max-width: 900px) {
-        width: 100%;
-    }
+	@media (max-width: 900px) {
+		width: 100%;
+	}
 
-    a {
-        color: white;
-        display: flex;
-        align-items: center;
-        gap: .5rem;
-        padding: .5rem 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-        min-height: 30px;
-        box-shadow: 0 3px 0 rgba(0, 0, 0, .1);
-        transition: all .2s ease;
-        white-space: nowrap;
-        overflow-x: auto;
-        overflow-y: hidden;
+	a {
+		color: white;
+		display: flex;
+		align-items: center;
+		gap: .5rem;
+		padding: .5rem 1rem;
+		border-radius: 5px;
+		cursor: pointer;
+		min-height: 30px;
+		box-shadow: 0 3px 0 rgba(0, 0, 0, .1);
+		transition: all .2s ease;
+		white-space: nowrap;
+		overflow-x: auto;
+		overflow-y: hidden;
 
-        &.disabled {
-            background: #aaa;
-            text-align: center;
-            cursor: not-allowed;
-        }
+		&.disabled {
+			background: #aaa;
+			text-align: center;
+			cursor: not-allowed;
+		}
 
-        &:hover {
-            transform: translateX(4px);
-            box-shadow: none;
-        }
-    }
+		&:hover {
+			transform: translateX(4px);
+			box-shadow: none;
+		}
+	}
 
 	&.bt5 a {
 		background: @theme-bt5
 	}
+
 	&.btI a {
 		background: @theme-btI
 	}
+
 	&.btII a {
 		background: @theme-btII
 	}
@@ -275,9 +279,11 @@ export default defineComponent({
 	&.bt5 svg {
 		fill: @theme-bt5;
 	}
+
 	&.btI svg {
 		fill: @theme-btI;
 	}
+
 	&.btII svg {
 		fill: @theme-btII;
 	}
@@ -296,9 +302,11 @@ export default defineComponent({
 	&.bt5 {
 		background: rgba(@theme-bt5, .2);
 	}
+
 	&.btI {
 		background: rgba(@theme-btI, .2);
 	}
+
 	&.btII {
 		background: rgba(@theme-btII, .2);
 	}
@@ -348,4 +356,5 @@ export default defineComponent({
 			margin-right: .25rem;
 		}
 	}
-}</style>
+}
+</style>

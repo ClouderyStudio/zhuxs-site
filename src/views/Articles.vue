@@ -1,6 +1,6 @@
 <template>
   <div page>
-    <banner bg="/assets/images/12.png">
+    <banner bg="https://a.cldery.com/d/oss/mcweb/assets/images/12.png">
       <template #title>所有文章</template>
       <template #subtitle>按发布时间排序</template>
       <template #text>点击文章标题查看详情</template>
@@ -97,10 +97,35 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-.articles-list { max-width: 880px; margin: 24px auto; }
-.article-item { padding: 16px 0; border-bottom: 1px solid #eee; }
-.article-item h3 { margin: 0 0 8px; }
-.meta { color: #888; font-size: 0.9em; margin-bottom: 8px; }
-.desc { color: #555; margin: 0; }
-.loading, .empty { text-align: center; padding: 40px; color: #999; }
+.articles-list {
+  max-width: 880px;
+  margin: 24px auto;
+}
+
+.article-item {
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.article-item h3 {
+  margin: 0 0 8px;
+}
+
+.meta {
+  color: #888;
+  font-size: 0.9em;
+  margin-bottom: 8px;
+}
+
+.desc {
+  color: #555;
+  margin: 0;
+}
+
+.loading,
+.empty {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+}
 </style>

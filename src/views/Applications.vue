@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <banner bg="/assets/images/say-bg.jpg">
+        <banner bg="https://a.cldery.com/d/oss/mcweb/assets/images/say-bg.jpg">
             <template #title>审核结果及玩家列表</template>
             <template #subtitle>获取白名单</template>
             <template #text>此处列出了自 BT5 起各个周目的审核结果，以及参与周目游戏的玩家列表</template>
@@ -56,12 +56,15 @@
                     <h1 class="primary-text">BT{{ x.number }}</h1>
                     <div class="appl-cards">
                         <div class="appl-card" v-for="(y, k) in x.applications" :key="y.id">
-                            <div class="appl-no"><span class="serif italic">Ticket</span> #{{ x.applications.length - k }}</div>
+                            <div class="appl-no"><span class="serif italic">Ticket</span> #{{ x.applications.length - k
+                                }}</div>
                             <div class="appl-id">
                                 {{ y.id }}
                             </div>
                             <div class="appl-ticket-detail" v-if="y.passed">
-                                <span class="serif"><span class="italic">Certified</span> ticket for BambooPixel </span> BT{{ x.number }}
+                                <span class="serif"><span class="italic">Certified</span> ticket for BambooPixel </span>
+                                BT{{
+                                x.number }}
                             </div>
                             <div class="appl-status" :class="y.passed ? 'passed' : 'not-passed'">
                                 <mdicon :name="y.passed ? 'check' : 'close'" />
@@ -138,7 +141,7 @@ async function fetchApplications() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const applications5 = await response.json();
-        
+
         // 更新terms数据
         terms.value = [
             {

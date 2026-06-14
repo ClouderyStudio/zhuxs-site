@@ -1,16 +1,15 @@
 <template>
 	<div page>
-		<banner bg="/assets/images/6.jpg">
+		<banner bg="https://a.cldery.com/d/oss/mcweb/assets/images/6.jpg">
 			<template #title>关于竹像素</template>
 			<template #subtitle>了解更多</template>
-			<template #text
-				>在这里了解有关竹像素本身以及此网站的内容<br
-			/></template>
+			<template #text>在这里了解有关竹像素本身以及此网站的内容<br /></template>
 		</banner>
 		<div class="container content">
 			<h1 class="primary-text">关于我们</h1>
 			<p class="typo">
-				<strong>竹像素</strong>是一个基于 Minecraft 的多人游戏服务器，旨在为玩家提供一个友好、开放和有趣的游戏环境。我们欢迎所有热爱 Minecraft 的玩家加入我们的社区，无论你是新手还是老玩家。
+				<strong>竹像素</strong>是一个基于 Minecraft 的多人游戏服务器，旨在为玩家提供一个友好、开放和有趣的游戏环境。我们欢迎所有热爱 Minecraft
+				的玩家加入我们的社区，无论你是新手还是老玩家。
 			</p>
 			<p class="typo">
 				本网站旨在为玩家提供有关竹像素的信息，包括服务器规则、加入方式、常见问题解答等。我们希望通过这个平台，让更多的玩家了解并参与到竹像素的世界中来。
@@ -27,24 +26,26 @@
 			<div class="timeline">
 				<!-- 中间主线 -->
 				<div class="timeline-line-center"></div>
-				
+
 				<div class="timeline-items">
-					<div class="timeline-item" v-for="(item, index) in historyEvents" :key="index" :class="{'left': index % 2 === 0, 'right': index % 2 !== 0}">
+					<div class="timeline-item" v-for="(item, index) in historyEvents" :key="index"
+						:class="{ 'left': index % 2 === 0, 'right': index % 2 !== 0 }">
 						<!-- 左侧内容 -->
-						<div class="timeline-content" :class="{'left-content': index % 2 === 0, 'right-content': index % 2 !== 0}">
+						<div class="timeline-content"
+							:class="{ 'left-content': index % 2 === 0, 'right-content': index % 2 !== 0 }">
 							<div class="content-card">
 								<span class="timeline-date-tag">{{ item.date }}</span>
 								<h3>{{ item.title }}</h3>
 								<p>{{ item.description }}</p>
 							</div>
 						</div>
-						
+
 						<!-- 节点标记 -->
 						<div class="timeline-node">
 							<span class="node-dot"></span>
 						</div>
 					</div>
-					
+
 					<!-- 未来节点 -->
 					<div class="timeline-item future-item">
 						<div class="timeline-content future-content">
@@ -108,8 +109,8 @@ export default defineComponent({
 
 <style lang="less" scoped>
 // 主题色变量
-@primary: darken(@primary-gradient-first,25%);
-@primary-light: lighten(@primary,15%);
+@primary: darken(@primary-gradient-first, 25%);
+@primary-light: lighten(@primary, 15%);
 @primary-dark: darken(@primary, 15%);
 @primary-soft: lighten(@primary, 25%);
 @primary-bg: lighten(@primary, 35%);
@@ -139,10 +140,10 @@ export default defineComponent({
 	top: 0;
 	bottom: 0;
 	width: 4px;
-	background: linear-gradient(to bottom, 
-		@primary-gradient-first,
-		@primary-gradient-second,
-	);
+	background: linear-gradient(to bottom,
+			@primary-gradient-first,
+			@primary-gradient-second,
+		);
 	transform: translateX(-50%);
 	border-radius: 4px;
 	box-shadow: 0 4px 10px fade(@primary, 30%);
@@ -213,6 +214,7 @@ export default defineComponent({
 		transform: scale(1.2);
 		background-color: @primary-light;
 	}
+
 	.content-card:hover {
 		transform: translateY(-5px);
 		box-shadow: 0 15px 30px fade(@primary-dark, 20%);
@@ -228,6 +230,7 @@ export default defineComponent({
 		transform: translateY(-5px) translateX(3px);
 	}
 }
+
 .node-dot.future {
 	transform: translateY(-75%);
 	background-color: lighten(@primary, 20%);
@@ -342,7 +345,7 @@ export default defineComponent({
 		left: 30px;
 		width: 3px;
 	}
-	
+
 	.timeline-item {
 		justify-content: flex-start !important;
 		margin-left: 50px;
@@ -350,20 +353,20 @@ export default defineComponent({
 		position: relative;
 		min-height: 100px;
 	}
-	
+
 	.timeline-content {
 		width: calc(100% - 40px);
 		margin: 0 0 0 30px !important;
 		text-align: left !important;
 	}
-	
+
 	.timeline-node {
 		left: 30px;
 		transform: translateX(-50%);
 		width: 40px;
 		height: 40px;
 	}
-	
+
 	.node-dot {
 		width: 20px;
 		height: 20px;
@@ -399,17 +402,17 @@ export default defineComponent({
 		font-size: 0.85rem;
 		padding: 4px 12px;
 	}
-	
+
 	.future-content {
 		width: 100%;
 	}
-	
+
 	.content-card h3 {
 		font-size: 1.2rem;
 		clear: both;
 		margin-top: 5px;
 	}
-	
+
 	.content-card p {
 		font-size: 0.95rem;
 	}
@@ -417,7 +420,7 @@ export default defineComponent({
 	.future-item {
 		margin-left: 50px;
 	}
-	
+
 	.future-item .timeline-node {
 		left: 30px;
 	}
