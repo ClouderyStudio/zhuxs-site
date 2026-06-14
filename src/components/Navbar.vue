@@ -29,7 +29,6 @@ import { ref, watch, onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import Logo from "@/components/Logo.vue";
 
-// 定义接口
 interface LinkItem {
 	name: string;
 	route?: string;
@@ -48,9 +47,6 @@ interface Titles {
 	rules: string;
 	[key: string]: string;
 }
-
-// 组件注册（自动处理）
-// Logo 组件会自动注册，无需 components 选项
 
 const router = useRouter();
 const route = useRoute();
@@ -91,11 +87,11 @@ const updateTitle = (name: string): void => {
 const toggleDropdown = (directOption?: boolean): void => {
 	const obj = dropdown.value;
 	if (!obj) return;
-	
-	const shouldOpen = directOption !== undefined 
-		? directOption 
+
+	const shouldOpen = directOption !== undefined
+		? directOption
 		: obj.style.display === "none" || hamburgerOpen.value;
-	
+
 	obj.style.display = shouldOpen ? "block" : "none";
 	obj.style.pointerEvents = shouldOpen ? "auto" : "none";
 };
@@ -130,7 +126,6 @@ const onDropdownItemClick = (x: LinkItem): void => {
 	toggleDropdown(false);
 };
 
-// Watchers
 watch(hamburgerOpen, (v: boolean): void => {
 	if (v) {
 		active.value = true;
@@ -146,7 +141,6 @@ watch(() => route.name, (newName): void => {
 	}
 }, { immediate: true });
 
-// Lifecycle
 onMounted(() => {
 	const handleScroll = (): void => {
 		if (document.scrollingElement?.scrollTop) {
@@ -156,7 +150,7 @@ onMounted(() => {
 		}
 	};
 	document.addEventListener("scroll", handleScroll);
-	
+
 	return () => {
 		document.removeEventListener("scroll", handleScroll);
 	};
@@ -344,7 +338,7 @@ router.afterEach((to, from) => {
 		transition: all 0.2s ease;
 		cursor: pointer;
 		text-decoration: none;
-		
+
 		&:hover {
 			background: rgba(0, 0, 0, 0.05);
 		}

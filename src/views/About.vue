@@ -37,6 +37,7 @@
 								<span class="timeline-date-tag">{{ item.date }}</span>
 								<h3>{{ item.title }}</h3>
 								<p>{{ item.description }}</p>
+								<div class="card-glow"></div>
 							</div>
 						</div>
 
@@ -53,10 +54,11 @@
 								<span class="timeline-date-tag">未来</span>
 								<h3>更多精彩待续...</h3>
 								<p>竹像素的故事仍在继续，欢迎你一起书写。</p>
+								<div class="card-glow"></div>
 							</div>
 						</div>
 						<div class="timeline-node">
-							<span class="node-dot future">?</span>
+							<span class="node-dot future">✨</span>
 						</div>
 					</div>
 				</div>
@@ -108,7 +110,7 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-// 主题色变量
+// 主题色变量 - 保持原有颜色体系
 @primary: darken(@primary-gradient-first, 25%);
 @primary-light: lighten(@primary, 15%);
 @primary-dark: darken(@primary, 15%);
@@ -127,6 +129,7 @@ export default defineComponent({
 	margin-bottom: 64px;
 }
 
+/* ========== 优化后的时间线样式 ========== */
 .timeline {
 	max-width: 1000px;
 	margin: 50px auto;
@@ -143,11 +146,32 @@ export default defineComponent({
 	background: linear-gradient(to bottom,
 			@primary-gradient-first,
 			@primary-gradient-second,
-		);
+			@primary-gradient-first);
 	transform: translateX(-50%);
 	border-radius: 4px;
-	box-shadow: 0 4px 10px fade(@primary, 30%);
+	box-shadow: 0 0 12px fade(@primary, 40%);
 	z-index: 1;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 12px;
+		height: 12px;
+		background: @primary-gradient-first;
+		border-radius: 50%;
+		opacity: 0.6;
+	}
+
+	&::before {
+		top: -6px;
+	}
+
+	&::after {
+		bottom: -6px;
+	}
 }
 
 .timeline-items {
@@ -161,6 +185,10 @@ export default defineComponent({
 	margin-bottom: 60px;
 	position: relative;
 	min-height: 120px;
+
+	&:last-of-type {
+		margin-bottom: 40px;
+	}
 }
 
 .timeline-item.left {
@@ -200,58 +228,115 @@ export default defineComponent({
 
 .node-dot {
 	display: inline-block;
-	width: 24px;
-	height: 24px;
-	background-color: @primary;
-	border: 4px solid @primary-bg;
+	width: 20px;
+	height: 20px;
+	background: linear-gradient(135deg, @primary-gradient-first, @primary-gradient-second);
+	border: 3px solid white;
 	border-radius: 50%;
 	box-shadow: 0 4px 12px fade(@primary, 40%);
-	transition: all 0.3s ease;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	cursor: pointer;
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: -4px;
+		left: -4px;
+		right: -4px;
+		bottom: -4px;
+		border-radius: 50%;
+		background: fade(@primary-gradient-first, 20%);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
 }
 
 @media (min-width: 768px) {
 	.node-dot:hover {
-		transform: scale(1.2);
-		background-color: @primary-light;
-	}
+		transform: scale(1.25);
+		box-shadow: 0 0 0 4px fade(@primary-gradient-first, 20%);
 
-	.content-card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 15px 30px fade(@primary-dark, 20%);
-		border-color: @primary;
-	}
-
-	.left-content .content-card:hover {
-		transform: translateY(-5px) translateX(-3px);
-	}
-
-
-	.right-content .content-card:hover {
-		transform: translateY(-5px) translateX(3px);
+		&::before {
+			opacity: 1;
+		}
 	}
 }
 
 .node-dot.future {
-	transform: translateY(-75%);
-	background-color: lighten(@primary, 20%);
-	border-color: @primary-soft;
-	font-size: 16px;
-	line-height: 24px;
+	width: 32px;
+	height: 32px;
+	background: linear-gradient(135deg, #a8e6cf, #d4a5a5);
+	font-size: 14px;
+	line-height: 26px;
 	text-align: center;
-	color: @primary-dark;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:hover {
+		transform: scale(1.15);
+	}
+
+	@media (min-width: 750px) {
+		margin-bottom: 50px;
+	}
 }
 
 .content-card {
-	background: linear-gradient(135deg, #ffffff 0%, @primary-bg 100%);
+	background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
 	border: 1px solid @border-light;
 	border-radius: 20px;
 	padding: 22px 28px;
-	box-shadow: 0 8px 20px fade(@primary-dark, 10%);
-	transition: all 0.3s ease;
+	box-shadow: 0 8px 20px fade(#000, 6%);
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	position: relative;
+	overflow: hidden;
+
+	.card-glow {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 3px;
+		background: linear-gradient(90deg, @primary-gradient-first, @primary-gradient-second);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
 
 	h3 {
-		transform: translateY(-32%);
+		margin: 10px 0 10px 0;
+		color: @primary-dark;
+		font-size: 1.4rem;
+		font-weight: 600;
+	}
+
+	p {
+		margin: 0;
+		color: lighten(#000, 30%);
+		line-height: 1.7;
+		font-size: 1rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.content-card:hover {
+		transform: translateY(-6px);
+		box-shadow: 0 20px 35px fade(@primary-dark, 12%);
+		border-color: @primary;
+
+		.card-glow {
+			opacity: 1;
+		}
+	}
+
+	.left-content .content-card:hover {
+		transform: translateY(-6px) translateX(-3px);
+	}
+
+	.right-content .content-card:hover {
+		transform: translateY(-6px) translateX(3px);
 	}
 }
 
@@ -259,58 +344,62 @@ export default defineComponent({
 	content: '';
 	position: absolute;
 	right: -43px;
-	top: 20px;
+	top: 28px;
 	width: 40px;
 	height: 3px;
-	background: linear-gradient(90deg, @primary 0%, @primary-light 100%);
+	background: linear-gradient(90deg, @primary-gradient-first, @primary-gradient-second);
 	border-radius: 3px;
+	transition: width 0.3s ease;
 }
 
 .right-content .content-card::after {
 	content: '';
 	position: absolute;
 	left: -43px;
-	top: 20px;
+	top: 28px;
 	width: 40px;
 	height: 3px;
-	background: linear-gradient(90deg, @primary-light 0%, @primary 100%);
+	background: linear-gradient(90deg, @primary-gradient-second, @primary-gradient-first);
 	border-radius: 3px;
+	transition: width 0.3s ease;
 }
 
-.content-card h3 {
-	margin: 10px 0 10px 0;
-	color: @primary-dark;
-	font-size: 1.4rem;
-	font-weight: 600;
-}
+@media (min-width: 768px) {
 
-.content-card p {
-	margin: 0;
-	color: lighten(#000, 30%);
-	line-height: 1.7;
-	font-size: 1rem;
+	.left-content .content-card:hover::after,
+	.right-content .content-card:hover::after {
+		width: 50px;
+	}
 }
 
 .timeline-date-tag {
 	display: inline-block;
-	background-color: @primary;
+	background: linear-gradient(135deg, @primary-gradient-first, @primary-gradient-second);
 	color: white;
 	padding: 6px 16px;
 	border-radius: 30px;
-	font-size: 0.9rem;
+	font-size: 0.85rem;
 	font-weight: 600;
 	letter-spacing: 0.5px;
-	box-shadow: 0 4px 8px fade(@primary, 30%);
+	box-shadow: 0 4px 10px fade(@primary, 30%);
+	transition: all 0.2s ease;
+}
+
+@media (min-width: 768px) {
+	.content-card:hover .timeline-date-tag {
+		transform: scale(1.02);
+		box-shadow: 0 6px 14px fade(@primary, 40%);
+	}
 }
 
 .left-content .timeline-date-tag {
 	float: right;
-	margin-left: 10px;
+	margin-left: 12px;
 }
 
 .right-content .timeline-date-tag {
 	float: left;
-	margin-right: 10px;
+	margin-right: 12px;
 }
 
 .future-item {
@@ -324,11 +413,11 @@ export default defineComponent({
 }
 
 .future-card {
-	background: linear-gradient(135deg, lighten(@primary-bg, 5%) 0%, @primary-bg 100%);
+	background: linear-gradient(135deg, #fafbfc 0%, #f5f7fa 100%);
 	border-color: @border-light;
 
-	h3 {
-		transform: translateY(0%);
+	.card-glow {
+		background: linear-gradient(90deg, #a8e6cf, #d4a5a5);
 	}
 }
 
@@ -340,6 +429,7 @@ export default defineComponent({
 	color: @primary-dark;
 }
 
+/* 移动端响应式 */
 @media (max-width: 768px) {
 	.timeline-line-center {
 		left: 30px;
@@ -348,14 +438,14 @@ export default defineComponent({
 
 	.timeline-item {
 		justify-content: flex-start !important;
-		margin-left: 50px;
+		margin-left: 0;
 		margin-bottom: 40px;
 		position: relative;
 		min-height: 100px;
 	}
 
 	.timeline-content {
-		width: calc(100% - 40px);
+		width: calc(100% - 80px);
 		margin: 0 0 0 30px !important;
 		text-align: left !important;
 	}
@@ -368,57 +458,61 @@ export default defineComponent({
 	}
 
 	.node-dot {
-		width: 20px;
-		height: 20px;
-		border-width: 3px;
+		width: 16px;
+		height: 16px;
+		border-width: 2px;
+	}
+
+	.node-dot.future {
+		width: 28px;
+		height: 28px;
+		font-size: 12px;
+		line-height: 24px;
 	}
 
 	.left-content .content-card::after,
 	.right-content .content-card::after {
 		content: '';
 		position: absolute;
-		left: -50px !important;
+		left: -35px !important;
 		right: auto;
-		top: 15px;
-		width: 30px;
-		height: 3px;
-		background: linear-gradient(90deg, @primary 0%, @primary-light 100%);
-		border-radius: 3px;
-		z-index: 2;
+		top: 22px;
+		width: 28px;
+		height: 2px;
+		background: linear-gradient(90deg, @primary-gradient-first, @primary-gradient-second);
+		border-radius: 2px;
 	}
 
 	.content-card {
-		margin-left: 5px;
-		padding: 18px 22px;
+		margin-left: 0;
+		padding: 16px 20px;
 
 		h3 {
-			transform: translateY(0%);
+			font-size: 1.2rem;
+			clear: both;
+			margin-top: 8px;
+		}
+
+		p {
+			font-size: 0.9rem;
+			line-height: 1.6;
 		}
 	}
 
 	.timeline-date-tag {
 		float: left !important;
 		margin: 0 0 10px 0 !important;
-		font-size: 0.85rem;
+		font-size: 0.75rem;
 		padding: 4px 12px;
 	}
 
 	.future-content {
-		width: 100%;
-	}
-
-	.content-card h3 {
-		font-size: 1.2rem;
-		clear: both;
-		margin-top: 5px;
-	}
-
-	.content-card p {
-		font-size: 0.95rem;
+		width: calc(100% - 80px);
+		margin: 0 0 0 30px !important;
 	}
 
 	.future-item {
-		margin-left: 50px;
+		margin-left: 0;
 	}
 
 	.future-item .timeline-node {

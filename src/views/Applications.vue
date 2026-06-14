@@ -57,14 +57,14 @@
                     <div class="appl-cards">
                         <div class="appl-card" v-for="(y, k) in x.applications" :key="y.id">
                             <div class="appl-no"><span class="serif italic">Ticket</span> #{{ x.applications.length - k
-                                }}</div>
+                            }}</div>
                             <div class="appl-id">
                                 {{ y.id }}
                             </div>
                             <div class="appl-ticket-detail" v-if="y.passed">
                                 <span class="serif"><span class="italic">Certified</span> ticket for BambooPixel </span>
                                 BT{{
-                                x.number }}
+                                    x.number }}
                             </div>
                             <div class="appl-status" :class="y.passed ? 'passed' : 'not-passed'">
                                 <mdicon :name="y.passed ? 'check' : 'close'" />
@@ -121,7 +121,7 @@ interface QuicksearchResult {
     term: number
 }
 
-const terms = ref<Term[]>([]); // 改为响应式引用
+const terms = ref<Term[]>([]);
 const quicksearchOverlay = ref<HTMLDivElement | null>(null);
 const quicksearchTextbox = ref<HTMLDivElement | null>(null);
 const quicksearchDialog = ref<HTMLDivElement | null>(null);
@@ -129,8 +129,8 @@ const quicksearchContent = ref('');
 const quicksearchOpened = ref(false);
 const quicksearchLocked = ref(false);
 const quicksearchResult = ref<QuicksearchResult[]>([]);
-const isLoading = ref(false); // 添加加载状态
-const error = ref<string | null>(null); // 添加错误处理
+const isLoading = ref(false);
+const error = ref<string | null>(null);
 
 async function fetchApplications() {
     isLoading.value = true;
@@ -142,7 +142,6 @@ async function fetchApplications() {
         }
         const applications5 = await response.json();
 
-        // 更新terms数据
         terms.value = [
             {
                 number: 5,
@@ -187,7 +186,7 @@ watch(quicksearchContent, v => {
         quicksearchLocked.value = false;
     }, 200);
     quicksearchResult.value = [];
-    for (let t of terms.value) { // 使用terms.value
+    for (let t of terms.value) {
         let result = t.applications.filter(x => x.id.toLowerCase().includes(v.toLowerCase()));
         let resultArr = [];
         for (let r of result) {
@@ -259,7 +258,6 @@ function mouseLeaveQuickSearchBtn() {
     closeOverlay();
 }
 
-// 组件挂载时获取数据
 onMounted(() => {
     fetchApplications();
 });
