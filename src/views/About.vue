@@ -18,19 +18,16 @@
 				如果你对竹像素有任何疑问或建议，欢迎通过 QQ 群与我们联系，我们会尽快回复你。
 			</p>
 
-			<!-- 时间线部分：中间主线，内容左右交替 -->
 			<h1 class="primary-text" style="text-align: center;">大大~ 大事记!</h1>
 			<p class="typo">
 				这里记录了我们的<strong>主要事迹和发展历程</strong>，其他小事件没有写入呢......
 			</p>
 			<div class="timeline">
-				<!-- 中间主线 -->
 				<div class="timeline-line-center"></div>
 
 				<div class="timeline-items">
 					<div class="timeline-item" v-for="(item, index) in historyEvents" :key="index"
 						:class="{ 'left': index % 2 === 0, 'right': index % 2 !== 0 }">
-						<!-- 左侧内容 -->
 						<div class="timeline-content"
 							:class="{ 'left-content': index % 2 === 0, 'right-content': index % 2 !== 0 }">
 							<div class="content-card">
@@ -41,13 +38,11 @@
 							</div>
 						</div>
 
-						<!-- 节点标记 -->
 						<div class="timeline-node">
 							<span class="node-dot"></span>
 						</div>
 					</div>
 
-					<!-- 未来节点 -->
 					<div class="timeline-item future-item">
 						<div class="timeline-content future-content">
 							<div class="content-card future-card">
@@ -110,7 +105,6 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-// 主题色变量 - 保持原有颜色体系
 @primary: darken(@primary-gradient-first, 25%);
 @primary-light: lighten(@primary, 15%);
 @primary-dark: darken(@primary, 15%);
@@ -129,7 +123,6 @@ export default defineComponent({
 	margin-bottom: 64px;
 }
 
-/* ========== 优化后的时间线样式 ========== */
 .timeline {
 	max-width: 1000px;
 	margin: 50px auto;
@@ -429,7 +422,6 @@ export default defineComponent({
 	color: @primary-dark;
 }
 
-/* 移动端响应式 */
 @media (max-width: 768px) {
 	.timeline-line-center {
 		left: 30px;

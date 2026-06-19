@@ -26,7 +26,7 @@
 				</p>
 				<div class="pay">
 					<div class="donate-cards">
-						<a class="donate-card afdian" href="https://afdian.tv/a/zhuxs" target="_blank">
+						<a class="donate-card afdian" href="https://afdian.com/a/zhuxs" target="_blank">
 							<mdicon name="arrow-right" />
 							<img src="https://static.afdiancdn.com/static/img/logo/logo.png" />
 							<div class="text">

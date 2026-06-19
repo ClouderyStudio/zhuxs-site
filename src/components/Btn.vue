@@ -200,9 +200,6 @@ export default defineComponent({
 		line-height: 1;
 	}
 
-	/* ========== 按钮类型样式 ========== */
-
-	/* 主要按钮 - 渐变背景 */
 	&.primary {
 		background: linear-gradient(135deg, #B3E94A 0%, #50963D 50%, #54F47F 100%);
 		background-size: 200% auto;
@@ -219,7 +216,6 @@ export default defineComponent({
 		}
 	}
 
-	/* 主要按钮 A - 动态渐变 */
 	&.primary-a {
 		background: linear-gradient(65deg, #B3E94A, #50963D, #54F47F, #B3E94A);
 		background-size: 300% auto;
@@ -233,7 +229,6 @@ export default defineComponent({
 		}
 	}
 
-	/* 主要按钮 O - 橙色渐变 */
 	&.primary-o {
 		background: linear-gradient(65deg, #ff9500, #ff5e00, #ff2d00, #ff9500);
 		background-size: 300% auto;

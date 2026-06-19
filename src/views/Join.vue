@@ -3,7 +3,7 @@
 		<banner :bg="'https://a.cldery.com/d/oss/mcweb/assets/images/2.jpg'">
 			<template #title> 加入竹像素</template>
 			<template #subtitle> 立即开始 </template>
-			<template #text> 要获取竹像素的白名单，需要完成问卷。<br />不过，问卷的问题都非常简单，基本不用担心无法通过 </template>
+			<template #text> 在这里了解怎样立即加入我们 </template>
 		</banner>
 		<div class="container">
 			<div class="join content">
@@ -12,7 +12,7 @@
 					群内进行，我们强烈建议你加入~在这里你可以获取到第一手信息，获取帮助，并且可以参与到每周目的投票过程中。单击下方加群按钮可快速入群，或者搜索群号 806901461
 					亦可入群。<em>提示：入群不需要白名单。</em></p>
 				<p class="typo">
-					<strong>获取竹像素白名单</strong>&emsp;若要开始游玩，需要获取竹像素的白名单。要获取白名单，请前往问卷网填写问卷并等待人工审核，稍后通过邮件或者群内询问管理员的方式得到结果。单击问卷网按钮可前往问卷填写页面。
+					<strong>加入服务器</strong>&emsp;服务器暂时没有白名单系统。JE玩家可以直接通过IP: mc.mczxs.cn 加入。如果你是基岩版玩家，可以直接点击下面的卡片自动添加服务器。
 				</p>
 				<div class="join-cards">
 					<a class="join-card qq" href="https://qm.qq.com/q/ZqrVw1ePU6" target="_blank">
@@ -23,12 +23,13 @@
 							<h2>点击加入，或搜索群号 806901461</h2>
 						</div>
 					</a>
-					<a class="join-card wenjuan" href="https://wj.qq.com/s2/14159519/c419/" target="_blank">
+					<a class="join-card joinmc" href="minecraft://?addExternalServer=竹像素|mc.mczxs.cn:44444"
+						target="_blank">
 						<mdicon name="arrow-right" />
-						<img src="https://a.cldery.com/d/oss/mcweb/assets/votes.png" />
+						<img src="https://ccvaults.com/assets/20.%20Blocks/18.%20Decoration/Grass_Block.png" />
 						<div class="text">
-							<h1>白名单获取</h1>
-							<h2>点击前往腾讯问卷，填写竹像素玩家入服问卷以获取白名单</h2>
+							<h1>一键加入</h1>
+							<h2>如果你是基岩版玩家，可以点击此按钮自动添加服务器</h2>
 						</div>
 					</a>
 				</div>
