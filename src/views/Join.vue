@@ -23,7 +23,7 @@
 							<h2>点击加入，或搜索群号 806901461</h2>
 						</div>
 					</a>
-					<a class="join-card joinmc" href="minecraft://?addExternalServer=竹像素|mc.mczxs.cn:44444"
+					<a class="join-card joinmc" href="minecraft://?addExternalServer=竹像素|mc.mczxs.cn:23099"
 						target="_blank">
 						<mdicon name="arrow-right" />
 						<img src="https://ccvaults.com/assets/20.%20Blocks/18.%20Decoration/Grass_Block.png" />

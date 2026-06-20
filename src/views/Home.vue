@@ -323,7 +323,7 @@
                   </div>
                   <div class="status-item">
                     <span class="status-label">基岩版版本</span>
-                    <span class="status-value">26.0 - 26.30</span>
+                    <span class="status-value">26.x</span>
                   </div>
                   <div class="status-item">
                     <span class="status-label">服务器延迟</span>
@@ -353,7 +353,7 @@
               </div>
 
               <div class="status-actions">
-                <a href="minecraft://?addExternalServer=竹像素|mc.mczxs.cn:44444" class="join-server-btn">
+                <a href="minecraft://?addExternalServer=竹像素|mc.mczxs.cn:23099" class="join-server-btn">
                   <mdicon name="minecraft" size="18" />
                   (BE)立即加入
                 </a>
@@ -470,7 +470,7 @@ export default defineComponent({
       try {
         loading.value = true;
         error.value = false;
-        const response = await fetch('https://motdbe.blackbe.work/api/java?host=mc.mczxs.cn:44444');
+        const response = await fetch('https://motdbe.blackbe.work/api/java?host=mc.mczxs.cn:23099');
         if (!response.ok) throw new Error('网络请求失败');
         const data = await response.json();
         serverStatus.value = data;
