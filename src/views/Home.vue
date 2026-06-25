@@ -2,55 +2,87 @@
   <div page>
     <banner bg="https://a.cldery.com/d/oss/mcweb/assets/home-bg.png" fullscreen>
       <template #subtitle>
-        高自由度 / 民主决议 / 周目制
+        <div class="subtitle-wrapper">
+          <span class="subtitle-item" style="--sub-i:0">高自由度</span>
+          <span class="subtitle-divider" style="--sub-i:1">/</span>
+          <span class="subtitle-item" style="--sub-i:2">民主决议</span>
+          <span class="subtitle-divider" style="--sub-i:3">/</span>
+          <span class="subtitle-item" style="--sub-i:4">周目制</span>
+        </div>
       </template>
       <template #title>
-        <div class="big-title">从头到脚都是不一样的感觉</div>
+        <div class="big-title">
+          <span class="title-char" style="--char-i:0">从</span>
+          <span class="title-char" style="--char-i:1">头</span>
+          <span class="title-char" style="--char-i:2">到</span>
+          <span class="title-char" style="--char-i:3">脚</span>
+          <span class="title-char" style="--char-i:4">都</span>
+          <span class="title-char" style="--char-i:5">是</span>
+          <span class="title-char" style="--char-i:6">不</span>
+          <span class="title-char" style="--char-i:7">一</span>
+          <span class="title-char" style="--char-i:8">样</span>
+          <span class="title-char" style="--char-i:9">的</span>
+          <span class="title-char" style="--char-i:10">感</span>
+          <span class="title-char" style="--char-i:11">觉</span>
+        </div>
       </template>
       <template #text>
-        在竹像素，你能够参与到游戏的整个流程。<br />
-        从周目的建立，到持续的耕耘，再到最终的「周目评定」······
-        <br />
-        在这里探索的你所留下的痕迹，亦将永存于宇宙千垣之间。
-        <br />
+        <div class="banner-text-lines">
+          <div class="text-line" style="--line-i:0">
+            在竹像素，你能够参与到游戏的整个流程。
+          </div>
+          <div class="text-line" style="--line-i:1">
+            从周目的建立，到持续的耕耘，再到最终的「周目评定」······
+          </div>
+          <div class="text-line" style="--line-i:2">
+            在这里探索的你所留下的痕迹，亦将永存于宇宙千垣之间。
+          </div>
+        </div>
         <div class="server-stats">
-          <div class="stat-card">
-            <div class="stat-icon">
-              <mdicon name="alpha-n-box-outline" size="24" />
+          <TransitionGroup name="stat-card" tag="div" class="stat-cards-inner" appear>
+            <div class="stat-card" key="term" style="--i:0">
+              <div class="stat-icon">
+                <mdicon name="alpha-n-box-outline" size="24" />
+              </div>
+              <div class="stat-content">
+                <div class="stat-label">当前周目</div>
+                <div class="stat-value">BT26-2</div>
+              </div>
+              <div class="stat-hover-effect"></div>
             </div>
-            <div class="stat-content">
-              <div class="stat-label">当前周目</div>
-              <div class="stat-value">BT26-2</div>
+            <div class="stat-card" key="version" style="--i:1">
+              <div class="stat-icon">
+                <mdicon name="minecraft" size="24" />
+              </div>
+              <div class="stat-content">
+                <div class="stat-label">游戏版本</div>
+                <div class="stat-value">26.1.2</div>
+              </div>
+              <div class="stat-hover-effect"></div>
             </div>
-            <div class="stat-hover-effect"></div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">
-              <mdicon name="minecraft" size="24" />
+            <div class="stat-card" key="whitelist" style="--i:2">
+              <div class="stat-icon">
+                <mdicon name="information-outline" size="24" />
+              </div>
+              <div class="stat-content">
+                <div class="stat-label">白名单</div>
+                <div class="stat-value">关闭</div>
+              </div>
+              <div class="stat-hover-effect"></div>
             </div>
-            <div class="stat-content">
-              <div class="stat-label">游戏版本</div>
-              <div class="stat-value">26.1.2</div>
-            </div>
-            <div class="stat-hover-effect"></div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">
-              <mdicon name="information-outline" size="24" />
-            </div>
-            <div class="stat-content">
-              <div class="stat-label">白名单</div>
-              <div class="stat-value">关闭</div>
-            </div>
-            <div class="stat-hover-effect"></div>
-          </div>
+          </TransitionGroup>
         </div>
       </template>
       <template #buttons>
-        <btn class="join-btn" type="primary-a shadow arrow" size="large" icon="arrow-right" to="/join">立即加入</btn>
-        <btn href="https://doc.cldery.com/game/mc/" class="learnmore-btn" type="outlined shadow hover-light"
-          size="large" icon="file-document-outline">阅读文档
-        </btn>
+        <Transition name="banner-btn-group" appear>
+          <div class="banner-buttons-wrapper">
+            <btn class="join-btn btn-animated" type="primary-a shadow arrow" size="large" icon="arrow-right" to="/join">
+              立即加入</btn>
+            <btn href="https://doc.cldery.com/game/mc/" class="learnmore-btn btn-animated"
+              type="outlined shadow hover-light" size="large" icon="file-document-outline">阅读文档
+            </btn>
+          </div>
+        </Transition>
       </template>
     </banner>
     <div class="sections">
@@ -58,17 +90,22 @@
         v-lazy="'https://a.cldery.com/d/oss/mcweb/assets/tower.png'">
         <div class="container">
           <div class="section-header" style="justify-content: left;">
-            <div class="title-wrapper">
-              <div>
-                <span class="title-prefix">带你领略 MC 的</span>
-                <img class="title-img-1" style="padding-top: 20px;"
-                  :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/大千世界.svg'" draggable="false" />
+            <Transition name="fade-up" appear>
+              <div class="title-wrapper">
+                <div>
+                  <span class="title-prefix">带你领略 MC 的</span>
+                  <img class="title-img-1" style="padding-top: 20px;"
+                    :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/大千世界.svg'" draggable="false" />
+                </div>
               </div>
-            </div>
-            <p class="section-subtitle">我们精心打造了每一个细节，只为提供最舒适的多人游戏体验</p>
+            </Transition>
+            <Transition name="fade-up" appear>
+              <p class="section-subtitle" style="transition-delay: 0.15s">我们精心打造了每一个细节，只为提供最舒适的多人游戏体验</p>
+            </Transition>
           </div>
           <div class="cards-grid">
-            <div class="feature-card card-large">
+            <div class="feature-card card-large scroll-reveal" ref="el => registerReveal(el, 0)"
+              :class="{ revealed: revealedCards.has(1) }">
               <div class="card-bg">
                 <img src="https://a.cldery.com/d/oss/mcweb/assets/slimefun-base.png" alt="Survival" class="bg-img" />
                 <div class="bg-overlay"></div>
@@ -85,7 +122,8 @@
               </div>
             </div>
 
-            <div class="feature-card">
+            <div class="feature-card scroll-reveal" :ref="el => registerReveal(el, 1)"
+              :class="{ revealed: revealedCards.has(1) }" style="--reveal-delay: 0.1s">
               <div class="card-icon blue">
                 <mdicon name="shield-home-outline" size="24" />
               </div>
@@ -96,7 +134,8 @@
               <div class="card-bg-glow blue-glow"></div>
             </div>
 
-            <div class="feature-card">
+            <div class="feature-card scroll-reveal" :ref="el => registerReveal(el, 2)"
+              :class="{ revealed: revealedCards.has(2) }" style="--reveal-delay: 0.2s">
               <div class="card-icon green">
                 <mdicon name="cube-outline" size="24" />
               </div>
@@ -107,22 +146,23 @@
               <div class="card-bg-glow green-glow"></div>
             </div>
 
-            <div class="feature-card banner-card">
+            <div class="feature-card banner-card scroll-reveal" :ref="el => registerReveal(el, 3)"
+              :class="{ revealed: revealedCards.has(3) }" style="--reveal-delay: 0.1s">
               <div class="banner-bg">
                 <img src="https://a.cldery.com/d/oss/mcweb/assets/moon-on-the-sea.png" alt="Community" class="bg-img" />
                 <div class="banner-overlay"></div>
               </div>
               <div class="banner-content">
-                <div class="banner-tag">
+                <div class="banner-tag banner-child" style="--child-i:0">
                   <span class="hot-tag">Hot</span>
                   <span class="tag-text">红石 / 粘液 / 交流</span>
                 </div>
-                <h3 class="banner-title">加入我们的社区</h3>
-                <p class="banner-text">
+                <h3 class="banner-title banner-child" style="--child-i:1">加入我们的社区</h3>
+                <p class="banner-text banner-child" style="--child-i:2">
                   无论你是小白还是大神，这里都有你的位置。交流技术，展示机器，共同进步。我们的玩家社区活跃且友好。
                 </p>
-                <btn href="https://qm.qq.com/q/heN4b5JkRi" class="banner-btn" type="secondary" size="medium"
-                  icon="arrow-right">
+                <btn href="https://qm.qq.com/q/heN4b5JkRi" class="banner-btn banner-child" style="--child-i:3"
+                  type="secondary" size="medium" icon="arrow-right">
                   前往 QQ 群
                 </btn>
               </div>
@@ -131,24 +171,30 @@
         </div>
       </section>
 
-      <section class="with-video-background" v-lazy="'https://a.cldery.com/d/oss/mcweb/assets/moon-on-the-sea.png'"">
-        <video ref=" moonvideo" id="moon-video" muted loop autoplay>
-        <source :src="'https://a.cldery.com/d/oss/mcweb/assets/moon.mp4'" type="video/mp4" />
+      <section class="with-video-background" v-lazy="'https://a.cldery.com/d/oss/mcweb/assets/moon-on-the-sea.png'">
+        <video ref="moonvideo" id="moon-video" muted loop autoplay>
+          <source :src="'https://a.cldery.com/d/oss/mcweb/assets/moon.mp4'" type="video/mp4" />
         </video>
         <div class="container">
+
           <div class="section-header">
-            <div class="title-wrapper">
-              <div style="align-items: center">
-                <span class="title-prefix">不太一样的</span>
-                <img class="title-img-2" style="padding-top: 20px;"
-                  :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/周目制.svg'" draggable="false" />
+            <Transition name="fade-up" appear>
+              <div class="title-wrapper">
+                <div style="align-items: center">
+                  <span class="title-prefix">不太一样的</span>
+                  <img class="title-img-2" style="padding-top: 20px;"
+                    :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/周目制.svg'" draggable="false" />
+                </div>
               </div>
-            </div>
-            <p class="section-subtitle">每个周目都是一次全新的冒险，玩家的选择决定服务器的未来</p>
+            </Transition>
+            <Transition name="fade-up" appear>
+              <p class="section-subtitle" style="transition-delay: 0.15s">每个周目都是一次全新的冒险，玩家的选择决定服务器的未来</p>
+            </Transition>
           </div>
 
           <div class="term-cards">
-            <div class="term-card">
+            <div class="term-card scroll-reveal-slide" :ref="el => registerReveal(el, 10)"
+              :class="{ revealed: revealedCards.has(10) }" style="--reveal-delay: 0s">
               <div class="card-header">
                 <div class="card-icon-large">
                   <img :src="'https://a.cldery.com/d/oss/mcweb/assets/votes.png'" alt="投票" />
@@ -168,7 +214,8 @@
               <div class="card-glow"></div>
             </div>
 
-            <div class="term-card">
+            <div class="term-card scroll-reveal-slide" :ref="el => registerReveal(el, 11)"
+              :class="{ revealed: revealedCards.has(11) }" style="--reveal-delay: 0.1s">
               <div class="card-header">
                 <div class="card-icon-large">
                   <img :src="'https://a.cldery.com/d/oss/mcweb/assets/write.png'" alt="记录" />
@@ -188,7 +235,8 @@
               <div class="card-glow"></div>
             </div>
 
-            <div class="term-card">
+            <div class="term-card scroll-reveal-slide" :ref="el => registerReveal(el, 12)"
+              :class="{ revealed: revealedCards.has(12) }" style="--reveal-delay: 0.2s">
               <div class="card-header">
                 <div class="card-icon-large">
                   <img :src="'https://a.cldery.com/d/oss/mcweb/assets/review.png'" alt="评价" />
@@ -214,46 +262,22 @@
       <section v-lazy="'https://a.cldery.com/d/oss/mcweb/assets/comet.jpg'"
         class="common-background darken-background darken-2 performance-section">
         <div class="container">
-          <div class="title-text">
-            <div><img class="title-img-3" :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/强劲性能.svg'"
+          <div class="title-text scroll-reveal" :ref="el => registerReveal(el, 40)"
+            :class="{ revealed: revealedCards.has(40) }">
+            <div>
+              <img class="title-img-3" :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/强劲性能.svg'"
                 draggable="false" />轻轻松松完成「星际穿越」
             </div>
           </div>
           <div class="performance-information">
-            <div class="performance-item">
+            <div v-for="(item, idx) in performanceItems" :key="item.name" class="performance-item scroll-reveal"
+              :ref="el => registerReveal(el, 20 + idx)" :class="{ revealed: revealedCards.has(20 + idx) }"
+              :style="`--reveal-delay: ${idx * 0.1}s`">
               <div class="performance-icon">
-                <img class="performance-img" :src="'https://a.cldery.com/d/oss/mcweb/assets/core-i9.svg'"
-                  draggable="false" />
+                <img class="performance-img" :src="item.img" draggable="false" />
               </div>
-              <div class="performance-value">Gen 14</div>
-              <div class="performance-name">处理器</div>
-              <div class="performance-hover-effect"></div>
-            </div>
-            <div class="performance-item">
-              <div class="performance-icon">
-                <img class="performance-img" :src="'https://a.cldery.com/d/oss/mcweb/assets/ddr4.svg'"
-                  draggable="false" />
-              </div>
-              <div class="performance-value">12 GB</div>
-              <div class="performance-name">分配内存</div>
-              <div class="performance-hover-effect"></div>
-            </div>
-            <div class="performance-item">
-              <div class="performance-icon">
-                <img class="performance-img" :src="'https://a.cldery.com/d/oss/mcweb/assets/earth.png'"
-                  draggable="false" />
-              </div>
-              <div class="performance-value">25M</div>
-              <div class="performance-name">峰值带宽</div>
-              <div class="performance-hover-effect"></div>
-            </div>
-            <div class="performance-item">
-              <div class="performance-icon">
-                <img class="performance-img" :src="'https://a.cldery.com/d/oss/mcweb/assets/ti-cube.png'"
-                  draggable="false" />
-              </div>
-              <div class="performance-value">1 TB</div>
-              <div class="performance-name">存储空间</div>
+              <div class="performance-value">{{ item.value }}</div>
+              <div class="performance-name">{{ item.name }}</div>
               <div class="performance-hover-effect"></div>
             </div>
           </div>
@@ -263,22 +287,24 @@
       <section v-lazy="'https://a.cldery.com/d/oss/mcweb/assets/images/1.jpg'"
         class="common-background darken-background darken-2">
         <div class="container">
-          <div>
-            <div><img v-if="!isMobile()" class="title-img-4"
-                :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/欢迎，新船员.svg'" draggable="false" />
-              <img v-else class="title-img-4-mobile"
-                :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/欢迎，新船员.m.svg'" draggable="false" />
-            </div>
+          <div class="scroll-reveal welcome-title" :ref="el => registerReveal(el, 50)"
+            :class="{ revealed: revealedCards.has(50) }">
+            <img v-if="!isMobile()" class="title-img-4"
+              :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/欢迎，新船员.svg'" draggable="false" />
+            <img v-else class="title-img-4-mobile"
+              :src="'https://a.cldery.com/d/oss/mcweb/assets/handwriting/欢迎，新船员.m.svg'" draggable="false" />
           </div>
           <div class="welcome">
-            <div class="welcome-text typo light">
-              <p><strong>我们期待并欢迎每一位新船员的加入。</strong>...等等，为什么是「船员」？</p>
-              <p>竹像素是云术工作室旗下独立运营的服务器。要加入竹像素，必须先通过白名单审核。而要获取竹像素白名单需要完成相应的问卷。</p>
-              <p><strong>单击按钮可加入我们的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
-            </div>
-            <div class="welcome-btns">
+            <TransitionGroup name="welcome-para" tag="div" class="welcome-text typo light" appear>
+              <p key="p1" style="--para-i:0"><strong>我们期待并欢迎每一位新船员的加入。</strong>...等等，为什么是「船员」？</p>
+              <p key="p2" style="--para-i:1">竹像素是云术工作室旗下独立运营的服务器。要加入竹像素，必须先通过白名单审核。而要获取竹像素白名单需要完成相应的问卷。</p>
+              <p key="p3" style="--para-i:2"><strong>单击按钮可加入我们的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
+            </TransitionGroup>
+            <div class="welcome-btns scroll-reveal" :ref="el => registerReveal(el, 51)"
+              :class="{ revealed: revealedCards.has(51) }" style="--reveal-delay: 0.35s">
               <btn class="primary-a shadow arrow" href="https://qm.qq.com/q/ZqrVw1ePU6" size="large" icon="arrow-right">
-                立即加入竹像素讨论群</btn>
+                立即加入竹像素讨论群
+              </btn>
             </div>
           </div>
         </div>
@@ -287,9 +313,12 @@
       <section v-lazy="'https://a.cldery.com/d/oss/mcweb/assets/river_valley.png'"
         class="mod-information-wrapper darken-3 blur common-background darken-background">
         <div class="container">
-          <div class="mod-card-enhanced mod-card-grid">
+          <div class="mod-card-enhanced mod-card-grid scroll-reveal" :ref="el => registerReveal(el, 30)"
+            :class="{ revealed: revealedCards.has(30) }">
             <div class="mod-status-section">
-              <div class="mod-header">
+              <div class="mod-header scroll-reveal" :ref="el => registerReveal(el, 31)"
+                :class="{ revealed: revealedCards.has(31) }" style="--reveal-delay: 0.1s">
+
                 <div class="mod-title-icon">
                   <mdicon name="server-network-outline" size="28" />
                 </div>
@@ -301,58 +330,63 @@
               </div>
               <div class="mod-divider"></div>
 
-              <div v-if="loading" class="status-loading">
-                <div class="loading-spinner"></div>
-                <span>获取服务器状态中...</span>
-              </div>
+              <Transition name="status-fade" mode="out-in">
+                <div v-if="loading" key="loading" class="status-loading">
+                  <div class="loading-spinner"></div>
+                  <span>获取服务器状态中...</span>
+                </div>
 
-              <div v-else-if="!error && serverStatus.status === 'online'" class="status-content">
-                <div class="status-grid">
-                  <div class="status-item">
-                    <span class="status-label">IP</span>
-                    <span class="status-value">mc.mczxs.cn</span>
-                  </div>
-                  <div class="status-item">
-                    <span class="status-label">在线玩家</span>
-                    <span class="status-value highlight-number">{{ serverStatus.online }} / {{ serverStatus.max
-                    }}</span>
-                  </div>
-                  <div class="status-item">
-                    <span class="status-label">Java版版本</span>
-                    <span class="status-value">{{ serverStatus.version || '未知' }}</span>
-                  </div>
-                  <div class="status-item">
-                    <span class="status-label">基岩版版本</span>
-                    <span class="status-value">26.x</span>
-                  </div>
-                  <div class="status-item">
-                    <span class="status-label">服务器延迟</span>
-                    <span class="status-value">{{ serverStatus.delay }} ms</span>
-                  </div>
-                  <div class="status-item status-item-full">
-                    <span class="status-label">MOTD</span>
-                    <span class="status-value status-motd-text">{{ serverStatus.motd ||
-                      '竹像素 BambooPixel · 26.1.2 · T-26.II'
-                    }}<br />{{
-                        serverStatus.level_name || '一个现代化、高性能的生存服务器 | 周目测试中' }}</span>
+                <div v-else-if="!error && serverStatus.status === 'online'" key="online" class="status-content">
+                  <div class="status-grid">
+                    <div class="status-item">
+                      <span class="status-label">IP</span>
+                      <span class="status-value">mc.mczxs.cn</span>
+                    </div>
+                    <div class="status-item">
+                      <span class="status-label">在线玩家</span>
+                      <span class="status-value highlight-number">{{ serverStatus.online }} / {{ serverStatus.max
+                      }}</span>
+                    </div>
+                    <div class="status-item">
+                      <span class="status-label">Java版版本</span>
+                      <span class="status-value">{{ serverStatus.version || '未知' }}</span>
+                    </div>
+                    <div class="status-item">
+                      <span class="status-label">基岩版版本</span>
+                      <span class="status-value">26.x</span>
+                    </div>
+                    <div class="status-item">
+                      <span class="status-label">服务器延迟</span>
+                      <span class="status-value">{{ serverStatus.delay }} ms</span>
+                    </div>
+                    <div class="status-item status-item-full">
+                      <span class="status-label">MOTD</span>
+                      <span class="status-value status-motd-text">{{ serverStatus.motd ||
+                        '竹像素 BambooPixel · 26.1.2 · T-26.II'
+                      }}<br />{{
+                          serverStatus.level_name || '一个现代化、高性能的生存服务器 | 周目测试中' }}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div v-else class="status-offline">
-                <div class="offline-icon">
-                  <mdicon name="server-off" size="48" />
+                <div v-else key="offline" class="status-offline">
+                  <div class="offline-icon">
+                    <mdicon name="server-off" size="48" />
+                  </div>
+                  <p class="offline-text">服务器当前离线</p>
+                  <p class="offline-hint">请稍后再试，或加入QQ群获取最新状态</p>
                 </div>
-                <p class="offline-text">服务器当前离线</p>
-                <p class="offline-hint">请稍后再试，或加入QQ群获取最新状态</p>
-              </div>
+              </Transition>
 
-              <div v-if="error" class="status-error">
-                <mdicon name="alert-circle-outline" size="20" />
-                <span>获取状态失败，请稍后刷新</span>
-              </div>
+              <Transition name="fade">
+                <div v-if="error" class="status-error">
+                  <mdicon name="alert-circle-outline" size="20" />
+                  <span>获取状态失败，请稍后刷新</span>
+                </div>
+              </Transition>
 
-              <div class="status-actions">
+              <div class="status-actions scroll-reveal" :ref="el => registerReveal(el, 33)"
+                :class="{ revealed: revealedCards.has(33) }" style="--reveal-delay: 0.2s">
                 <a href="minecraft://?addExternalServer=竹像素|mc.mczxs.cn:23099" class="join-server-btn">
                   <mdicon name="minecraft" size="18" />
                   (BE)立即加入
@@ -365,7 +399,9 @@
             </div>
 
             <div class="mod-info-section">
-              <div class="mod-header">
+              <div class="mod-header scroll-reveal" :ref="el => registerReveal(el, 32)"
+                :class="{ revealed: revealedCards.has(32) }" style="--reveal-delay: 0.15s">
+
                 <div class="mod-title-icon">
                   <mdicon name="information-outline" size="28" />
                 </div>
@@ -373,32 +409,32 @@
                 <div class="mod-badge">更新于 2026/6/14</div>
               </div>
               <div class="mod-divider"></div>
-              <ul class="mod-info-list">
-                <li class="info-item">
+              <TransitionGroup name="info-item" tag="ul" class="mod-info-list" appear>
+                <li class="info-item" key="term" style="--item-i:0">
                   <span class="info-label">周目代号</span>
                   <span class="info-value">BT26-2</span>
                 </li>
-                <li class="info-item">
+                <li class="info-item" key="version" style="--item-i:1">
                   <span class="info-label">游戏版本</span>
                   <span class="info-value">原版 26.1.x</span>
                 </li>
-                <li class="info-item">
+                <li class="info-item" key="core" style="--item-i:2">
                   <span class="info-label">服务端核心</span>
                   <span class="info-value">Velocity + Leaves</span>
                 </li>
-                <li class="info-item">
+                <li class="info-item" key="opendate" style="--item-i:3">
                   <span class="info-label">开放日期</span>
                   <span class="info-value">2026年6月10日</span>
                 </li>
-                <li class="info-item">
+                <li class="info-item" key="duration" style="--item-i:4">
                   <span class="info-label">运行时长</span>
                   <span class="info-value highlight-time">{{ duration }}</span>
                 </li>
-                <li class="info-item">
+                <li class="info-item" key="mods" style="--item-i:5">
                   <span class="info-label">模块数量</span>
                   <span class="info-value">~110 个</span>
                 </li>
-              </ul>
+              </TransitionGroup>
               <div class="mod-footer-note">
                 <mdicon name="information-outline" size="14" />
                 <span>"模块"包含模组、插件及数据包</span>
@@ -412,7 +448,7 @@
 </template>
 
 <script lang="ts">
-import { ref, onMounted, onBeforeUnmount, defineComponent } from 'vue';
+import { ref, onMounted, onBeforeUnmount, defineComponent, reactive } from 'vue';
 import Banner from '@/components/Banner.vue';
 import Btn from '@/components/Btn.vue';
 import MetaBar from '@/components/MetaBar.vue';
@@ -450,6 +486,20 @@ export default defineComponent({
     const duration = ref('');
     const moonvideo = ref();
 
+    // 滚动显现：记录哪些卡片已经进入视口
+    const revealedCards = reactive(new Set<number>());
+    const revealObserver = ref<IntersectionObserver | null>(null);
+    // 存储 element -> id 的映射，供 observer 使用
+    const revealMap = new Map<Element, number>();
+
+    const registerReveal = (el: Element | null, id: number) => {
+      if (!el) return;
+      revealMap.set(el, id);
+      if (revealObserver.value) {
+        revealObserver.value.observe(el);
+      }
+    };
+
     const serverStatus = ref<ServerStatus>({
       status: 'offline',
       host: '',
@@ -465,6 +515,29 @@ export default defineComponent({
     });
     const loading = ref(true);
     const error = ref(false);
+
+    const performanceItems = [
+      {
+        img: 'https://a.cldery.com/d/oss/mcweb/assets/core-i9.svg',
+        value: 'Gen 14',
+        name: '处理器',
+      },
+      {
+        img: 'https://a.cldery.com/d/oss/mcweb/assets/ddr4.svg',
+        value: '12 GB',
+        name: '分配内存',
+      },
+      {
+        img: 'https://a.cldery.com/d/oss/mcweb/assets/earth.png',
+        value: '25M',
+        name: '峰值带宽',
+      },
+      {
+        img: 'https://a.cldery.com/d/oss/mcweb/assets/ti-cube.png',
+        value: '1 TB',
+        name: '存储空间',
+      },
+    ];
 
     const fetchServerStatus = async () => {
       try {
@@ -486,8 +559,7 @@ export default defineComponent({
 
     const autoplayBackgroundVideo = () => {
       if (!isMobile() && moonvideo.value) {
-        moonvideo.value.play().catch(() => {
-        });
+        moonvideo.value.play().catch(() => { });
       }
     };
 
@@ -499,25 +571,19 @@ export default defineComponent({
       return nav.maxTouchPoints && nav.maxTouchPoints > 2 && /MacIntel/.test(nav.platform);
     };
 
-    const getDepNames = (mod: ServerMod[]) => {
+    const getDepNames = (mod: any[]) => {
       const names: string[] = [];
-      if (!mod) {
-        return [];
-      }
+      if (!mod) return [];
       mod.forEach(e => {
-        if (e.type === 'dep') {
-          names.push(e.name.toLowerCase());
-        }
+        if (e.type === 'dep') names.push(e.name.toLowerCase());
       });
       return names;
     };
 
-    const getModCount = (mod: ServerMod[]) => {
+    const getModCount = (mod: any[]) => {
       let count = mod.length;
       mod.forEach(e => {
-        if (e.type === 'set' && e.count) {
-          count += e.count - 1;
-        }
+        if (e.type === 'set' && e.count) count += e.count - 1;
       });
       return count;
     };
@@ -527,9 +593,7 @@ export default defineComponent({
       const now = new Date().getTime();
       const diffMs = now - startDate;
 
-      if (diffMs < 0) {
-        return '00:00:00';
-      }
+      if (diffMs < 0) return '00:00:00';
 
       const totalSeconds = Math.floor(diffMs / 1000);
       const hours = Math.floor(totalSeconds / 3600);
@@ -552,10 +616,29 @@ export default defineComponent({
 
       autoplayBackgroundVideo();
 
-      // 清理定时器
+      // 创建 Intersection Observer 用于滚动显现动画
+      revealObserver.value = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = revealMap.get(entry.target);
+              if (id !== undefined) {
+                revealedCards.add(id);
+                revealObserver.value?.unobserve(entry.target);
+              }
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        }
+      );
+
       return () => {
         clearInterval(durationInterval);
         clearInterval(statusInterval);
+        revealObserver.value?.disconnect();
       };
     });
 
@@ -563,6 +646,7 @@ export default defineComponent({
       if (interval !== null) {
         window.clearInterval(interval);
       }
+      revealObserver.value?.disconnect();
     });
 
     return {
@@ -579,7 +663,10 @@ export default defineComponent({
       getModCount,
       serverStatus,
       loading,
-      error
+      error,
+      performanceItems,
+      revealedCards,
+      registerReveal,
     };
   }
 });
@@ -587,6 +674,99 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
+.fade-up-enter-active,
+.fade-up-leave-active {
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-up-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-up-leave-to {
+  opacity: 0;
+}
+
+
+.stat-cards-inner {
+  display: contents;
+}
+
+.stat-card-enter-active {
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: calc(var(--i) * 0.1s);
+}
+
+.stat-card-enter-from {
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+}
+
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: var(--reveal-delay, 0s);
+
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.scroll-reveal-slide {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: var(--reveal-delay, 0s);
+
+  &.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.status-fade-enter-active,
+.status-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.status-fade-enter-from,
+.status-fade-leave-to {
+  opacity: 0;
+}
+
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+
+.info-item-enter-active {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: calc(var(--item-i) * 0.08s + 0.3s);
+}
+
+.info-item-enter-from {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.info-item-move {
+  transition: transform 0.4s ease;
+}
+
+
 .background-darkener::before {
   content: " ";
   display: block;
@@ -2282,6 +2462,335 @@ export default defineComponent({
 
   &:hover .card-glow {
     opacity: 1;
+  }
+}
+
+
+.banner-btn-group-enter-active {
+  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: 0.5s;
+}
+
+.banner-btn-group-enter-from {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+
+.welcome-para-enter-active {
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: calc(var(--para-i) * 0.12s + 0.1s);
+}
+
+.welcome-para-enter-from {
+  opacity: 0;
+  transform: translateX(-24px);
+}
+
+.welcome-para-move {
+  transition: transform 0.4s ease;
+}
+
+.feature-card.banner-card .banner-child {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.feature-card.banner-card.revealed .banner-child {
+  animation: banner-child-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: calc(var(--child-i) * 0.1s + 0.2s);
+}
+
+@keyframes banner-child-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.title-text.scroll-reveal {
+  transform: translateX(-40px);
+
+  &.revealed {
+    transform: translateX(0);
+  }
+}
+
+
+.scroll-reveal.welcome-title {
+  transform: scale(0.92) translateY(20px);
+
+  &.revealed {
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+.subtitle-wrapper {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.subtitle-item,
+.subtitle-divider {
+  display: inline-block;
+  opacity: 0;
+  animation: subtitle-slide-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: calc(var(--sub-i) * 0.08s + 0.1s);
+}
+
+@keyframes subtitle-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.subtitle-divider {
+  animation-name: subtitle-divider-in;
+}
+
+@keyframes subtitle-divider-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.big-title {
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  color: #50963d;
+}
+
+@keyframes flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.title-char {
+  display: inline-block;
+  opacity: 0;
+  animation: char-fade-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: calc(var(--char-i) * 0.05s + 0.3s);
+}
+
+@keyframes char-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+.banner-text-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.text-line {
+  opacity: 0;
+  animation: text-line-fade 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: calc(var(--line-i) * 0.12s + 0.9s);
+}
+
+@keyframes text-line-fade {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.stat-card-enter-active {
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: calc(var(--i) * 0.12s + 1.3s);
+}
+
+.stat-card-enter-from {
+  opacity: 0;
+  transform: translateY(30px) scale(0.8) rotateX(-15deg);
+}
+
+.stat-card {
+  animation: stat-float 3s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.3s);
+}
+
+@keyframes stat-float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.stat-card:hover {
+  animation-play-state: paused;
+}
+
+
+.banner-buttons-wrapper {
+  display: flex;
+  gap: 0;
+  align-items: center;
+}
+
+.banner-btn-group-enter-active {
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: 1.6s;
+}
+
+.banner-btn-group-enter-from {
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+}
+
+.btn-animated {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+
+  &:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.join-btn.btn-animated {
+  animation: btn-pulse 2s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes btn-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(86, 204, 114, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 20px 10px rgba(86, 204, 114, 0);
+  }
+}
+
+.learnmore-btn.btn-animated {
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    animation: btn-border-flow 3s linear infinite;
+    animation-delay: 2.5s;
+  }
+}
+
+@keyframes btn-border-flow {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(100%) rotate(180deg);
+  }
+}
+
+
+banner {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(86, 204, 114, 0.1) 0%, transparent 50%);
+    animation: bg-pulse 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes bg-pulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+
+@media (max-width: 600px) {
+  .title-char {
+    animation-delay: calc(var(--char-i) * 0.03s + 0.3s);
+  }
+
+  .text-line {
+    font-size: 0.9rem;
+  }
+
+  .stat-card {
+    animation: none;
   }
 }
 </style>
