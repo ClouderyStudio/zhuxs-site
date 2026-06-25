@@ -1,6 +1,6 @@
 <template>
   <div page>
-    <banner bg="https://a.cldery.com/d/oss/mcweb/assets/home-bg.png" fullscreen>
+    <banner bg="https://a.cldery.com/d/oss/mcweb/assets/home-bg.png" :delay-reveal="true" fullscreen>
       <template #subtitle>
         <div class="subtitle-wrapper">
           <span class="subtitle-item" style="--sub-i:0">高自由度</span>
