@@ -56,7 +56,7 @@
               </div>
               <div class="stat-content">
                 <div class="stat-label">游戏版本</div>
-                <div class="stat-value">26.1.2</div>
+                <div class="stat-value">26.2</div>
               </div>
               <div class="stat-hover-effect"></div>
             </div>
@@ -362,7 +362,7 @@
                     <div class="status-item status-item-full">
                       <span class="status-label">MOTD</span>
                       <span class="status-value status-motd-text">{{ serverStatus.motd ||
-                        '竹像素 BambooPixel · 26.1.2 · T-26.II'
+                        '竹像素 BambooPixel · 26.2 · T-26.II'
                       }}<br />{{
                           serverStatus.level_name || '一个现代化、高性能的生存服务器 | 周目测试中' }}</span>
                     </div>
@@ -543,7 +543,7 @@ export default defineComponent({
       try {
         loading.value = true;
         error.value = false;
-        const response = await fetch('https://motdbe.blackbe.work/api/java?host=mc.mczxs.cn:23099');
+        const response = await fetch('http://motdbe.blackbe.work/api/java?host=mc.mczxs.cn:23099');
         if (!response.ok) throw new Error('网络请求失败');
         const data = await response.json();
         serverStatus.value = data;
