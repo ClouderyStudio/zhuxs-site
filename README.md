@@ -1,7 +1,7 @@
 # BambooPixel
 
-This is the official website of Minecraft Server [BambooPixel](https://zhuxs.cn). The website is based on Vue 2.
+This is the official website of Minecraft Server [BambooPixel](https://zhuxs.cn). The website is based on Vue 3.
 
 ## License
 
-Coming soon.
+Cloudery Studio, All Rights Reserved &copy; 2025-2026.
