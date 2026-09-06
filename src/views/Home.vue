@@ -7,9 +7,9 @@
     >
       <template #subtitle>
         <div class="subtitle-wrapper">
-          <span class="subtitle-item" style="--sub-i: 0">高自由度</span>
+          <span class="subtitle-item" style="--sub-i: 0">自由</span>
           <span class="subtitle-divider" style="--sub-i: 1">/</span>
-          <span class="subtitle-item" style="--sub-i: 2">民主决议</span>
+          <span class="subtitle-item" style="--sub-i: 2">民主</span>
           <span class="subtitle-divider" style="--sub-i: 3">/</span>
           <span class="subtitle-item" style="--sub-i: 4">周目制</span>
         </div>
@@ -85,23 +85,26 @@
       <template #buttons>
         <Transition name="banner-btn-group" appear>
           <div class="banner-buttons-wrapper">
-            <btn
+            <Btn
               class="join-btn btn-animated"
-              type="primary-a shadow arrow"
+              type="primary-a"
+              :shadow="true"
+              :arrow="true"
               size="large"
               icon="arrow-right"
               to="/join"
             >
-              立即加入</btn
-            >
-            <btn
+              立即加入</Btn>
+            <Btn
               href="https://doc.cldery.com/game/mc/"
               class="learnmore-btn btn-animated"
-              type="outlined shadow hover-light"
+              type="outlined"
+              :shadow="true"
               size="large"
               icon="file-document-outline"
-              >阅读文档
-            </btn>
+            >
+              阅读文档
+            </Btn>
           </div>
         </Transition>
       </template>
@@ -365,62 +368,6 @@ export default defineComponent({
   display: contents;
 }
 
-.stat-card-enter-active {
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  transition-delay: calc(var(--i) * 0.1s);
-}
-
-.stat-card-enter-from {
-  opacity: 0;
-  transform: translateY(20px) scale(0.9);
-}
-
-
-
-
-
-.status-fade-enter-active,
-.status-fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.status-fade-enter-from,
-.status-fade-leave-to {
-  opacity: 0;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.info-item-enter-active {
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition-delay: calc(var(--item-i) * 0.08s + 0.3s);
-}
-
-.info-item-enter-from {
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
-.info-item-move {
-  transition: transform 0.4s ease;
-}
-
-.background-darkener::before {
-  content: " ";
-  display: block;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.2);
-}
-
 .learnmore-btn {
   margin-left: 32px;
 }
@@ -507,227 +454,6 @@ export default defineComponent({
 
 
 
-.features-container {
-  display: flex;
-
-  @media screen and (max-width: 1000px) {
-    flex-direction: column;
-  }
-
-  flex-direction: row;
-  gap: 32px;
-
-  img {
-    height: 300px;
-  }
-}
-
-.container {
-  > h1 {
-    color: @textgray;
-  }
-
-  max-width: 1000px;
-  margin: 4rem auto;
-
-  @media (max-width: 1000px) {
-    margin: 3rem 2rem;
-  }
-
-  #features-title {
-    opacity: 0;
-    text-align: center;
-    font-size: 48px;
-    margin-bottom: 32px;
-    margin-top: 0;
-
-    &::after {
-      content: "";
-      display: block;
-      background: @primary;
-      height: 20px;
-      position: absolute;
-      width: 45%;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 4px;
-      z-index: -2;
-    }
-  }
-}
-
-.feature-section,
-.more-information-section {
-  background-position: center;
-  background-size: cover;
-}
-
-.more-information-section {
-  background-blend-mode: darken;
-}
-
-.feature-section {
-  .single-features {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .single-feature {
-      width: 90%;
-      opacity: 0;
-
-      @media screen and (min-width: 1000px) {
-        margin: 72px 0;
-        padding: 32px;
-      }
-
-      &:not(.light) {
-        background: rgba(0, 0, 0, 0.4);
-      }
-
-      &.light {
-        background: rgba(255, 255, 255, 0.3);
-
-        .typo p {
-          color: @textlightwhite;
-        }
-      }
-
-      display: flex;
-
-      @media (max-width: 1000px) {
-        flex-direction: column;
-        padding: 56px 16px;
-        margin: 32px 0;
-        width: 100%;
-      }
-
-      @media (max-width: 1200px) {
-        > svg:first-child,
-        > svg:last-child {
-          display: none;
-        }
-      }
-
-      align-items: center;
-
-      svg {
-        transform: scale(0.7);
-      }
-
-      .typo {
-        @media screen and (min-width: 1000px) {
-          width: 75%;
-        }
-
-        @media screen and (max-width: 1000px) {
-          text-align: center;
-
-          button {
-            margin: auto;
-          }
-        }
-
-        color: white;
-        text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.3);
-
-        @media screen and (min-width: 1310px) {
-          h1,
-          h2 {
-            white-space: nowrap;
-          }
-        }
-
-        h2 {
-          font-weight: normal;
-          margin-top: 0;
-          margin-bottom: 8px;
-          font-size: 32px;
-
-          @media screen and (max-width: 1000px) {
-            font-size: 22.4px;
-
-            svg {
-              transform: scale(1.4) !important;
-            }
-          }
-
-          svg {
-            transform: scale(1.2);
-            margin-right: 0.5em;
-          }
-        }
-
-        h1 {
-          font-size: 48px;
-
-          @media screen and (max-width: 1000px) {
-            font-size: 30px;
-          }
-
-          margin: 0;
-        }
-
-        p {
-          font-size: 18px;
-          color: @textmidwhite;
-
-          @media screen and (max-width: 1000px) {
-            font-size: 14px;
-          }
-        }
-      }
-    }
-  }
-}
-
-@keyframes opacity {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-.stroke {
-  position: relative;
-  display: inline-block;
-
-  &::after {
-    @media screen and (max-width: 1000px) {
-      height: 0;
-    }
-
-    content: "";
-    height: 100%;
-    width: 100%;
-    left: 0;
-    bottom: -100%;
-    position: absolute;
-    filter: drop-shadow(0px 2px 4px #00000050);
-  }
-
-  &.stroke-1::after {
-    background: url(https://a.cldery.com/d/oss/mcweb/assets/stroke.svg)
-      no-repeat;
-  }
-
-  &.stroke-2::after {
-    background: url(https://a.cldery.com/d/oss/mcweb/assets/stroke2.svg)
-      no-repeat;
-  }
-
-  &.stroke-3::after {
-    background: url(https://a.cldery.com/d/oss/mcweb/assets/stroke3.svg)
-      no-repeat;
-  }
-}
 
 .server-stats {
   display: flex;
@@ -1110,15 +836,6 @@ export default defineComponent({
 
 
 
-.banner-btn-group-enter-active {
-  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
-  transition-delay: 0.5s;
-}
-
-.banner-btn-group-enter-from {
-  opacity: 0;
-  transform: translateY(24px);
-}
 
 
 

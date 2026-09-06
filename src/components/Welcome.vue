@@ -48,14 +48,14 @@
               :class="{ revealed: revealedCards.has(51) }"
               style="--reveal-delay: 0.35s"
             >
-              <btn
-                class="primary-a shadow arrow"
+              <Btn
+                type="primary-a" :shadow="true" :arrow="true"
                 href="https://qm.qq.com/q/ZqrVw1ePU6"
                 size="large"
                 icon="arrow-right"
               >
                 立即加入竹像素讨论群
-              </btn>
+          </Btn>
             </div>
           </div>
         </div>
@@ -65,12 +65,16 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import Btn from "@/components/Btn.vue";
 
 export default defineComponent({
   props: {
     revealedCards: { type: Object, required: true },
     registerReveal: { type: Function, required: true },
     isMobile: { type: Function, required: true },
+  },
+  components: {
+    Btn,
   },
 });
 </script>

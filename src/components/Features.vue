@@ -110,7 +110,7 @@
                 <p class="banner-text banner-child" style="--child-i: 2">
                   无论你是小白还是大神，这里都有你的位置。交流技术，展示机器，共同进步。我们的玩家社区活跃且友好。
                 </p>
-                <btn
+                <Btn
                   href="https://qm.qq.com/q/heN4b5JkRi"
                   class="banner-btn banner-child"
                   style="--child-i: 3"
@@ -119,7 +119,7 @@
                   icon="arrow-right"
                 >
                   前往 QQ 群
-                </btn>
+                </Btn>
               </div>
             </div>
           </div>
@@ -129,8 +129,10 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import Btn from "@/components/Btn.vue";
 
 export default defineComponent({
+  components: { Btn },
   props: {
     revealedCards: { type: Object, required: true },
     registerReveal: { type: Function, required: true },
