@@ -27,7 +27,7 @@
           <div class="cards-grid">
             <div
               class="feature-card card-large scroll-reveal"
-              ref="el => registerReveal(el, 0)"
+              :ref="(el) => registerReveal(el, 0)"
               :class="{ revealed: revealedCards.has(0) }"
             >
               <div class="card-bg">
