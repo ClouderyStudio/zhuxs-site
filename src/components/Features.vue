@@ -28,7 +28,7 @@
             <div
               class="feature-card card-large scroll-reveal"
               ref="el => registerReveal(el, 0)"
-              :class="{ revealed: revealedCards.has(1) }"
+              :class="{ revealed: revealedCards.has(0) }"
             >
               <div class="card-bg">
                 <img
