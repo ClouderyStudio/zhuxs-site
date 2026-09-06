@@ -24,140 +24,136 @@
 	</div>
 </template>
 
-<script setup lang="ts">
-import { ref, watch, onMounted } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
+<script lang="ts">
+import { defineComponent } from 'vue';
 import Logo from "@/components/Logo.vue";
 
 interface LinkItem {
-	name: string;
-	route?: string;
-	href?: string;
+  name: string;
+  route?: string;
+  href?: string;
 }
 
 interface Titles {
-	home: string;
-	join: string;
-	server: string;
-	about: string;
-	articles: string;
-	donate: string;
-	applications: string;
-	terms: string;
-	rules: string;
-	[key: string]: string;
+  home: string;
+  join: string;
+  server: string;
+  about: string;
+  articles: string;
+  donate: string;
+  applications: string;
+  terms: string;
+  rules: string;
+  [key: string]: string;
 }
 
-const router = useRouter();
-const route = useRoute();
-const dropdown = ref<HTMLDivElement | null>(null);
-
-const links = ref<LinkItem[]>([
-	{ name: "首页", route: "/" },
-	{ name: "加入", route: "/join" },
-	{ name: "关于", route: "/about" },
-	{ name: "动态", route: "/articles" },
-	{ name: "捐助", route: "/donate" },
-	{ name: "周目", route: '/terms' },
-	{ name: "服规", route: "/rules" },
-	{ name: '审核结果', route: '/applications' }
-]);
-
-const active = ref<boolean>(false);
-const hamburgerOpen = ref<boolean>(false);
-
-const titles: Titles = {
-	home: "Every Bamboo Pixel",
-	join: "立即加入",
-	server: "服务器状态",
-	about: "关于",
-	articles: "动态",
-	donate: "捐助",
-	applications: "审核结果及玩家列表",
-	terms: '周目',
-	rules: '服规'
-};
-
-const updateTitle = (name: string): void => {
-	if (Object.prototype.hasOwnProperty.call(titles, name)) {
-		document.title = "竹像素 | " + (titles[name] ?? name);
-	}
-};
-
-const toggleDropdown = (directOption?: boolean): void => {
-	const obj = dropdown.value;
-	if (!obj) return;
-
-	const shouldOpen = directOption !== undefined
-		? directOption
-		: obj.style.display === "none" || hamburgerOpen.value;
-
-	obj.style.display = shouldOpen ? "block" : "none";
-	obj.style.pointerEvents = shouldOpen ? "auto" : "none";
-};
-
-const isCurrentPage = (routePath: string): boolean => {
-	const currentRouteName = route.name as string;
-	if (routePath === '/') {
-		return currentRouteName === 'home' || currentRouteName === 'index';
-	}
-	if (currentRouteName === 'article' && routePath === '/articles') {
-		return true;
-	}
-	return `/${currentRouteName}` === routePath || route.path === routePath;
-};
-
-const activateNav = (): void => {
-	const scrollTop = (document.scrollingElement as Element)?.scrollTop || 0;
-	active.value = scrollTop > 100;
-};
-
-const jumpto = (to: LinkItem): void => {
-	if (to.route) {
-		router.push(to.route);
-	} else if (to.href) {
-		window.open(to.href, '_blank');
-	}
-};
-
-const onDropdownItemClick = (x: LinkItem): void => {
-	jumpto(x);
-	hamburgerOpen.value = false;
-	toggleDropdown(false);
-};
-
-watch(hamburgerOpen, (v: boolean): void => {
-	if (v) {
-		active.value = true;
-	} else {
-		activateNav();
-	}
-});
-
-watch(() => route.name, (newName): void => {
-	activateNav();
-	if (newName) {
-		updateTitle(newName as string);
-	}
-}, { immediate: true });
-
-onMounted(() => {
-	const handleScroll = (): void => {
-		if (document.scrollingElement?.scrollTop) {
-			if (!hamburgerOpen.value) {
-				activateNav();
-			}
-		}
-	};
-	document.addEventListener("scroll", handleScroll);
-
-	return () => {
-		document.removeEventListener("scroll", handleScroll);
-	};
-});
-
-router.afterEach((to, from) => {
-	active.value = false;
+export default defineComponent({
+  name: "Navbar",
+  components: { Logo },
+  data() {
+    return {
+      dropdown: null as HTMLDivElement | null,
+      links: [
+        { name: "首页", route: "/" },
+        { name: "加入", route: "/join" },
+        { name: "关于", route: "/about" },
+        { name: "动态", route: "/articles" },
+        { name: "捐助", route: "/donate" },
+        { name: "周目", route: '/terms' },
+        { name: "服规", route: "/rules" },
+        { name: '审核结果', route: '/applications' }
+      ] as LinkItem[],
+      active: false,
+      hamburgerOpen: false,
+      titles: {
+        home: "Every Bamboo Pixel",
+        join: "立即加入",
+        server: "服务器状态",
+        about: "关于",
+        articles: "动态",
+        donate: "捐助",
+        applications: "审核结果及玩家列表",
+        terms: '周目',
+        rules: '服规'
+      } as Titles,
+    };
+  },
+  watch: {
+    hamburgerOpen(v: boolean): void {
+      if (v) {
+        this.active = true;
+      } else {
+        this.activateNav();
+      }
+    },
+    '$route.name': {
+      handler(newName: string | undefined): void {
+        this.activateNav();
+        if (newName) {
+          this.updateTitle(newName);
+        }
+      },
+      immediate: true,
+    },
+  },
+  mounted(): void {
+    document.addEventListener("scroll", this.handleScroll);
+    this.$router.afterEach(() => {
+      this.active = false;
+    });
+  },
+  beforeUnmount(): void {
+    document.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll(): void {
+      if (document.scrollingElement?.scrollTop) {
+        if (!this.hamburgerOpen) {
+          this.activateNav();
+        }
+      }
+    },
+    updateTitle(name: string): void {
+      if (Object.prototype.hasOwnProperty.call(this.titles, name)) {
+        document.title = "竹像素 | " + (this.titles[name] ?? name);
+      }
+    },
+    toggleDropdown(directOption?: boolean): void {
+      const obj = this.dropdown;
+      if (!obj) return;
+      const shouldOpen = directOption !== undefined
+        ? directOption
+        : obj.style.display === "none" || this.hamburgerOpen;
+      obj.style.display = shouldOpen ? "block" : "none";
+      obj.style.pointerEvents = shouldOpen ? "auto" : "none";
+    },
+    isCurrentPage(routePath: string): boolean {
+      const currentRouteName = this.$route.name as string;
+      if (routePath === '/') {
+        return currentRouteName === 'home' || currentRouteName === 'index';
+      }
+      if (currentRouteName === 'article' && routePath === '/articles') {
+        return true;
+      }
+      return `/${currentRouteName}` === routePath || this.$route.path === routePath;
+    },
+    activateNav(): void {
+      const scrollTop = (document.scrollingElement as Element)?.scrollTop || 0;
+      this.active = scrollTop > 100;
+    },
+    jumpto(to: LinkItem): void {
+      if (to.route) {
+        this.$router.push(to.route);
+      } else if (to.href) {
+        window.open(to.href, '_blank');
+      }
+    },
+    onDropdownItemClick(x: LinkItem): void {
+      this.jumpto(x);
+      this.hamburgerOpen = false;
+      this.toggleDropdown(false);
+    },
+  },
 });
 </script>
 
