@@ -195,6 +195,25 @@ export default defineComponent({
     // 存储 element -> id 的映射，供 observer 使用
     const revealMap = new Map<Element, number>();
 
+    // 在 setup 阶段同步建立观察器，使子组件渲染时 registerReveal 即可 observe，
+    // 从而严格做到“滚入视口才显现”（避免观察器建立不及时导致全部提前显示）
+    if (typeof IntersectionObserver !== "undefined") {
+      revealObserver.value = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = revealMap.get(entry.target);
+              if (id !== undefined) {
+                revealedCards.add(id);
+                revealObserver.value?.unobserve(entry.target);
+              }
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+      );
+    }
+
     const registerReveal = (el: Element | null, id: number) => {
       if (!el) return;
       revealMap.set(el, id);
@@ -206,11 +225,6 @@ export default defineComponent({
       }
     };
 
-    // 兜底：为任何因观察器异常而始终未显露的元素强制显示
-    const revealFallbackTimer = ref<number | null>(null);
-    const revealAll = () => {
-      revealMap.forEach((id) => revealedCards.add(id));
-    };
 
     const serverStatus = ref<ServerStatus>({
       status: "offline",
@@ -302,47 +316,16 @@ export default defineComponent({
 
 
 
-      // 创建 Intersection Observer 用于滚动显现动画
-      // 部分旧浏览器不支持 IntersectionObserver，此时直接全部显示
-      if (typeof IntersectionObserver !== "undefined") {
-        revealObserver.value = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const id = revealMap.get(entry.target);
-                if (id !== undefined) {
-                  revealedCards.add(id);
-                  revealObserver.value?.unobserve(entry.target);
-                }
-              }
-            });
-          },
-          {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px",
-          },
-        );
-      } else {
-        revealAll();
-      }
 
-      // 兜底：观察器建立后再等 4s，仍未显露的元素强制显示，避免内容永久隐藏
-      revealFallbackTimer.value = window.setTimeout(revealAll, 4000);
 
       return () => {
         clearInterval(durationInterval);
         clearInterval(statusInterval);
-        if (revealFallbackTimer.value !== null) {
-          window.clearTimeout(revealFallbackTimer.value);
-        }
         revealObserver.value?.disconnect();
       };
     });
 
     onBeforeUnmount(() => {
-      if (revealFallbackTimer.value !== null) {
-        window.clearTimeout(revealFallbackTimer.value);
-      }
       revealObserver.value?.disconnect();
     });
 
