@@ -647,19 +647,7 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-.fade-up-enter-active,
-.fade-up-leave-active {
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
 
-.fade-up-enter-from {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.fade-up-leave-to {
-  opacity: 0;
-}
 
 .stat-cards-inner {
   display: contents;
@@ -675,29 +663,9 @@ export default defineComponent({
   transform: translateY(20px) scale(0.9);
 }
 
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition-delay: var(--reveal-delay, 0s);
 
-  &.revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-.scroll-reveal-slide {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
-  transition-delay: var(--reveal-delay, 0s);
 
-  &.revealed {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
 .status-fade-enter-active,
 .status-fade-leave-active {
@@ -1333,14 +1301,7 @@ export default defineComponent({
   margin-top: 1.8rem;
 }
 
-[class^="title-img"] {
-  display: block;
-  height: 180px;
 
-  @media (max-width: 1000px) {
-    height: 120px;
-  }
-}
 
 .title-img-4-mobile {
   height: 250px;
@@ -1410,34 +1371,7 @@ export default defineComponent({
   }
 }
 
-.section-header {
-  position: relative;
-  text-align: center;
-  margin-bottom: 3rem;
 
-  @media (max-width: 1000px) {
-    margin-bottom: 2rem;
-  }
-
-  .title-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-
-    .title-prefix {
-      font-size: 2.5rem;
-      color: white;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-
-      @media (max-width: 1000px) {
-        font-size: 1.8rem;
-      }
-    }
-  }
-}
 
 .section-title {
   font-size: 2.5rem;
@@ -1451,12 +1385,7 @@ export default defineComponent({
   }
 }
 
-.section-subtitle {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 700px;
-  margin: 0 auto;
-}
+
 
 .cards-grid {
   display: grid;
