@@ -467,6 +467,15 @@ export default defineComponent({
 .sections {
   display: flex;
   flex-direction: column;
+
+  // 使被抽离到子组件的区块容器恢复原有的外边距（global.less 的 .container 仅为 2rem）
+  :deep(.container) {
+    margin: 4rem auto;
+
+    @media (max-width: 1000px) {
+      margin: 3rem 2rem;
+    }
+  }
 }
 
 .buyiyang {
