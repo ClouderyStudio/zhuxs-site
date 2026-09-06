@@ -34,6 +34,21 @@ app.use(VueLazyload, {
 });
 app.use(head);
 
+// 断图兜底：CDN 资源加载失败时统一替换为占位图，避免整站破相
+window.addEventListener(
+ "error",
+ (e) => {
+   const target = e.target as HTMLImageElement | null;
+   if (target && target.tagName === "IMG" && !target.src.startsWith("data:")) {
+     if (!target.dataset.clderyFallback) {
+       target.dataset.clderyFallback = "1";
+       target.src = `${ASSET_BASE}/error.png`;
+     }
+   }
+ },
+ true,
+);
+
 app.config.globalProperties.$open = (url: string) => {
   window.open(url);
 };
