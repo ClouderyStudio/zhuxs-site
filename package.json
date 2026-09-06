@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@mdi/js": "^7.4.47",
-    "@unhead/vue": "3.0.0-beta.8",
+    "@unhead/vue": "^3.4.0",
     "axios": "^1.13.5",
     "core-js": "^3.48.0",
     "front-matter": "^4.0.2",
@@ -19,7 +19,7 @@
     "nprogress": "^0.2.0",
     "style-resources-loader": "^1.5.0",
     "vue": "^3.5.29",
-    "vue-router": "^5.0.3",
+    "vue-router": "^5.3.1",
     "vue-simple-spinner": "^1.2.10",
     "vue3-lazyload": "^0.3.8",
     "vuex": "^4.1.0"
