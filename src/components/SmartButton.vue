@@ -44,7 +44,7 @@ export default defineComponent({
             this.text = this.textActive;
             this.background = this.backgroundActive;
             this.color = this.colorActive;
-            this.borderColor = this.colorActive;
+            this.borderColor = this.borderColorActive;
             this.active = true;
         }
     },

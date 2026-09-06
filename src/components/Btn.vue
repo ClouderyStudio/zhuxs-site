@@ -3,7 +3,7 @@
 		type,
 		size,
 		isPCSize() && !isIOS() ? 'pc' : 'mobile',
-		{ shadow, hover, arrow, rounded, full }
+		{ shadow, hover, arrow, rounded, full, loading }
 	]">
 		<div class="content">
 			<span v-if="iconPosition !== 'right' && icon !== ''" class="btn-icon"

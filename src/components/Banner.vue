@@ -36,6 +36,10 @@ export default defineComponent({
 		delayReveal: {
 			type: Boolean,
 			default: false
+		},
+		delayRevealMs: {
+			type: Number,
+			default: 2180
 		}
 	},
 	setup(props) {
@@ -45,7 +49,7 @@ export default defineComponent({
 			if (props.delayReveal) {
 				setTimeout(() => {
 					backgroundRevealed.value = true;
-				}, 2180);
+				}, props.delayRevealMs);
 			} else {
 				// 立即显示背景
 				backgroundRevealed.value = true;
