@@ -150,16 +150,12 @@ import {
 } from "vue";
 import Banner from "@/components/Banner.vue";
 import Btn from "@/components/Btn.vue";
-import MetaBar from "@/components/MetaBar.vue";
-import MetaItem from "@/components/MetaItem.vue";
-import Status from "@/components/Status.vue";
 import Performance from "@/components/Performance.vue";
 import Welcome from "@/components/Welcome.vue";
 import Features from "@/components/Features.vue";
 import Terms from "@/components/Terms.vue";
 import ServerStatus from "@/components/ServerStatus.vue";
-import Logo from "@/components/Logo.vue";
-import { isPCSize, isMobile, isPhoneSize } from "@/fn";
+import { isMobile } from "@/fn";
 import { STATUS_API, SERVER } from "@/config";
 
 interface ServerStatus {
@@ -180,10 +176,6 @@ export default defineComponent({
   components: {
     Banner,
     Btn,
-    Logo,
-    MetaBar,
-    MetaItem,
-    Status,
     ServerStatus,
     Performance,
     Welcome,
@@ -276,34 +268,8 @@ export default defineComponent({
 
 
 
-    const isIOS = () => {
-      const nav = window.navigator;
-      if (/iPad|iPhone|iPod/.test(nav.platform)) {
-        return true;
-      }
-      return (
-        nav.maxTouchPoints &&
-        nav.maxTouchPoints > 2 &&
-        /MacIntel/.test(nav.platform)
-      );
-    };
 
-    const getDepNames = (mod: any[]) => {
-      const names: string[] = [];
-      if (!mod) return [];
-      mod.forEach((e) => {
-        if (e.type === "dep") names.push(e.name.toLowerCase());
-      });
-      return names;
-    };
 
-    const getModCount = (mod: any[]) => {
-      let count = mod.length;
-      mod.forEach((e) => {
-        if (e.type === "set" && e.count) count += e.count - 1;
-      });
-      return count;
-    };
 
     const getDuration = () => {
       const startDate = new Date("2026-06-10 00:00").getTime();
@@ -380,12 +346,7 @@ export default defineComponent({
     return {
       duration,
 
-      isPCSize,
       isMobile,
-      isIOS,
-      isPhoneSize,
-      getDepNames,
-      getModCount,
       serverStatus,
       loading,
       error,
