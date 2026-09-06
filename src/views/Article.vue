@@ -34,7 +34,7 @@ import MarkDownIt from 'markdown-it';
 import frontMatter from 'front-matter'
 
 const md = new MarkDownIt({
-  html: true,
+  html: false,
   linkify: true,
   typographer: true
 }).use(require('markdown-it-anchor').default)
@@ -108,7 +108,7 @@ export default defineComponent({
       }
     },
     
-    async loadArticle(name: string) {
+    loadArticle(name: string) {
       if (!name) {
         this.error = '请指定文章名称';
         this.loading = false;
@@ -119,9 +119,18 @@ export default defineComponent({
       this.error = '';
       
       try {
-        const module = await import(`@/articles/${name}.md`);
+        // 通过静态导入上下文加载文章，规避动态 import + 模板字符串的 webpack 依赖解析隐患
+        const ctx = (require as any).context('@/articles', false, /\.md$/);
+        const keys: string[] = ctx.keys();
+        const key = `./${name}.md`;
+        if (!keys.includes(key)) {
+          throw new Error(`未找到文章 ${name}`);
+        }
+        const module = ctx(key);
 
-        const { attributes, body } = frontMatter(module.default);
+        const { attributes, body } = frontMatter(
+          module && (module.default || module)
+        );
         
         // @ts-ignore
         // 保存 frontmatter 数据

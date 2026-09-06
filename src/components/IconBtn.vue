@@ -1,5 +1,5 @@
 <template>
-	<button class="icon-btn">
+	<button class="icon-btn" @click="onClick">
 		<mdicon :name="icon" />
 	</button>
 </template>
@@ -7,7 +7,17 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-	props: ["icon"],
+	props: {
+		icon: { type: String, default: "" },
+		href: { type: String, default: "" },
+	},
+	methods: {
+		onClick() {
+			if (this.href) {
+				window.open(this.href, "_blank", "noopener");
+			}
+		},
+	},
 });
 </script>
 

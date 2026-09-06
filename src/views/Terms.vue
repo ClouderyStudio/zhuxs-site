@@ -77,6 +77,7 @@ import { defineComponent, ref, onMounted } from 'vue';
 import axios from 'axios';
 import Banner from '@/components/Banner.vue';
 import { isMobile } from '@/fn';
+import { API_BASE } from '@/config';
 
 interface TermItem {
 	id: string;
@@ -140,7 +141,7 @@ export default defineComponent({
 
 		onMounted(async () => {
 			try {
-				const response = await axios.get("https://api.cldery.com/zhuxs/terms");
+				const response = await axios.get(`${API_BASE}/terms`);
 				state.termList.value = response.data as TermList;
 			} catch (err) {
 				state.error.value = "数据加载失败" + err;

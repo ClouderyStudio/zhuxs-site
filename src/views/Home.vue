@@ -665,6 +665,7 @@ import MetaItem from "@/components/MetaItem.vue";
 import Status from "@/components/Status.vue";
 import Logo from "@/components/Logo.vue";
 import { isPCSize, isMobile, isPhoneSize } from "@/fn";
+import { STATUS_API, SERVER } from "@/config";
 
 interface ServerStatus {
   status: "online" | "offline";
@@ -690,8 +691,6 @@ export default defineComponent({
     Status,
   },
   setup() {
-    const loadingStatus = ref("loading");
-    const serverExists = ref(false);
     const duration = ref("");
     const moonvideo = ref();
 
@@ -706,7 +705,16 @@ export default defineComponent({
       revealMap.set(el, id);
       if (revealObserver.value) {
         revealObserver.value.observe(el);
+      } else {
+        // 观察器尚未建立（如不支持 IntersectionObserver）：直接显示
+        revealedCards.add(id);
       }
+    };
+
+    // 兜底：为任何因观察器异常而始终未显露的元素强制显示
+    const revealFallbackTimer = ref<number | null>(null);
+    const revealAll = () => {
+      revealMap.forEach((id) => revealedCards.add(id));
     };
 
     const serverStatus = ref<ServerStatus>({
@@ -753,7 +761,7 @@ export default defineComponent({
         loading.value = true;
         error.value = false;
         const response = await fetch(
-          "https://motdbe.blackbe.work/api/java?host=mc.mczxs.cn:23099",
+          `${STATUS_API}?host=${SERVER.host}:${SERVER.port}`,
         );
         if (!response.ok) throw new Error("网络请求失败");
         const data = await response.json();
@@ -765,8 +773,6 @@ export default defineComponent({
         loading.value = false;
       }
     };
-
-    let interval: number | null = null;
 
     const autoplayBackgroundVideo = () => {
       if (!isMobile() && moonvideo.value) {
@@ -832,41 +838,50 @@ export default defineComponent({
       autoplayBackgroundVideo();
 
       // 创建 Intersection Observer 用于滚动显现动画
-      revealObserver.value = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const id = revealMap.get(entry.target);
-              if (id !== undefined) {
-                revealedCards.add(id);
-                revealObserver.value?.unobserve(entry.target);
+      // 部分旧浏览器不支持 IntersectionObserver，此时直接全部显示
+      if (typeof IntersectionObserver !== "undefined") {
+        revealObserver.value = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const id = revealMap.get(entry.target);
+                if (id !== undefined) {
+                  revealedCards.add(id);
+                  revealObserver.value?.unobserve(entry.target);
+                }
               }
-            }
-          });
-        },
-        {
-          threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px",
-        },
-      );
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          },
+        );
+      } else {
+        revealAll();
+      }
+
+      // 兜底：观察器建立后再等 4s，仍未显露的元素强制显示，避免内容永久隐藏
+      revealFallbackTimer.value = window.setTimeout(revealAll, 4000);
 
       return () => {
         clearInterval(durationInterval);
         clearInterval(statusInterval);
+        if (revealFallbackTimer.value !== null) {
+          window.clearTimeout(revealFallbackTimer.value);
+        }
         revealObserver.value?.disconnect();
       };
     });
 
     onBeforeUnmount(() => {
-      if (interval !== null) {
-        window.clearInterval(interval);
+      if (revealFallbackTimer.value !== null) {
+        window.clearTimeout(revealFallbackTimer.value);
       }
       revealObserver.value?.disconnect();
     });
 
     return {
-      loadingStatus,
-      serverExists,
       duration,
       moonvideo,
       autoplayBackgroundVideo,
@@ -1272,17 +1287,17 @@ export default defineComponent({
   }
 
   &.stroke-1::after {
-    background: url(https://oss.cldery.comhttps://a.cldery.com/d/oss/mcweb/assets/stroke.svg)
+    background: url(https://a.cldery.com/d/oss/mcweb/assets/stroke.svg)
       no-repeat;
   }
 
   &.stroke-2::after {
-    background: url(https://oss.cldery.comhttps://a.cldery.com/d/oss/mcweb/assets/stroke2.svg)
+    background: url(https://a.cldery.com/d/oss/mcweb/assets/stroke2.svg)
       no-repeat;
   }
 
   &.stroke-3::after {
-    background: url(https://oss.cldery.comhttps://a.cldery.com/d/oss/mcweb/assets/stroke3.svg)
+    background: url(https://a.cldery.com/d/oss/mcweb/assets/stroke3.svg)
       no-repeat;
   }
 }

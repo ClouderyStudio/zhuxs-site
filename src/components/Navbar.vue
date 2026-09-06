@@ -80,7 +80,7 @@ const titles: Titles = {
 
 const updateTitle = (name: string): void => {
 	if (Object.prototype.hasOwnProperty.call(titles, name)) {
-		document.title = "竹像素 | " + titles[name] || name;
+		document.title = "竹像素 | " + (titles[name] ?? name);
 	}
 };
 

@@ -96,6 +96,7 @@
 <script lang="ts" setup>
 import Banner from '@/components/Banner.vue';
 import { ref, watch, onMounted } from 'vue';
+import { API_BASE } from '@/config';
 
 interface Term {
     applications: Application[],
@@ -136,18 +137,18 @@ async function fetchApplications() {
     isLoading.value = true;
     error.value = null;
     try {
-        const response = await fetch('https://api.cldery.com/zhuxs/applications');
+        const response = await fetch(`${API_BASE}/applications`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const applications5 = await response.json();
+        const applications = (await response.json()) as Application[];
 
         terms.value = [
             {
                 number: 5,
-                applications: (applications5 as Application[]).reverse()
+                applications
             }
-        ].reverse();
+        ];
     } catch (err) {
         error.value = '获取失败';
         console.error('Error fetching applications:', err);
