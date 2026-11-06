@@ -5,7 +5,7 @@
 export const ASSET_BASE = "https://a.cldery.com/d/oss/mcweb/assets";
 
 /** 竹像素后端接口根路径 */
-export const API_BASE = "https://api.cldery.com/zhuxs";
+export const API_BASE = "https://api.cloudery.cn/zhuxs";
 
 /** 服务器实时状态查询接口 */
 export const STATUS_API = "https://motdbe.blackbe.work/api/java";
